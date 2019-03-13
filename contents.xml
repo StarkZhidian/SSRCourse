@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contents type="course_content">
+   <course name="数据结构" course_code="data struct", icon_url="" info_url="xxx.xxx.xxx.xxx" />
+		<chapter name="线性结构" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx">
+		<chapter name="串" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx">
+		<chapter name="树" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx">
+		<chapter name="图" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx">
+		<chapter name="排序" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx">
+   <course name="Java" course_code="Java language" icon_url="" info_url="xxx.xxx.xxx" />
+   <course name="C 语言" course_code="C language" icon_url="" info_url="xxx.xxx.xxx"/>
+   <course name="C++" course_code="CPlusPlus language" icon_url="" info_url="xxx.xxx.xxx"/>
+</contents>
