@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contents last_version="1.0">
     <course name="数据结构" course_code="data struct" icon_url="" info_url="xxx.xxx.xxx.xxx">
-		<chapter name="线性结构" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
-		<chapter name="串" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
-		<chapter name="树" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
-		<chapter name="图" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
-		<chapter name="排序" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
+		<chapter name="线性结构" chapter_code="xianxingjiegou" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
+		<chapter name="串" chapter_code="chuan" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
+		<chapter name="树" chapter_code="shu" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
+		<chapter name="图" chapter_code="tu" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
+		<chapter name="排序" chapter_code="paixu" icon_url="" last_version="1.2" file_url="xxx.xxx.xxx" />
 	</course>
     <course name="Java" course_code="Java language" icon_url="" info_url="xxx.xxx.xxx" />
     <course name="C 语言" course_code="C language" icon_url="" info_url="xxx.xxx.xxx"/>
