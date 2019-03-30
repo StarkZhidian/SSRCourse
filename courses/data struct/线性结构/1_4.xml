@@ -16,7 +16,6 @@ xianxingjiegou_20.png
 	</text>
 	<animation html_path="">线性结构:队列</animation>
 	<code>
-
 /**
 * 创建队列并且实现其相关操作：
 * 创建队列、元素入队、元素出队、队列是否已空 

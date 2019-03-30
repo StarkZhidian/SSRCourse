@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chapter>
-	<subsection text="1.1 顺序表" content_file_path="1_1.xml" />
-	<subsection text="1.2 链表" content_file_path="1_2.xml" />
-	<subsection text="1.3 栈" content_file_path="1_3.xml" />
-	<subsection text="1.3 队列" content_file_path="1_4.xml" />
+	<subsection text="顺序表" content_file_path="1_1.xml" />
+	<subsection text="链表" content_file_path="1_2.xml" />
+	<subsection text="栈" content_file_path="1_3.xml" />
+	<subsection text="队列" content_file_path="1_4.xml" />
 </chapter>
