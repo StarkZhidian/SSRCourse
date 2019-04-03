@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<contents>
+	<text>
+在"树的简介"这一部分内容中，我们介绍了关于树的一些概念，
+这里介绍一种特殊的树：二叉树。其特殊之处在于每个二叉树的节点最多只有两棵子树(不存在度大于2的结点)。"换行"
+并且子树有左右之分，次序不能颠倒，我们分别称之为左子树和右子树，之后左右子树也最多只有两个子树...。"换行"
+很明显这是一个递归的定义。"换行"下面是一棵常见的二叉树的结构图：
+	</text>
+	<img>
+shu_2.png
+	</img>
+	<text>
+二叉树的第i层至多有2^(i-1)个结点，深度为k的二叉树至多有2^k-1个结点。"换行"
+对任何一棵二叉树，如果其终端结点数为n，度为2的结点数为m，则n=m+1。"换行"
+对于上图，终端节点有 D、E两个节点，度为2的节点有 A节点，即2=1+1。"换行"
+那么关于二叉树的遍历呢，其实二叉树的遍历就是把所有的二叉树节点都访问一遍。"换行"
+为了演示二叉树的遍历，下面给出一张二叉树的结构图：
+	</text>
+	<img>
+shu_3.png
+	</img>
+	<text>
+根据不同的遍历思想，我们有不同的遍历算法：
+一般来说，二叉树常用的遍历方式有：前序遍历、中序遍历、后序遍历、层序遍历。"换行"
+四种遍历方式，不同的遍历算法，其思想略有不同，我们来看一下这四种遍历方法的遍历顺序：
+1、先序遍历二叉树顺序：根节点 -&gt; 左子树 -&gt; 右子树，即先访问根节点，然后是左子树，最后是右子树。"换行" 
+上图中二叉树的前序遍历结果为：0 -&gt; 1 -&gt; 3 -&gt; 4 -&gt; 2 -&gt; 5 -&gt; 6
+2、中序遍历二叉树顺序：左子树 -&gt; 根节点 -&gt; 右子树，即先访问左子树，然后是根节点，最后是右子树。"换行" 
+上图中二叉树的中序遍历结果为：3 -&gt; 1 -&gt; 4 -&gt; 0 -&gt; 5 -&gt; 2 -&gt; 6
+3、后续遍历二叉树顺序：左子树 -&gt; 右子树 -&gt; 根节点，即先访问左子树，然后是右子树，最后是根节点。"换行" 
+上图中二叉树的后序遍历结果为：3 -&gt; 4 -&gt; 1 -&gt; 5 -&gt; 6 -&gt; 2 -&gt; 0
+4、层序遍历二叉树顺序：从最顶层的节点开始，从左往右依次遍历，
+之后转到第二层，继续从左往右遍历，持续循环，直到所有节点都遍历完成。"换行"
+上图中二叉树的层序遍历结果为：0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 6
+前三种遍历思想其实就是利用了二叉树的定义(二叉树的定义是递归的)，很明显可以通过递归来实现。"换行"
+而层序遍历呢，根据其思想我们知道，每一次输出的节点都是其所在层上一层的子树节点，
+并且方向是从左到右的，那么关键就是如何取到第几层的节点问题。"换行"
+对于这个，我们可以利用一种学过的数据结构：队列，首先把根节点加入队尾，每次从队头取出节点，并进行遍历，
+把每次遍历的节点的左右子节点加入到队尾，继续取出队头节点遍历... 直到队列为空。"换行"
+说了这么多二叉树的遍历，如何创建一个二叉树呢？利用三种递归的遍历思想，我们同样可以通过递归来创建二叉树。"换行"
+一般我们会采用结构体指针的形式创建二叉树节点，类似于链表节点。"换行"结构体包含了二叉树节点的信息(数据、左右子树指针)。"换行"
+一般我们会采用链式形式来储存二叉树，之所以不采用数组形式来创建二叉树是因为二叉树的节点位置没有具体规定，
+如果采用数组来储存二叉树可能会导致浪费数组空间，基于这个原因，一般我们会采用链式形式来保存二叉树。"换行"
+关于二叉树的相关代码，请参考"动画"和"代码"部分。"换行"
+	</text>
+	<link>
+参考博客：http://blog.csdn.net/Hacker_ZhiDian/article/details/60586445
+	</link>
+	<animation html_path=""></animation>
+	<code>
+
+/**
+* 使用递归的方式创建二叉树并且实现其遍历操作 
+* 这里二叉树节点储存的数据类型为 int 类型，如有需要请自行更改
+* Author：指点 
+*/ 
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// 表示二叉树节点的结构体：数据、左孩子指针、右孩子指针 
+typedef struct Node {
+int data;
+struct Node *leftChild;
+struct Node *rightChild; 
+}Node;
+
+// 队列的储存元素最大值
+const int MAX_SIZE = 1000;
+/**
+* 表示队列的结构体：队头指针、队尾指针、初始队头指针、队列元素最大数，
+* 因为这里队列储存的是二叉树节点的结构体对象，因此要把队列相应的数据类型改变 
+* 建议采用 typedef 关键字
+*/
+typedef struct Queue {
+Node *front;
+Node *rear;
+// 定义指针指向队列头指针的初始位置，用于判断队列是否已满 
+Node *initFront;
+int queueSize;
+}Queue;
+
+// 创建队列对象
+Queue que;
+
+// 创建队列操作 
+void createQueue() {
+// 动态申请数组内存空间 
+que.front = (Node *) malloc(MAX_SIZE*sizeof(Node));
+// 三个指针初始化，都指向队头，此时队列为空 
+que.rear = que.initFront = que.front;
+que.queueSize = MAX_SIZE;
+}
+
+// 新元素入队操作 
+void push(Node n) {
+/* 检查队列是否还有剩余空间，因为 front 指针会随着出队操作而改变，
+ * 所以不能直接通过 front 指针判断，防止假溢出。"换行" 
+ * 通过队尾指针和队列初始头指针之间的元素个数来进行判断，
+ */ 
+if(que.rear - que.initFront &gt;= que.queueSize) {
+	printf("队列已满, 元素插入失败！\n"); 
+	return ;
+}
+// 从队尾插入元素并且队尾指针加一 
+*que.rear = n;
+que.rear++;
+} 
+
+// 判断队列是否为空，空：返回 1，非空：返回 0 
+int isEmpty() {
+return que.front == que.rear;
+} 
+
+// 删除队头元素，但是不返回元素的值 
+void pop() {
+// 如果队列为空，那么直接返回 
+if(isEmpty()) {
+	printf("队列已空！\n");
+	return ;
+}
+// 移动队头指针 
+que.front++;
+}
+
+// 获取队头元素的值 
+Node *front() {
+// 如果队列已空，那么直接返回 
+if(isEmpty()) {
+	printf("队列已空！\n"); 
+	return NULL;
+} else {
+	// 返回队头元素的值 
+	return que.front;
+}
+}
+
+
+// 从这里开始是二叉树部分的内容 ： 
+// 以前序遍历的顺序递归创建二叉树 
+void inputNode(Node **node) {
+int data;
+// 输入二叉树节点的数 
+scanf("%d", &amp;data); 
+// 如果输入 -1 那么代表结束创建二叉树，直接返回 
+if(data == -1) {
+	return ;
+}
+// 如果当前节点指针为空，那么为其申请内存空间 
+if(*node == NULL) {
+	*node = (Node *) malloc(sizeof(Node));
+}
+// 初始化节点数据并且递归创建左右子树 
+(*node)-&gt;data = data;
+(*node)-&gt;leftChild = NULL;
+(*node)-&gt;rightChild = NULL;
+inputNode(&amp;(*node)-&gt;leftChild);
+inputNode(&amp;(*node)-&gt;rightChild);
+}
+
+// 通过递归的方式前序遍历二叉树 
+void preOrder(Node *node) {
+// 如果当前节点为空，那么证明下面已经没有节点可以访问了，直接返回 
+if(node == NULL) {
+	return ;
+} 
+// 输出当前节点的值，继续递归遍历左右子树 
+printf("%d ", node-&gt;data);
+preOrder(node-&gt;leftChild); 
+preOrder(node-&gt;rightChild);
+}
+
+// 通过递归的方式中序遍历二叉树 
+void inOrder(Node *node) {
+// 如果当前节点为空，那么证明下面已经没有节点可以访问了，直接返回 
+if(node == NULL) {
+	return ;
+} 
+// 递归遍历左子树，然后输出当前节点的值，并递归遍历右子树 
+inOrder(node-&gt;leftChild); 
+printf("%d ", node-&gt;data);
+inOrder(node-&gt;rightChild);
+}
+
+// 通过递归的方式后序遍历二叉树 
+void postOrder(Node *node) {
+// 如果当前节点为空，那么证明下面已经没有节点可以访问了，直接返回 
+if(node == NULL) {
+	return ;
+} 
+// 递归遍历左右子树，最后输出当前节点的值。"换行" 
+postOrder(node-&gt;leftChild); 
+postOrder(node-&gt;rightChild);
+printf("%d ", node-&gt;data);
+}
+
+// 层序遍历二叉树 
+void sequence(Node *root) {
+Node *node = NULL; 
+// 创建队列，并且将二叉树的根节点入队 
+createQueue();
+// 如果根节点不为空，那么将根节点入队 
+if(root != NULL) {
+	push(*root);
+}
+// 当队列不为空的时候 
+while(!isEmpty()) {
+	// 得到队头元素的值并将其出队列 
+	node = front();
+	pop(); 
+	// 如果该节点不为空，输出节点储存的数据 
+	if(node != NULL) {
+		printf("%d ", node-&gt;data);
+		// 如果该节点的左子节点不为空，那么入队 
+		if(node-&gt;leftChild != NULL) {
+			push(*(node-&gt;leftChild));
+		}
+		// 如果该节点的右子节点不为空，那么入队
+		if(node-&gt;rightChild != NULL) {
+			push(*(node-&gt;rightChild));
+		}
+	}
+}
+}
+
+int main() {
+
+// 创建二叉树的根节点 
+Node *root = NULL;
+printf("以前序遍历的顺序输入二叉树节点数据，输入-1代表结束：\n");
+inputNode(&amp;root); 
+printf("前序遍历二叉树结果：\n");
+preOrder(root); 
+printf("\n中序遍历二叉树结果：\n");
+inOrder(root);
+printf("\n后序遍历二叉树结果：\n");
+postOrder(root);
+printf("\n层序遍历二叉树结果：\n");
+sequence(root);
+
+return 0;
+} 
+	</code>
+	<text>
+上面的代码中，因为层序遍历二叉树需要用到队列，这里使用了之前的队列，
+因为储存的树二叉树的节点，所以把队列储存的数据类型换成了 Node。"换行"
+关于队列，可以参考"队列"的相关内容，为了和队列部分内容衔接，
+在队列的相关操作函数中没有以指针的形式传递参数，事实上如果队列储存的元素是结构体对象，
+使用指针作为参数传递会是一个更好的选择。"换行"将上图的数据输入，看一下程序的运行结果。"换行"
+和上面的模拟得出的结果一致。"换行"
+	</text>
+	<img>
+shu_4.png
+	</img>
+</contents>
