@@ -476,8 +476,7 @@ xianxingjiegou_15.png
 从任一结点出发都可访问到表中所有结点。"换行"这一优点使某些运算在单循环链表上易于实现
 下面是循环链表的内存结构图(包括循环单链表和循环双链表):"换行"
 		</text>
-		<img>
-xianxingjiegou_16.png
+		<img filepath="xianxingjiegou_16.png">
 		</img>
 		<text>
 循环链表类似于串起来的珠子，无论从哪个珠子开始数，照着某个方向，
@@ -647,7 +646,6 @@ int main() {
 类似的，循环双链表的操作思想也差不多，代码不在这里给出，
 而是作为"习题巩固"部分的内容。"换行"最后是程序运行的结果：
 		</text>
-		<img>
-xianxingjiegou_17.png
+		<img filepath="xianxingjiegou_17.png">
 		</img>
 </contents>
