@@ -32,7 +32,7 @@ tu_5.png
 	<link>
 参考博客：http://blog.csdn.net/hacker_zhidian/article/details/61260543
 	</link>
-	<animation html_path=""></animation>
+	<animation html_path="" animation_name="图:深度优先遍历"></animation>
 	<code>
 
 /**

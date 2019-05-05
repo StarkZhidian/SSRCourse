@@ -26,7 +26,7 @@ tu_11.png
 		<link>
 参考博客：http://blog.csdn.net/hacker_zhidian/article/details/61419856
 		</link>
-		<animation html_path="">图:克鲁斯卡尔算法</animation>
+		<animation html_path="" animation_name="图:克鲁斯卡尔算法"></animation>
 		<code>
 
 /**

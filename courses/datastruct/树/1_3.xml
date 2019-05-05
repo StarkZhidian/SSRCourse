@@ -38,7 +38,7 @@ shu_6.png
 	<link>
 参考博客：http://blog.csdn.net/hacker_zhidian/article/details/63684783
 	</link>
-	<animation html_path="">树:二叉搜索树</animation>
+	<animation html_path="" animation_name="树:二叉搜索树"></animation>
 	<code>
 
 /**

@@ -29,7 +29,7 @@
 所以除非有特殊要求，否则我们一般都是使用顺序栈。"换行"
 对于栈的相关操作，请参考"动画演示"和"代码实现"部分。"换行"
 	</text>
-<animation html_path="">
+<animation html_path="" animation_name="线性结构:栈">
 </animation>
 	<code>
 

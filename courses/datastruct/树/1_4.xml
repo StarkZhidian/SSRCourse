@@ -35,7 +35,7 @@ shu_9.png
 	<link>
 参考博客：http://blog.csdn.net/hacker_zhidian/article/details/60801415
 	</link>
-	<animation html_path=""></animation>
+	<animation html_path="" animation_name="树:二叉堆"></animation>
 	<code>
 
 /**

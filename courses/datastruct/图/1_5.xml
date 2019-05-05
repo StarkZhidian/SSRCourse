@@ -168,7 +168,7 @@ tu_13.png
 		<link>
 参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54915152
 		</link>
-		<animation html_path="">图:迪杰斯特拉算法</animation>
+		<animation html_path="" animation_name="图:迪杰斯特拉算法"></animation>
 		<code>
 
 /**

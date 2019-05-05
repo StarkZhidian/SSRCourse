@@ -46,7 +46,7 @@ shu_3.png
 	<link>
 参考博客：http://blog.csdn.net/Hacker_ZhiDian/article/details/60586445
 	</link>
-	<animation html_path=""></animation>
+	<animation html_path="" animation_name="树:二叉树"></animation>
 	<code>
 
 /**

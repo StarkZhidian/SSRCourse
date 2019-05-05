@@ -36,7 +36,7 @@ xianxingjiegou_7.png
 因此，单链表的插入节点操作和删除节点操作的时间复杂度都是O(n)。"换行"
 如果要深入理解单向链表的相关操作，请参考"动画演示"和代码实现部分。"换行"
 		</text>
-		<animation html_path="">线性结构:单向链表</animation>
+		<animation html_path="" animation_name="线性结构:单向链表"></animation>
 		<code>
 
 /**

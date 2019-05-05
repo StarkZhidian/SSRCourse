@@ -14,7 +14,7 @@ xianxingjiegou_20.png
 类似于栈，队列的基本操作有：创建队列、元素入队、元素出队、队列是否已空，
 关于操作部分，如果想了解更过，请参考"动画"和"代码"部分。"换行"
 	</text>
-	<animation html_path="">线性结构:队列</animation>
+	<animation html_path="" animation_name="线性结构:队列"></animation>
 	<code>
 /**
 * 创建队列并且实现其相关操作：

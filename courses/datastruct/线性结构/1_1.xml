@@ -229,7 +229,7 @@ int main() {
 我们可以看到，图中的两个表的元素按照从小到大合并，并且两个表都会遍历一次，
 所以此操作的时间复杂度为O(m+n)。"换行"
 	</text>
-	<animation html_path="">
+	<animation html_path="线性结构:顺序表">
 
 	</animation>
 </contents>
