@@ -12,7 +12,7 @@
 既然知道了从小到大排序的方法，那么我想从大到小排序也很容易理解了。这里就不再重复了。"换行"
 关于堆排序的实现，请参考"动画"  和 "代码"部分。
 	</text>
-	<animation html_path="">排序:堆排序</animation>
+	<animation html_path="" animation_name="排序:堆排序"></animation>
 	<code>
 
 /**

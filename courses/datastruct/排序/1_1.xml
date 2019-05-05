@@ -13,7 +13,7 @@
 此时的数组元素就变成了 1 2 3 4 5，接下来继续对元素 4 和元素 5 移动，因为此时的数组元素已经为有序，所以并不需要移动数组元素，即排序结束。"换行"
 关于直接插入排序的实现，请参考 "动画"和"代码"部分。
 	</text>
-	<animation html_path="">排序:直接插入排序</animation>
+	<animation html_path="" animation_name="排序:直接插入排序"></animation>
 	<code>
 
 /**

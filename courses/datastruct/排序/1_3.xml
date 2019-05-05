@@ -20,7 +20,7 @@
 每一轮扫描过程如果没有任何元素进行交换，那么证明数组已经有序，所以我们可以直接退出排序过程。"换行""换行"
 关于冒泡排序的实现，请参考"动画" 和 "代码"部分。
 	</text>
-	<animation html_path="">排序:冒泡排序</animation>
+	<animation html_path="" animation_name="排序:冒泡排序"></animation>
 	<code>
 
 /**
