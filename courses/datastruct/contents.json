@@ -1,0 +1,9 @@
+{
+  "courseName": "数据结构",
+  "chapterInfoFilePathList": [
+    "线性结构/contents.json",
+    "树/contents.json",
+    "图/contents.json",
+    "排序/contents.json"
+  ]
+}

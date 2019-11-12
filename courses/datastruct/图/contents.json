@@ -1,0 +1,25 @@
+{
+  "chapterName": "图",
+  "subsectionInfoList": [
+    {
+      "subsectionFilePath": "1_1.xml",
+      "subsectionName": "图的简介"
+    },
+    {
+      "subsectionFilePath": "1_2.xml",
+      "subsectionName": "深度优先遍历"
+    },
+    {
+      "subsectionFilePath": "1_3.xml",
+      "subsectionName": "广度优先遍历"
+    },
+    {
+      "subsectionFilePath": "1_4.xml",
+      "subsectionName": "最小生成树"
+    },
+    {
+      "subsectionFilePath": "1_5.xml",
+      "subsectionName": "最短路径"
+    }
+  ]
+}

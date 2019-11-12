@@ -1,0 +1,21 @@
+{
+  "chapterName": "线性结构",
+  "subsectionInfoList": [
+    {
+      "subsectionFilePath": "1_1.xml",
+      "subsectionName": "顺序表"
+    },
+    {
+      "subsectionFilePath": "1_2.xml",
+      "subsectionName": "链表"
+    },
+    {
+      "subsectionFilePath": "1_3.xml",
+      "subsectionName": "栈"
+    },
+    {
+      "subsectionFilePath": "1_4.xml",
+      "subsectionName": "队列"
+    }
+  ]
+}
