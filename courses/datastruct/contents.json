@@ -1,9 +1,21 @@
 {
   "courseName": "数据结构",
-  "chapterInfoFilePathList": [
-    "线性结构/contents.json",
-    "树/contents.json",
-    "图/contents.json",
-    "排序/contents.json"
+  "chapterVersionInfoList": [
+	  {
+		"线性结构/contents.zip",
+		"chapterVersion": "1.0"
+	  },
+	  {
+		"树/contents.zip",
+		"chapterVersion": "1.0"
+	  },
+	  {
+		"图/contents.zip",
+		"chapterVersion": "1.0"
+	  },
+	  {
+		"排序/contents.zip",
+		"chapterVersion": "1.0"
+	  }
   ]
 }
