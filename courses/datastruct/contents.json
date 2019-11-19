@@ -1,21 +1,18 @@
-{
-  "courseName": "数据结构",
-  "chapterVersionInfoList": [
-	  {
-		"线性结构/contents.zip",
-		"chapterVersion": "1.0"
-	  },
-	  {
-		"树/contents.zip",
-		"chapterVersion": "1.0"
-	  },
-	  {
-		"图/contents.zip",
-		"chapterVersion": "1.0"
-	  },
-	  {
-		"排序/contents.zip",
-		"chapterVersion": "1.0"
-	  }
-  ]
-}
+[
+  {
+	"chapterName": "线性结构",
+	"chapterDir": "线性结构"
+  },
+  {
+	"chapterName": "树",
+	"chapterDir": "树"
+  },
+  {
+	"chapterName": "图",
+	"chapterDir": "图"
+  },
+  {
+	"chapterName": "排序",
+	"chapterDir": "排序"
+  }
+]
