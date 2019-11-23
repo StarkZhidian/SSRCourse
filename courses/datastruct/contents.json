@@ -1,18 +1,18 @@
 [
-  {
-	"chapterName": "线性结构",
-	"chapterDir": "线性结构"
-  },
-  {
-	"chapterName": "树",
-	"chapterDir": "树"
-  },
-  {
-	"chapterName": "图",
-	"chapterDir": "图"
-  },
-  {
-	"chapterName": "排序",
-	"chapterDir": "排序"
-  }
+	{
+		"chapterName": "线性结构",
+		"chapterDirPath": "datastruct/线性结构"
+	},
+	{
+		"chapterName": "树",
+		"chapterDirPath": "datastruct/树"
+	},
+	{
+		"chapterName": "图",
+		"chapterDirPath": "datastruct/图"
+	},
+	{
+		"chapterName": "排序",
+		"chapterDirPath": "datastruct/排序"
+	}
 ]
