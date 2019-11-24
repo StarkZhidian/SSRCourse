@@ -1,423 +1,429 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contents>
-	<最短路径--Floyd算法>
-		<text>
-最短路径算法，顾名思义，就是求出一个图中从顶点i 到顶点j 的所有路径中边的权值之和最小的，这在生活中是很常见的问题。
-比如你要到 XX地点去见你的对象，那么求出最短的路径不仅可以帮你省下赶路的费用，还可以花最短的时间到达目的地。好了，
-下面来看一个只有10行代码的最短路算法，Floyd算法：
-首先我们知道，要求一个图中两个顶点中的最短路径，除了计算出这两个顶点之间的边的权值，还可以借助其他的顶点，
-看看能不能通过其他顶点作为"跳板"来使得这两个顶点之间的路径变短，这就类似于假设你现在到 XX地点有一条长为100km 的路，
-但是你现在到 YY地点有一条30km 的路，而 YY地点到 XX地点有一条40km 的路，这样的话我就可以先从这里赶到 YY地点，
-再从 YY地点去 XX地点，总的距离是70km，比直接去 XX地点近了 30km。Floyd算法正是通过这种思想来实现的："换行"
-Floyd算法是一个使用了动态规划思想的算法，从一个图的顶点i 到顶点j 的最短路径只有两种情况："换行"
-1：直接从顶点i 到顶点j ，2：从顶点i 借助图中的其他顶点作为"跳板"到顶点j 。"换行"
-所以，我们假设dis(i, j)为顶点i 到顶点j 的最短路径的距离，对于每一个顶点k ，我们检查dis(i,k) + dis(k,j) &lt; dis(i,j)是否成立，如果成立，证明我们可以借助顶点k 作为"跳板"来使得顶点i 到顶点j 的路径变短，
-那么我们就可以更新顶点i 到顶点j 的最短路径：dis(i,j) = dis(i,k) + dis(k,j); 
-这样一来，当我们检查完图中所有的顶点时，dis(i, j)中记录的便是顶点i 到顶点j 的最短路径的距离。
-下面通过一个有权图来演示Floyd算法：
-		</text>
-		<img>
-tu_13.png
-		</img>
-		<text>
-现在，假设我要求顶点1 到顶点2 的最短路径的距离，首先，我们可以直接从顶点1 到顶点2，距离为3，即：1--&gt;2(3); 
-我还可以从顶点4 "绕路": 顶点1 --&gt; 顶点4 --&gt; 顶点3 --&gt; 顶点2，距离为8+1+5=14, 即：1--&gt;4--&gt;3--&gt;2(14)，明显，1--&gt;2(3) 这种方式距离更短。"换行"
-如果我要从顶点1 到顶点3 呢？首先，顶点1 和顶点3 之间没有边相连，其初始距离为∞，即：1--&gt;3(∞);
-我还可以从顶点2 "绕路"：顶点1 --&gt; 顶点2 --&gt; 顶点3，距离为5+3=8，即：1--&gt;2--&gt;3(8);
-还可以从顶点4 "绕路"：顶点1 --&gt; 顶点4 --&gt; 顶点3，距离为1+8=9，即：1--&gt;4--&gt;3(9);最短路径距离为8。"换行"
-...."换行"
-下面给出Floyd算法的核心代码：
-		</text>
-		<code>
-/* Floyd 算法的核心代码，代码核心思想在于：借助图中的前 k 个顶点来使得顶点i 到顶点j 的距离变短 */ 
-	for(k = 1; k &lt;= nodeSum; k++) {
-		for(i = 1; i &lt;= nodeSum; i++) {
-			for(j = 1; j &lt;= nodeSum; j++) {
-				// 是否能通过顶点k 作为"跳板"使得顶点i 到顶点j 距离变短
-				if(graph[i][j] &gt; graph[i][k] + graph[k][j]) {
-					graph[i][j] = graph[i][k] + graph[k][j];
-				} 
-			}
-		}
-	}
-		</code>
-		<text>
-Floyd 算法求的是多源最短路径，即它可以求出图中任意两点之间的最短路径的距离。其时间复杂度为O(n^3)
-你会发现如果除掉上面代码中的 "{"，这个算法只有 5 行。
-关于Floyd算法的实现，请参考"动画"和"代码"部分。
-		</text>
-		<link>
-参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54898064
-		</link>
-		<code>
+    <最短路径--Floyd算法>
+        <text>
+            最短路径算法，顾名思义，就是求出一个图中从顶点i 到顶点j 的所有路径中边的权值之和最小的，这在生活中是很常见的问题。
+            比如你要到 XX地点去见你的对象，那么求出最短的路径不仅可以帮你省下赶路的费用，还可以花最短的时间到达目的地。好了，
+            下面来看一个只有10行代码的最短路算法，Floyd算法：
+            首先我们知道，要求一个图中两个顶点中的最短路径，除了计算出这两个顶点之间的边的权值，还可以借助其他的顶点，
+            看看能不能通过其他顶点作为"跳板"来使得这两个顶点之间的路径变短，这就类似于假设你现在到 XX地点有一条长为100km 的路，
+            但是你现在到 YY地点有一条30km 的路，而 YY地点到 XX地点有一条40km 的路，这样的话我就可以先从这里赶到 YY地点，
+            再从 YY地点去 XX地点，总的距离是70km，比直接去 XX地点近了 30km。Floyd算法正是通过这种思想来实现的："换行"
+            Floyd算法是一个使用了动态规划思想的算法，从一个图的顶点i 到顶点j 的最短路径只有两种情况："换行"
+            1：直接从顶点i 到顶点j ，2：从顶点i 借助图中的其他顶点作为"跳板"到顶点j 。"换行"
+            所以，我们假设dis(i, j)为顶点i 到顶点j 的最短路径的距离，对于每一个顶点k ，我们检查dis(i,k) + dis(k,j) &lt;
+            dis(i,j)是否成立，如果成立，证明我们可以借助顶点k 作为"跳板"来使得顶点i 到顶点j 的路径变短，
+            那么我们就可以更新顶点i 到顶点j 的最短路径：dis(i,j) = dis(i,k) + dis(k,j);
+            这样一来，当我们检查完图中所有的顶点时，dis(i, j)中记录的便是顶点i 到顶点j 的最短路径的距离。
+            下面通过一个有权图来演示Floyd算法：
+        </text>
+        <img>
+            tu_13.png
+        </img>
+        <text>
+            现在，假设我要求顶点1 到顶点2 的最短路径的距离，首先，我们可以直接从顶点1 到顶点2，距离为3，即：1--&gt;2(3);
+            我还可以从顶点4 "绕路": 顶点1 --&gt; 顶点4 --&gt; 顶点3 --&gt; 顶点2，距离为8+1+5=14, 即：1--&gt;4--&gt;3--&gt;2(14)，明显，1--&gt;2(3)
+            这种方式距离更短。"换行"
+            如果我要从顶点1 到顶点3 呢？首先，顶点1 和顶点3 之间没有边相连，其初始距离为∞，即：1--&gt;3(∞);
+            我还可以从顶点2 "绕路"：顶点1 --&gt; 顶点2 --&gt; 顶点3，距离为5+3=8，即：1--&gt;2--&gt;3(8);
+            还可以从顶点4 "绕路"：顶点1 --&gt; 顶点4 --&gt; 顶点3，距离为1+8=9，即：1--&gt;4--&gt;3(9);最短路径距离为8。"换行"
+            ...."换行"
+            下面给出Floyd算法的核心代码：
+        </text>
+        <code>
+            /* Floyd 算法的核心代码，代码核心思想在于：借助图中的前 k 个顶点来使得顶点i 到顶点j 的距离变短 */
+            for(k = 1; k &lt;= nodeSum; k++) {
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            // 是否能通过顶点k 作为"跳板"使得顶点i 到顶点j 距离变短
+            if(graph[i][j] &gt; graph[i][k] + graph[k][j]) {
+            graph[i][j] = graph[i][k] + graph[k][j];
+            }
+            }
+            }
+            }
+        </code>
+        <text>
+            Floyd 算法求的是多源最短路径，即它可以求出图中任意两点之间的最短路径的距离。其时间复杂度为O(n^3)
+            你会发现如果除掉上面代码中的 "{"，这个算法只有 5 行。
+            关于Floyd算法的实现，请参考"动画"和"代码"部分。
+        </text>
+        <link>
+            参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54898064
+        </link>
+        <code>
 
-/**
- * 通过 Floyd算法求多源最短路径。
- * Author：指点 
- */
-#include &lt;stdio.h&gt;
-// 表示图的顶点最大数
-#define MAX_NODE_SUM 1000
-// 指定图中边权值的极限值(代表∞) 
-#define INF 999999999 
-// 储存图信息的临接矩阵
-int graph[MAX_NODE_SUM][MAX_NODE_SUM];
+            /**
+            * 通过 Floyd算法求多源最短路径。
+            * Author：指点
+            */
+            #include &lt;stdio.h&gt; // 表示图的顶点最大数
+            #define MAX_NODE_SUM 1000
+            // 指定图中边权值的极限值(代表∞)
+            #define INF 999999999
+            // 储存图信息的临接矩阵
+            int graph[MAX_NODE_SUM][MAX_NODE_SUM];
 
-int main() {
-	// 图的顶点数和边数
-	int nodeSum, edgeSum;
-	// 边的开始顶点编号、结束顶点编号和边的权值 
-	int start, end, weight;
-	int i, j, k;
-	printf("输入图的顶点数和边数：");
-	scanf("%d %d", &amp;nodeSum, &amp;edgeSum); 
-	if(nodeSum == 0) {
-		return 0;
-	}
-	// 对储存图的邻接矩阵初始化 
-	for(i = 1; i &lt;= nodeSum; i++) {
-		for(j = 1; j &lt;= nodeSum; j++) {
-			/* 如果 i 和 j 相等，即为同一个顶点，那么权值为 0 ，
-			 * 否则先假设顶点 i 和顶点 j 之间的边的权值为 INF(即为没有边相连)
-			 */ 
-			if(i == j) {
-				graph[i][j] = 0;
-			} else {
-				graph[i][j] = INF;
-			}
-		}
-	}
-	// 输入边的信息，更新顶点之间的距离 
-	for(i = 1; i &lt;= edgeSum; i++) {
-		printf("输入第 %d 条边的开始顶点编号、结束顶点编号和边的权值：", i);
-		scanf("%d %d %d", &amp;start, &amp;end, &amp;weight);
-		graph[start][end] = graph[end][start] = weight; 
-	} 
-	
-	printf("图的邻接矩阵的信息: \n");
-	for(i = 1; i &lt;= nodeSum; i++) {
-		for(j = 1; j &lt;= nodeSum; j++) {
-			printf("%-10d ", graph[i][j]);
-		}
-		printf("\n");
-	}
-	
-	/* Floyd 算法的核心代码，代码核心思想在于：借助图中的前 k 个顶点来使得顶点i 到顶点j 的距离变短 */ 
-	for(k = 1; k &lt;= nodeSum; k++) {
-		for(i = 1; i &lt;= nodeSum; i++) {
-			for(j = 1; j &lt;= nodeSum; j++) {
-				// 是否能通过顶点k 作为"跳板"使得顶点i 到顶点j 距离变短 
-				if(graph[i][j] &gt; graph[i][k] + graph[k][j]) {
-					graph[i][j] = graph[i][k] + graph[k][j];
-				} 
-			}
-		}
-	} 
-	
-	printf("\n更新最短路径图的邻接矩阵的信息: \n");
-	for(i = 1; i &lt;= nodeSum; i++) {
-		for(j = 1; j &lt;= nodeSum; j++) {
-			printf("%-10d ", graph[i][j]);
-		}
-		printf("\n");
-	}
-} 
-		</code>
-		<text>
-有些小伙伴可能会觉得这个算法时间复杂度偏高，比如说我只需要求出某个顶点的单源最短路径，
-即某个特定的顶点到其他顶点的最短路径的距离，这样的话就有点"大材小用"的感觉。对于这个问题，从某个方面看确实是这样，
-下一篇我们将会介绍一个求单源最短路径的算法：Dijkstra算法。最后，以上图给出的有权图作为数据源，运行程序：
-		</text>
-		<img>
-tu_14.png
-		</img>
-	</最短路径--Floyd算法>
+            int main() {
+            // 图的顶点数和边数
+            int nodeSum, edgeSum;
+            // 边的开始顶点编号、结束顶点编号和边的权值
+            int start, end, weight;
+            int i, j, k;
+            printf("输入图的顶点数和边数：");
+            scanf("%d %d", &amp;nodeSum, &amp;edgeSum);
+            if(nodeSum == 0) {
+            return 0;
+            }
+            // 对储存图的邻接矩阵初始化
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            /* 如果 i 和 j 相等，即为同一个顶点，那么权值为 0 ，
+            * 否则先假设顶点 i 和顶点 j 之间的边的权值为 INF(即为没有边相连)
+            */
+            if(i == j) {
+            graph[i][j] = 0;
+            } else {
+            graph[i][j] = INF;
+            }
+            }
+            }
+            // 输入边的信息，更新顶点之间的距离
+            for(i = 1; i &lt;= edgeSum; i++) {
+            printf("输入第 %d 条边的开始顶点编号、结束顶点编号和边的权值：", i);
+            scanf("%d %d %d", &amp;start, &amp;end, &amp;weight);
+            graph[start][end] = graph[end][start] = weight;
+            }
 
-	<最短路径--Dijkstra算法>
-		<text>
-Dijkstra算法是一种求图的单源最短路径的算法，即用于求图中某个顶点到其他顶点的最短路径。"换行"其算法思想如下："换行"
-现有一个有 n 个顶点的图，假设要求顶点s 到图的其他顶点的最短路径的距离， 
-用一个数组 dis[n+1] 来储存顶点s 到顶点1 ~ 顶点n 的距离，我们先把 dis[1]~dis[n] 初始化为∞，首先我们将 dis[s] = 0;
-即顶点s 到顶点s 本身的距离为 0。"换行"接下来每次都选择当前距离顶点s 最近的顶点(贪心的思想)，标记为顶点k ，那么此时顶点s 到顶点k 的距离就是它们之间的最短路径距离；"换行"请注意：这里选择的距离顶点s 最近的顶点，所以它们之间的距离不可能通过其他点作为"跳板"来缩短，请不要被Floyd算法的思想误导，Floyd算法是选取任意两个顶点，它们之间的距离不一定是最短的，所有才有通过其他顶点作为"跳板"来缩短的可能。"换行"既然我们选取了当前距离顶点s 最近的顶点k ，那么dis[k]的值就是顶点s 到顶点k 的距离。"换行"标记顶点k 的状态为已经求出到顶点s 最短路径的距离的顶点，
-现在要做的就是看看能不能通过顶点k 来缩短顶点s 到其他顶点的距离，这就相当于把顶点k 作为"跳板"来缩短顶点s 到其他顶点的距离，可以通过以下代码来进行判断：
-		</text>
-		<code>
-// graph为图的邻接矩阵，graph[k][i]为顶底K 到顶点i 的距离, nodeSum 为图的顶点总数
-for(i = 1; i &lt;= nodeSum; i++) {
-	if(dis[i] &gt; dis[k] + graph[k][i]) {
-		dis[i] = dis[k] + graph[k][i];
-	}
-}
-		</code>
-		<text>
-ok，上面我们只是求出了顶点s 到顶点k 的最短路径的距离，那么我们还需要重复上面的过程n-2遍，即除了顶点s 和顶点k ，
-还有n-2个顶点到顶点s 的最短路径的距离未求出。"换行"算法总的来说就是一个重复n-1次的循环。"换行"每次循环找出当前距离顶点s 最近的顶点并且标记这个顶点的状态为已经求出到顶点s 最短路径的距离，之后通过这个顶点来缩短顶点s 到其他顶点的距离...。"换行"执行完成这 n-1 次循环之后，dis 数组储存的就是顶点s 到图中其他顶点的最短路径的距离。"换行""换行"
-下面以一副有权图来展示Dijkstra算法：
-		</text>
-		<img>
-tu_13.png
-		</img>
-		<text>
-假设我们要求上图中的有权图中顶点1 到其他顶点的最短路径的距离，按照Dijkstra算法思路，首先将 dis[1]~dis[n] 赋值为∞ ，
-明显 dis[1] = 0; 并且当前距离顶点1 最近的顶点就是顶点1 它本身，那么我们顶点1 来缩短顶点1 到其他顶点的距离，通过顶点1 我们将 dis[2] 缩短为 3，将 dis[4] 缩短为 8。"换行"
-接下来我们再找到下一个距离顶点1 最近的顶点，此时就是顶点2 了，因为上一轮已经用顶点1 缩短过了。"换行"
-同样的，我们再利用顶点2 缩短顶点1 到其他顶点的距离，
-一直循环这个过程，直到求出顶点1 到所有顶点的最短路径的距离。"换行"
-关于Dijkstra算法的实现，请参考"动画"部分和"代码"部分。"换行"
-		</text>
-		<link>
-参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54915152
-		</link>
-		<animation html_path="" animation_name="图:迪杰斯特拉算法"></animation>
-		<code>
+            printf("图的邻接矩阵的信息: \n");
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            printf("%-10d ", graph[i][j]);
+            }
+            printf("\n");
+            }
 
-/**
- * 通过 Dijkstra算法求单源最短路径
- * Author：指点 
- */
-#include &lt;stdio.h&gt;
-// 表示图的顶点最大数
-#define MAX_NODE_SUM 1000
-// 指定图中边权值的极限值(代表∞) 
-#define INF 999999999 
-// 储存图信息的临接矩阵
-int graph[MAX_NODE_SUM][MAX_NODE_SUM];
-// 储存单源最短路径距离的数组，初始为 INF 
-int dis[MAX_NODE_SUM];
-// 标记顶点是否已经求出最短路径距离 
-int book[MAX_NODE_SUM];
+            /* Floyd 算法的核心代码，代码核心思想在于：借助图中的前 k 个顶点来使得顶点i 到顶点j 的距离变短 */
+            for(k = 1; k &lt;= nodeSum; k++) {
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            // 是否能通过顶点k 作为"跳板"使得顶点i 到顶点j 距离变短
+            if(graph[i][j] &gt; graph[i][k] + graph[k][j]) {
+            graph[i][j] = graph[i][k] + graph[k][j];
+            }
+            }
+            }
+            }
 
-// 求出顶点s 到其他顶点的最短路径的距离，结果储存在 dis 数组中，nodeSum 为图的顶点总数 
-void dijkstra(int s, int nodeSum) {
-	int i, j, min, minWeight;
-	// dis 数组初始化为 INF，即刚开始所有顶点到顶点s 的距离为 ∞
-	for(i = 1; i &lt;= nodeSum; i++) {
-		dis[i] = INF;
-	}
-	// 顶点s 到本身的最短路径的距离为 0 
-	dis[s]=0;
-	
-	// 循环 nodeSum-1 次，求出顶点s 到剩余顶点的最短路径距离 
-	for(i = 1; i &lt;= nodeSum-1; i++) {
-		minWeight = INF;
-		// 找出当前还未求出到顶点s 的最短路径的距离并且距离顶点s 最近的顶点。"换行" 
-		for(j = 1; j &lt;= nodeSum; j++) {
-			if(book[j]==0 &amp;&amp; dis[j] &lt; minWeight) {
-				minWeight = dis[j];
-				min = j;
-			}
-		}
-		dis[min] = minWeight;
-		book[min] = 1;
-		// 利用编号为 min 的顶点来缩短顶点s 到其他顶点的距离 
-		for(j = 1; j &lt;= nodeSum; j++) {
-			if(dis[j] &gt; dis[min] + graph[min][j]) {
-				dis[j] = dis[min] + graph[min][j];
-			}
-		}
-	}	
-}
+            printf("\n更新最短路径图的邻接矩阵的信息: \n");
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            printf("%-10d ", graph[i][j]);
+            }
+            printf("\n");
+            }
+            }
+        </code>
+        <text>
+            有些小伙伴可能会觉得这个算法时间复杂度偏高，比如说我只需要求出某个顶点的单源最短路径，
+            即某个特定的顶点到其他顶点的最短路径的距离，这样的话就有点"大材小用"的感觉。对于这个问题，从某个方面看确实是这样，
+            下一篇我们将会介绍一个求单源最短路径的算法：Dijkstra算法。最后，以上图给出的有权图作为数据源，运行程序：
+        </text>
+        <img>
+            tu_14.png
+        </img>
+    </最短路径--Floyd算法>
+
+    <最短路径--Dijkstra算法>
+        <text>
+            Dijkstra算法是一种求图的单源最短路径的算法，即用于求图中某个顶点到其他顶点的最短路径。"换行"其算法思想如下："换行"
+            现有一个有 n 个顶点的图，假设要求顶点s 到图的其他顶点的最短路径的距离，
+            用一个数组 dis[n+1] 来储存顶点s 到顶点1 ~ 顶点n 的距离，我们先把 dis[1]~dis[n] 初始化为∞，首先我们将 dis[s] = 0;
+            即顶点s 到顶点s 本身的距离为 0。"换行"接下来每次都选择当前距离顶点s 最近的顶点(贪心的思想)，标记为顶点k ，那么此时顶点s 到顶点k
+            的距离就是它们之间的最短路径距离；"换行"请注意：这里选择的距离顶点s
+            最近的顶点，所以它们之间的距离不可能通过其他点作为"跳板"来缩短，请不要被Floyd算法的思想误导，Floyd算法是选取任意两个顶点，它们之间的距离不一定是最短的，所有才有通过其他顶点作为"跳板"来缩短的可能。"换行"既然我们选取了当前距离顶点s
+            最近的顶点k ，那么dis[k]的值就是顶点s 到顶点k 的距离。"换行"标记顶点k 的状态为已经求出到顶点s 最短路径的距离的顶点，
+            现在要做的就是看看能不能通过顶点k 来缩短顶点s 到其他顶点的距离，这就相当于把顶点k 作为"跳板"来缩短顶点s 到其他顶点的距离，可以通过以下代码来进行判断：
+        </text>
+        <code>
+            // graph为图的邻接矩阵，graph[k][i]为顶底K 到顶点i 的距离, nodeSum 为图的顶点总数
+            for(i = 1; i &lt;= nodeSum; i++) {
+            if(dis[i] &gt; dis[k] + graph[k][i]) {
+            dis[i] = dis[k] + graph[k][i];
+            }
+            }
+        </code>
+        <text>
+            ok，上面我们只是求出了顶点s 到顶点k 的最短路径的距离，那么我们还需要重复上面的过程n-2遍，即除了顶点s 和顶点k ，
+            还有n-2个顶点到顶点s 的最短路径的距离未求出。"换行"算法总的来说就是一个重复n-1次的循环。"换行"每次循环找出当前距离顶点s
+            最近的顶点并且标记这个顶点的状态为已经求出到顶点s 最短路径的距离，之后通过这个顶点来缩短顶点s 到其他顶点的距离...。"换行"执行完成这 n-1 次循环之后，dis
+            数组储存的就是顶点s 到图中其他顶点的最短路径的距离。"换行""换行"
+            下面以一副有权图来展示Dijkstra算法：
+        </text>
+        <img>
+            tu_13.png
+        </img>
+        <text>
+            假设我们要求上图中的有权图中顶点1 到其他顶点的最短路径的距离，按照Dijkstra算法思路，首先将 dis[1]~dis[n] 赋值为∞ ，
+            明显 dis[1] = 0; 并且当前距离顶点1 最近的顶点就是顶点1 它本身，那么我们顶点1 来缩短顶点1 到其他顶点的距离，通过顶点1 我们将 dis[2] 缩短为 3，将
+            dis[4] 缩短为 8。"换行"
+            接下来我们再找到下一个距离顶点1 最近的顶点，此时就是顶点2 了，因为上一轮已经用顶点1 缩短过了。"换行"
+            同样的，我们再利用顶点2 缩短顶点1 到其他顶点的距离，
+            一直循环这个过程，直到求出顶点1 到所有顶点的最短路径的距离。"换行"
+            关于Dijkstra算法的实现，请参考"动画"部分和"代码"部分。"换行"
+        </text>
+        <link>
+            参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54915152
+        </link>
+        <animation html_path="" animation_name="图:迪杰斯特拉算法"></animation>
+        <code>
+
+            /**
+            * 通过 Dijkstra算法求单源最短路径
+            * Author：指点
+            */
+            #include &lt;stdio.h&gt; // 表示图的顶点最大数
+            #define MAX_NODE_SUM 1000
+            // 指定图中边权值的极限值(代表∞)
+            #define INF 999999999
+            // 储存图信息的临接矩阵
+            int graph[MAX_NODE_SUM][MAX_NODE_SUM];
+            // 储存单源最短路径距离的数组，初始为 INF
+            int dis[MAX_NODE_SUM];
+            // 标记顶点是否已经求出最短路径距离
+            int book[MAX_NODE_SUM];
+
+            // 求出顶点s 到其他顶点的最短路径的距离，结果储存在 dis 数组中，nodeSum 为图的顶点总数
+            void dijkstra(int s, int nodeSum) {
+            int i, j, min, minWeight;
+            // dis 数组初始化为 INF，即刚开始所有顶点到顶点s 的距离为 ∞
+            for(i = 1; i &lt;= nodeSum; i++) {
+            dis[i] = INF;
+            }
+            // 顶点s 到本身的最短路径的距离为 0
+            dis[s]=0;
+
+            // 循环 nodeSum-1 次，求出顶点s 到剩余顶点的最短路径距离
+            for(i = 1; i &lt;= nodeSum-1; i++) {
+            minWeight = INF;
+            // 找出当前还未求出到顶点s 的最短路径的距离并且距离顶点s 最近的顶点。"换行"
+            for(j = 1; j &lt;= nodeSum; j++) {
+            if(book[j]==0 &amp;&amp; dis[j] &lt; minWeight) {
+            minWeight = dis[j];
+            min = j;
+            }
+            }
+            dis[min] = minWeight;
+            book[min] = 1;
+            // 利用编号为 min 的顶点来缩短顶点s 到其他顶点的距离
+            for(j = 1; j &lt;= nodeSum; j++) {
+            if(dis[j] &gt; dis[min] + graph[min][j]) {
+            dis[j] = dis[min] + graph[min][j];
+            }
+            }
+            }
+            }
 
 
-int main() {
-	// 图的顶点数和边数
-	int nodeSum, edgeSum;
-	// 边的开始顶点编号、结束顶点编号和边的权值 
-	int start, end, weight;
-	int i, j, k;
-	printf("输入图的顶点数和边数：");
-	scanf("%d %d", &amp;nodeSum, &amp;edgeSum); 
-	// 对储存图的邻接矩阵初始化 
-	for(i = 1; i &lt;= nodeSum; i++) {
-		for(j = 1; j &lt;= nodeSum; j++) {
-			/* 如果 i 和 j 相等，即为同一个顶点，那么权值为 0 ，
-			 * 否则先假设顶点 i 和顶点 j 之间的边的权值为 INF(即为没有边相连)
-			 */ 
-			if(i == j) {
-				graph[i][j] = 0;
-			} else {
-				graph[i][j] = INF;
-			}
-		}
-	}
-	// 输入边的信息，更新顶点之间的距离 
-	for(i = 1; i &lt;= edgeSum; i++) {
-		printf("输入第 %d 条边的开始顶点编号、结束顶点编号和边的权值：", i);
-		scanf("%d %d %d", &amp;start, &amp;end, &amp;weight);
-		graph[start][end] = graph[end][start] = weight; 
-	} 
-	
-	printf("图的邻接矩阵的信息: \n");
-	for(i = 1; i &lt;= nodeSum; i++) {
-		for(j = 1; j &lt;= nodeSum; j++) {
-			printf("%-10d ", graph[i][j]);
-		}
-		printf("\n");
-	}
-	// 求出顶点1 到其他顶点的最短路径的距离 
-	dijkstra(1, nodeSum);
-	
-	printf("顶点%d 到其他顶点的最短路径距离：\n", 1); 
-	for(i = 1; i &lt;= nodeSum; i++) {
-		printf("%d ", dis[i]);
-	}
-	
-	return 0;
-}
+            int main() {
+            // 图的顶点数和边数
+            int nodeSum, edgeSum;
+            // 边的开始顶点编号、结束顶点编号和边的权值
+            int start, end, weight;
+            int i, j, k;
+            printf("输入图的顶点数和边数：");
+            scanf("%d %d", &amp;nodeSum, &amp;edgeSum);
+            // 对储存图的邻接矩阵初始化
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            /* 如果 i 和 j 相等，即为同一个顶点，那么权值为 0 ，
+            * 否则先假设顶点 i 和顶点 j 之间的边的权值为 INF(即为没有边相连)
+            */
+            if(i == j) {
+            graph[i][j] = 0;
+            } else {
+            graph[i][j] = INF;
+            }
+            }
+            }
+            // 输入边的信息，更新顶点之间的距离
+            for(i = 1; i &lt;= edgeSum; i++) {
+            printf("输入第 %d 条边的开始顶点编号、结束顶点编号和边的权值：", i);
+            scanf("%d %d %d", &amp;start, &amp;end, &amp;weight);
+            graph[start][end] = graph[end][start] = weight;
+            }
 
-		</code>
-		<text>
-上面的算法代码的时间复杂度为 O(n^2)。"换行"作为一个求单源最短路径的算法，Dijkstra还是较优的，另外如果图中存在负权边的话，
-采用Dijkstra算法可能不得不到正确的结果，因为Dijkstra算法是基于贪心的思想(每次选取当前距离源节点最近的顶点)。"换行"
-关于存在负权边的图的最短路径的处理，请参考下一篇内容："最短路径--Bellman-Ford算法"。"换行"最后给出以上图中的有权图作为数据输入的程序运行结果：
-		</text>
-		<img>
-tu_15.png
-		</img>
-	</最短路径--Dijkstra算法>
+            printf("图的邻接矩阵的信息: \n");
+            for(i = 1; i &lt;= nodeSum; i++) {
+            for(j = 1; j &lt;= nodeSum; j++) {
+            printf("%-10d ", graph[i][j]);
+            }
+            printf("\n");
+            }
+            // 求出顶点1 到其他顶点的最短路径的距离
+            dijkstra(1, nodeSum);
 
-	<最短路径--Bellman-Ford算法>
-		<text>
-上一篇介绍了一下Dijkstra算法，在结尾的时候提到了Dijkstra算法在面对图中有负权边的情况求出的结果可能会出错的问题。"换行"
-在这里解释一下，先看一下下面给出的一个带有负权边的有向图：
-		</text>
-		<img>
-tu_16.png
-		</img>
-		<text>
-假设我们要求出顶点1 到其他顶点的最短路径，按照Dijkstra算法的思想，首先顶点1 到顶点1 的距离为 0；"换行"
-之后通过顶点1 来更新顶点1 到其他顶点的距离，完成之后，顶点1 到顶点2 的距离为 4，到顶点4 的距离为 2；"换行"
-此时我们再找出距离顶点1 最近的顶点，我们会找到顶点4(距离为 2)，但是此时顶点1 可以通过顶点4 "绕路"来到达顶点2，
-即为：1 --&gt; 4 --&gt; 2(距离为 -1)，所以此时距离顶点1 最近的顶点为顶点2 而不是顶点4，Dijkstra算法在这一步出错。"换行"
-对于这种存在负权边的图，我们可以采用这一篇的算法：Bellman-Ford算法。下面是该算法的基本思想："换行"
-与Dijkstra算法同的是，Dijkstra算法的思路是利用顶点作为"跳板"，来缩短源顶点到其他顶点的距离。
-而Bellman-Ford算法的思想是通过边作为"跳板"，来缩短源顶点到边的结束顶点的距离：假设某条边的开始顶点为顶点i ，结束顶点为顶点j，dis[i]为源顶点到顶点i 的距离，dis[j] 为源顶点到顶点j 的距离，
-graph[i][j] 为这条边的权值，那么我们可以用以下伪代码来描述这个缩短距离的过程：
-		</text>
-		<code>
-if(dis[j] &gt; dis[i] + graph[i][j]) {
-	dis[j] = dis[i] + graph[i][j];
-}
-		</code>
-		<text>
-上面的过程只是通过一条边来缩短源顶点到边的结束顶点的距离，事实上，我们需要对图的所有边都进行一次更新过程，
-可以把这个更新过程称为一轮缩放。并且把这个缩放过程重复 n-1 轮(n 为图的顶点总数)，为什么是 n-1 轮呢？因为在一个图中两个点之间最多有 n-1 条边。"换行"
-关于Bellman-Ford算法的实现，请参考"动画"和"代码"部分。
-		</text>
-		<link>
-参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54917317
-		</link>
-		<animation html_path="">图:贝尔曼-福特算法</animation>
-		<code>
+            printf("顶点%d 到其他顶点的最短路径距离：\n", 1);
+            for(i = 1; i &lt;= nodeSum; i++) {
+            printf("%d ", dis[i]);
+            }
 
-/**
- * 通过 Bellman-Ford算法求图的单源最短路径 
- * Author：指点 
- */
-#include &lt;stdio.h&gt;
-// 表示图的顶点最大数
-#define MAX_NODE_SUM 1000
-// 指定图中边权值的极限值(代表∞) 
-#define INF 999999999 
-// 表示图中边的信息的结构体 
-typedef struct Edge {
-	int start;
-	int end;
-	int weight;
-}Edge;
-// 储存图中边的信息的数组 
-Edge edge[MAX_NODE_SUM*MAX_NODE_SUM];
-// 储存单源最短路径距离的数组，初始为 INF 
-int dis[MAX_NODE_SUM];
+            return 0;
+            }
 
-/**
- * Bellman-Ford 算法求顶点s 到其他顶点的最短路径的距离，
- * nodeSum 为图的顶点总数，edgeSum 为图的边的总数
- * 如果图中有负环，那么函数返回值为 1 
- */ 
-int bellmanFord(int s, int nodeSum, int edgeSum) {
-	int i, j, jud;
-	// dis 数组初始化为 INF，即刚开始所有顶点到顶点s 的距离为 ∞
-	for(i = 1; i &lt;= nodeSum; i++) {
-		dis[i] = INF;
-	}
-	// 顶点s 到自身的距离为 0
-	dis[s] = 0;
-	// 进行 nodeSum-1 轮对边的缩放
-	for(i = 1; i &lt; nodeSum; i++) {
-		jud = 0;
-		// 每一次都对所有的边进行缩放 
-		for(j = 1; j &lt;= edgeSum; j++) {
-			// 如果第j 条边能使得顶点s 到这条边的结束顶点的距离变短，那么更新这个距离 
-			if(dis[edge[j].end] &gt; dis[edge[j].start] + edge[j].weight) {
-				dis[edge[j].end] = dis[edge[j].start] + edge[j].weight; 
-				jud = 1;
-			}
-		}
-		/* 如果一轮缩放过后 jud 仍为 0，那么证明这一轮缩放没有使得任何顶点到顶点s 的距离变小，
-		 * 可以直接结束算法了，因为下一轮的缩放过程和这一轮是完全一样的
-		 */ 
-		if(jud == 0) {
-			break;
-		}
-	}
-	//  再进行一轮缩放来检测图中是否有负环 
-	for(j = 1; j &lt;= edgeSum; j++) {
-		// 如果经过了 nodeSum-1 轮缩放的时候，还可以通过某条边来缩短距离，那么肯定有负环 
-		if(dis[edge[j].end] &gt; dis[edge[j].start] + edge[j].weight) {
-			dis[edge[j].end] = dis[edge[j].start] + edge[j].weight; 
-			return 1;
-		}
-	}
-	return 0; 
-}
+        </code>
+        <text>
+            上面的算法代码的时间复杂度为 O(n^2)。"换行"作为一个求单源最短路径的算法，Dijkstra还是较优的，另外如果图中存在负权边的话，
+            采用Dijkstra算法可能不得不到正确的结果，因为Dijkstra算法是基于贪心的思想(每次选取当前距离源节点最近的顶点)。"换行"
+            关于存在负权边的图的最短路径的处理，请参考下一篇内容："最短路径--Bellman-Ford算法"。"换行"最后给出以上图中的有权图作为数据输入的程序运行结果：
+        </text>
+        <img>
+            tu_15.png
+        </img>
+    </最短路径--Dijkstra算法>
 
-int main() {
-	// 图的顶点数和边数
-	int nodeSum, edgeSum;
-	// 边的开始顶点编号、结束顶点编号和边的权值 
-	int start, end, weight;
-	int i, j, k;
-	printf("输入图的顶点数和边数：");
-	scanf("%d %d", &amp;nodeSum, &amp;edgeSum); 
-	
-	// 输入边的信息，更新顶点之间的距离，同时更新边的相关信息 
-	for(i = 1; i &lt;= edgeSum; i++) {
-		printf("输入第 %d 条边的开始顶点编号、结束顶点编号和边的权值：", i);
-		scanf("%d %d %d", &amp;start, &amp;end, &amp;weight);
-		edge[i].start = start;
-		edge[i].end = end;
-		edge[i].weight = weight; 
-	} 
+    <最短路径--Bellman-Ford算法>
+        <text>
+            上一篇介绍了一下Dijkstra算法，在结尾的时候提到了Dijkstra算法在面对图中有负权边的情况求出的结果可能会出错的问题。"换行"
+            在这里解释一下，先看一下下面给出的一个带有负权边的有向图：
+        </text>
+        <img>
+            tu_16.png
+        </img>
+        <text>
+            假设我们要求出顶点1 到其他顶点的最短路径，按照Dijkstra算法的思想，首先顶点1 到顶点1 的距离为 0；"换行"
+            之后通过顶点1 来更新顶点1 到其他顶点的距离，完成之后，顶点1 到顶点2 的距离为 4，到顶点4 的距离为 2；"换行"
+            此时我们再找出距离顶点1 最近的顶点，我们会找到顶点4(距离为 2)，但是此时顶点1 可以通过顶点4 "绕路"来到达顶点2，
+            即为：1 --&gt; 4 --&gt; 2(距离为 -1)，所以此时距离顶点1 最近的顶点为顶点2 而不是顶点4，Dijkstra算法在这一步出错。"换行"
+            对于这种存在负权边的图，我们可以采用这一篇的算法：Bellman-Ford算法。下面是该算法的基本思想："换行"
+            与Dijkstra算法同的是，Dijkstra算法的思路是利用顶点作为"跳板"，来缩短源顶点到其他顶点的距离。
+            而Bellman-Ford算法的思想是通过边作为"跳板"，来缩短源顶点到边的结束顶点的距离：假设某条边的开始顶点为顶点i ，结束顶点为顶点j，dis[i]为源顶点到顶点i
+            的距离，dis[j] 为源顶点到顶点j 的距离，
+            graph[i][j] 为这条边的权值，那么我们可以用以下伪代码来描述这个缩短距离的过程：
+        </text>
+        <code>
+            if(dis[j] &gt; dis[i] + graph[i][j]) {
+            dis[j] = dis[i] + graph[i][j];
+            }
+        </code>
+        <text>
+            上面的过程只是通过一条边来缩短源顶点到边的结束顶点的距离，事实上，我们需要对图的所有边都进行一次更新过程，
+            可以把这个更新过程称为一轮缩放。并且把这个缩放过程重复 n-1 轮(n 为图的顶点总数)，为什么是 n-1 轮呢？因为在一个图中两个点之间最多有 n-1 条边。"换行"
+            关于Bellman-Ford算法的实现，请参考"动画"和"代码"部分。
+        </text>
+        <link>
+            参考博客：http://blog.csdn.net/hacker_zhidian/article/details/54917317
+        </link>
+        <animation html_path="">图:贝尔曼-福特算法</animation>
+        <code>
 
-	if(bellmanFord(1, nodeSum, edgeSum) == 1) {
-		printf("图中有负环！");
-		return 0;
-	}
-	printf("顶点%d 到其他顶点的最短路径距离：\n", 1); 
-	for(i = 1; i &lt;= nodeSum; i++) {
-		printf("%d ", dis[i]);
-	}
-	
-	return 0;
-}
-		</code>
-		<text>
-这段代码中Bellman-Ford算法的时间复杂度为O(n*m)，n 和m 分别为图的顶点总数和边的总数。
-代码里面涉及到了"负环"这一概念，这里用一张图解释一下什么是"负环"：
-		</text>
-		<img>
-tu_17.png
-		</img>
-		<text>
-上图中顶点1 到顶点3 是没有最短路径的，因为顶点1 --&gt; 顶点2 --&gt; 顶点3 的距离为-1，
-即 1--&gt;2--&gt;3(-1) 并且三者形成了一个环，
-那么每次都可以通过这个环来缩短顶点1 到顶点3 的距离...，所以它们之间没有最短路径。
-这就是一个负环，处在负环之中的顶点到其他顶点之间是没有最短路径的。最后以上图中的有权有向图作为数据源，
-给出程序的运行结果：
-		</text>
-		<img>
-tu_18.png
-		</img>
-	</最短路径--Bellman-Ford算法>
+            /**
+            * 通过 Bellman-Ford算法求图的单源最短路径
+            * Author：指点
+            */
+            #include &lt;stdio.h&gt; // 表示图的顶点最大数
+            #define MAX_NODE_SUM 1000
+            // 指定图中边权值的极限值(代表∞)
+            #define INF 999999999
+            // 表示图中边的信息的结构体
+            typedef struct Edge {
+            int start;
+            int end;
+            int weight;
+            }Edge;
+            // 储存图中边的信息的数组
+            Edge edge[MAX_NODE_SUM*MAX_NODE_SUM];
+            // 储存单源最短路径距离的数组，初始为 INF
+            int dis[MAX_NODE_SUM];
+
+            /**
+            * Bellman-Ford 算法求顶点s 到其他顶点的最短路径的距离，
+            * nodeSum 为图的顶点总数，edgeSum 为图的边的总数
+            * 如果图中有负环，那么函数返回值为 1
+            */
+            int bellmanFord(int s, int nodeSum, int edgeSum) {
+            int i, j, jud;
+            // dis 数组初始化为 INF，即刚开始所有顶点到顶点s 的距离为 ∞
+            for(i = 1; i &lt;= nodeSum; i++) {
+            dis[i] = INF;
+            }
+            // 顶点s 到自身的距离为 0
+            dis[s] = 0;
+            // 进行 nodeSum-1 轮对边的缩放
+            for(i = 1; i &lt; nodeSum; i++) {
+            jud = 0;
+            // 每一次都对所有的边进行缩放
+            for(j = 1; j &lt;= edgeSum; j++) {
+            // 如果第j 条边能使得顶点s 到这条边的结束顶点的距离变短，那么更新这个距离
+            if(dis[edge[j].end] &gt; dis[edge[j].start] + edge[j].weight) {
+            dis[edge[j].end] = dis[edge[j].start] + edge[j].weight;
+            jud = 1;
+            }
+            }
+            /* 如果一轮缩放过后 jud 仍为 0，那么证明这一轮缩放没有使得任何顶点到顶点s 的距离变小，
+            * 可以直接结束算法了，因为下一轮的缩放过程和这一轮是完全一样的
+            */
+            if(jud == 0) {
+            break;
+            }
+            }
+            // 再进行一轮缩放来检测图中是否有负环
+            for(j = 1; j &lt;= edgeSum; j++) {
+            // 如果经过了 nodeSum-1 轮缩放的时候，还可以通过某条边来缩短距离，那么肯定有负环
+            if(dis[edge[j].end] &gt; dis[edge[j].start] + edge[j].weight) {
+            dis[edge[j].end] = dis[edge[j].start] + edge[j].weight;
+            return 1;
+            }
+            }
+            return 0;
+            }
+
+            int main() {
+            // 图的顶点数和边数
+            int nodeSum, edgeSum;
+            // 边的开始顶点编号、结束顶点编号和边的权值
+            int start, end, weight;
+            int i, j, k;
+            printf("输入图的顶点数和边数：");
+            scanf("%d %d", &amp;nodeSum, &amp;edgeSum);
+
+            // 输入边的信息，更新顶点之间的距离，同时更新边的相关信息
+            for(i = 1; i &lt;= edgeSum; i++) {
+            printf("输入第 %d 条边的开始顶点编号、结束顶点编号和边的权值：", i);
+            scanf("%d %d %d", &amp;start, &amp;end, &amp;weight);
+            edge[i].start = start;
+            edge[i].end = end;
+            edge[i].weight = weight;
+            }
+
+            if(bellmanFord(1, nodeSum, edgeSum) == 1) {
+            printf("图中有负环！");
+            return 0;
+            }
+            printf("顶点%d 到其他顶点的最短路径距离：\n", 1);
+            for(i = 1; i &lt;= nodeSum; i++) {
+            printf("%d ", dis[i]);
+            }
+
+            return 0;
+            }
+        </code>
+        <text>
+            这段代码中Bellman-Ford算法的时间复杂度为O(n*m)，n 和m 分别为图的顶点总数和边的总数。
+            代码里面涉及到了"负环"这一概念，这里用一张图解释一下什么是"负环"：
+        </text>
+        <img>
+            tu_17.png
+        </img>
+        <text>
+            上图中顶点1 到顶点3 是没有最短路径的，因为顶点1 --&gt; 顶点2 --&gt; 顶点3 的距离为-1，
+            即 1--&gt;2--&gt;3(-1) 并且三者形成了一个环，
+            那么每次都可以通过这个环来缩短顶点1 到顶点3 的距离...，所以它们之间没有最短路径。
+            这就是一个负环，处在负环之中的顶点到其他顶点之间是没有最短路径的。最后以上图中的有权有向图作为数据源，
+            给出程序的运行结果：
+        </text>
+        <img>
+            tu_18.png
+        </img>
+    </最短路径--Bellman-Ford算法>
 </contents>

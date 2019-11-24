@@ -1,29 +1,26 @@
-{
-  "chapterName": "排序",
-  "subsectionInfoList": [
-    {
-      "subsectionFilePath": "1_1.xml",
-      "subsectionName": "插入排序"
-    },
-    {
-      "subsectionFilePath": "1_2.xml",
-      "subsectionName": "希尔排序"
-    },
-    {
-      "subsectionFilePath": "1_3.xml",
-      "subsectionName": "冒泡排序"
-    },
-    {
-      "subsectionFilePath": "1_4.xml",
-      "subsectionName": "选择排序"
-    },
-    {
-      "subsectionFilePath": "1_5.xml",
-      "subsectionName": "快速排序"
-    },
-    {
-      "subsectionFilePath": "1_7.xml",
-      "subsectionName": "堆排序"
-    }
-  ]
-}
+[
+  {
+    "subsectionFileName": "1_1.json",
+    "subsectionName": "插入排序"
+  },
+  {
+    "subsectionFileName": "1_2.json",
+    "subsectionName": "希尔排序"
+  },
+  {
+    "subsectionFileName": "1_3.json",
+    "subsectionName": "冒泡排序"
+  },
+  {
+    "subsectionFileName": "1_4.json",
+    "subsectionName": "选择排序"
+  },
+  {
+    "subsectionFileName": "1_5.json",
+    "subsectionName": "快速排序"
+  },
+  {
+    "subsectionFileName": "1_7.json",
+    "subsectionName": "堆排序"
+  }
+]

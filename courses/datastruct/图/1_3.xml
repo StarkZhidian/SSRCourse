@@ -1,199 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contents>
-	<text>
-图的广度优先遍历（Breadth First Search) 是连通图的一种遍历策略。"换行"其基本思想如下："换行"
-1、从图中的某个顶点 V0 开始，访问该顶点；并将其标记为已被访问；"换行"
-2、从 V0 出发，依次访问V0的各个未曾访问的邻接点 V1，V2，…,Vn，并将顶点 V1，V2，…,Vn 标记为已被访问；"换行"
-3、然后,依次从 V1, V2,…,Vn 出发访问各自未被访问的邻接点；并将其标记为已被访问；"换行"
-依此类推，直到图中所有顶点都被访问完为止。"换行"这里很明显我们需要借助队列来保存访问过的顶点。"换行"
-下面仍然以一张无向无向图举例：
-	</text>
-	<img>
-tu_5.png
-	</img>
-	<text>
-假设从顶点 1开始进行图的广度优先搜索，先打印出顶点1 的信息，并且把顶点1 标记为已经被访问，然后把顶点1 入队尾，
-然后从队列中取出并删除队头元素(顶点1) ，并且依次访问其编号最小的邻接点，
-此时编号分别为 2 、3 、4 的顶点分别被找到，因为之前编号为2、3、4 顶点都没被访问过，因此这里分别打印出这三个顶点的信息，将它们入队尾并且把这三个顶点标记为已经被访问；"换行"
-此时队列元素为： 2|3|4。"换行"
-然后从队列中取出并删除队头元素(顶点2)，并且依次访问其编号最小的邻接点，
-此时编号分别为 1 、4 的顶点分别被找到，但因为1 号顶点和4 号顶点已经被访问过了，所以这里没有任何顶点信息被打印，也没有任何顶点入队尾；"换行"
-此时队列元素为： 3|4。"换行"
-接下来从队列中取出并删除队头元素(顶点3)，并且依次访问其编号最小的邻接点，
-此时编号分别为 1 、4 的顶点分别被找到，同样的，因为1 号顶点和4 号顶点已经被访问过了，因此这里同样没有任何顶点信息被打印，也没有任何顶点入队尾；"换行"
-此时队列元素为： 4。"换行"
-接下来从队列中取出并删除队头元素(顶点4)，并且依次访问其编号最小的邻接点，
-此时编号分别为 1 、2、3 的顶点分别被找到，因为1 、2、3 号顶点都已经被访问过了，因此这里同样没有任何顶点信息被打印，也没有任何顶点入队尾；"换行"
-此时队列为空，算法结束，这里广度优先遍历顶点的顺序为：1 --&gt; 2 --&gt; 3 --&gt; 4 。"换行"
-关于图的广度优先遍历的实现，请参考"动画"部分和"代码"部分。"换行"
-	</text>
-	<link>
-参考博客：http://blog.csdn.net/hacker_zhidian/article/details/61260543
-	</link>
-	<animation html_path="" animation_name="图:广度优先遍历"></animation>
-	<code>
+    <text>
+        图的广度优先遍历（Breadth First Search) 是连通图的一种遍历策略。"换行"其基本思想如下："换行"
+        1、从图中的某个顶点 V0 开始，访问该顶点；并将其标记为已被访问；"换行"
+        2、从 V0 出发，依次访问V0的各个未曾访问的邻接点 V1，V2，…,Vn，并将顶点 V1，V2，…,Vn 标记为已被访问；"换行"
+        3、然后,依次从 V1, V2,…,Vn 出发访问各自未被访问的邻接点；并将其标记为已被访问；"换行"
+        依此类推，直到图中所有顶点都被访问完为止。"换行"这里很明显我们需要借助队列来保存访问过的顶点。"换行"
+        下面仍然以一张无向无向图举例：
+    </text>
+    <img>
+        tu_5.png
+    </img>
+    <text>
+        假设从顶点 1开始进行图的广度优先搜索，先打印出顶点1 的信息，并且把顶点1 标记为已经被访问，然后把顶点1 入队尾，
+        然后从队列中取出并删除队头元素(顶点1) ，并且依次访问其编号最小的邻接点，
+        此时编号分别为 2 、3 、4 的顶点分别被找到，因为之前编号为2、3、4 顶点都没被访问过，因此这里分别打印出这三个顶点的信息，将它们入队尾并且把这三个顶点标记为已经被访问；"换行"
+        此时队列元素为： 2|3|4。"换行"
+        然后从队列中取出并删除队头元素(顶点2)，并且依次访问其编号最小的邻接点，
+        此时编号分别为 1 、4 的顶点分别被找到，但因为1 号顶点和4 号顶点已经被访问过了，所以这里没有任何顶点信息被打印，也没有任何顶点入队尾；"换行"
+        此时队列元素为： 3|4。"换行"
+        接下来从队列中取出并删除队头元素(顶点3)，并且依次访问其编号最小的邻接点，
+        此时编号分别为 1 、4 的顶点分别被找到，同样的，因为1 号顶点和4 号顶点已经被访问过了，因此这里同样没有任何顶点信息被打印，也没有任何顶点入队尾；"换行"
+        此时队列元素为： 4。"换行"
+        接下来从队列中取出并删除队头元素(顶点4)，并且依次访问其编号最小的邻接点，
+        此时编号分别为 1 、2、3 的顶点分别被找到，因为1 、2、3 号顶点都已经被访问过了，因此这里同样没有任何顶点信息被打印，也没有任何顶点入队尾；"换行"
+        此时队列为空，算法结束，这里广度优先遍历顶点的顺序为：1 --&gt; 2 --&gt; 3 --&gt; 4 。"换行"
+        关于图的广度优先遍历的实现，请参考"动画"部分和"代码"部分。"换行"
+    </text>
+    <link>
+        参考博客：http://blog.csdn.net/hacker_zhidian/article/details/61260543
+    </link>
+    <animation html_path="" animation_name="图:广度优先遍历"></animation>
+    <code>
 
-/**
-* 实现无权无向连通图的广度优先搜索：通过邻接矩阵和邻接表两种方式
-* Author：指点 
-*/
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt; 
-#include &lt;string.h&gt;
-// 表示图的顶点最大数
-#define MAX_NODE_SUM 1000
-// 储存图信息的临接矩阵
-int graph[MAX_NODE_SUM][MAX_NODE_SUM];
+        /**
+        * 实现无权无向连通图的广度优先搜索：通过邻接矩阵和邻接表两种方式
+        * Author：指点
+        */
+        #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include &lt;string.h&gt; // 表示图的顶点最大数
+        #define MAX_NODE_SUM 1000
+        // 储存图信息的临接矩阵
+        int graph[MAX_NODE_SUM][MAX_NODE_SUM];
 
-// 储存图顶点信息的结构体：顶点编号(number)、指向和链表头结点代表的顶点相连的下一个顶点的指针(next)
-typedef struct Node {
-int number;
-struct Node *next;
-}Node; 
-// 储存图的邻接表中单链表头结点的指针数组 
-Node *node[MAX_NODE_SUM] = {NULL};
-// 标志顶点是否被访问过的数组：0(未被访问)，1(已经被访问) 
-int visit[MAX_NODE_SUM];
+        // 储存图顶点信息的结构体：顶点编号(number)、指向和链表头结点代表的顶点相连的下一个顶点的指针(next)
+        typedef struct Node {
+        int number;
+        struct Node *next;
+        }Node;
+        // 储存图的邻接表中单链表头结点的指针数组
+        Node *node[MAX_NODE_SUM] = {NULL};
+        // 标志顶点是否被访问过的数组：0(未被访问)，1(已经被访问)
+        int visit[MAX_NODE_SUM];
 
-// 通过邻接矩阵实现图的广度优先搜索，从编号为 startNode 的顶点开始. nodeSum 为图的顶点总数 
-void bfsMatrix(int startNode, int nodeSum) {
-int i, nodeNumber;
-// 通过数组来模拟队列，队列数组和头尾指针所在下标 
-int queue[MAX_NODE_SUM];
-int front = 0, rear = 0;
-// 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队 
-printf("%d", startNode);
-visit[startNode] = 1;
-// 编号为 startNode 的顶点入队列 
-queue[rear++] = startNode;
-// 当队列头指针不等于队列尾指针，即为队列不为空时继续 
-while(front != rear) {
-	// 获取队列头元素并将头元素出队列 
-	nodeNumber = queue[front++];
-	for(i = 1; i &lt;= nodeSum; i++) {
-		/* 如果顶点 i 还未被访问过并且是编号为 nodeNumber 顶点的邻接点，
-		 * 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队 
-		 */
-		if(visit[i] == 0 &amp;&amp; graph[nodeNumber][i] == 1) {
-			printf(" --&gt; %d", i);
-			visit[i] = 1;
-			queue[rear++] = i;
-		} 
-	} 
-}
-} 
+        // 通过邻接矩阵实现图的广度优先搜索，从编号为 startNode 的顶点开始. nodeSum 为图的顶点总数
+        void bfsMatrix(int startNode, int nodeSum) {
+        int i, nodeNumber;
+        // 通过数组来模拟队列，队列数组和头尾指针所在下标
+        int queue[MAX_NODE_SUM];
+        int front = 0, rear = 0;
+        // 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队
+        printf("%d", startNode);
+        visit[startNode] = 1;
+        // 编号为 startNode 的顶点入队列
+        queue[rear++] = startNode;
+        // 当队列头指针不等于队列尾指针，即为队列不为空时继续
+        while(front != rear) {
+        // 获取队列头元素并将头元素出队列
+        nodeNumber = queue[front++];
+        for(i = 1; i &lt;= nodeSum; i++) {
+        /* 如果顶点 i 还未被访问过并且是编号为 nodeNumber 顶点的邻接点，
+        * 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队
+        */
+        if(visit[i] == 0 &amp;&amp; graph[nodeNumber][i] == 1) {
+        printf(" --&gt; %d", i);
+        visit[i] = 1;
+        queue[rear++] = i;
+        }
+        }
+        }
+        }
 
-// 通过邻接表实现图的广度优先搜索，从编号为 startNode 的顶点开始. nodeSum 为图的顶点总数 
-void bfsList(int startNode, int nodeSum) {
-int i;
-Node *point = NULL;
-// 通过数组来模拟队列，队列数组和头尾指针所在下标 
-Node *queue[MAX_NODE_SUM];
-int front = 0, rear = 0;
-// 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队 
-printf("%d", startNode);
-visit[startNode] = 1;
-// 编号为 startNode 的顶点入队列 
-queue[rear++] = node[startNode];
-// 当队列头指针不等于队列尾指针，即为队列不为空时继续 
-while(front != rear) {
-	point = queue[front++]-&gt;next;
-	// 循环查找整个单链表 
-	while(point != NULL) {
-		// 如果顶点还未被访问过，打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队 
-		if(visit[point-&gt;number] == 0) {
-			// 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队 
-			printf(" --&gt; %d", point-&gt;number);
-			visit[point-&gt;number] = 1;
-			queue[rear++] = point;
-		}
-		point = point-&gt;next;
-	}
-}
-} 
+        // 通过邻接表实现图的广度优先搜索，从编号为 startNode 的顶点开始. nodeSum 为图的顶点总数
+        void bfsList(int startNode, int nodeSum) {
+        int i;
+        Node *point = NULL;
+        // 通过数组来模拟队列，队列数组和头尾指针所在下标
+        Node *queue[MAX_NODE_SUM];
+        int front = 0, rear = 0;
+        // 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队
+        printf("%d", startNode);
+        visit[startNode] = 1;
+        // 编号为 startNode 的顶点入队列
+        queue[rear++] = node[startNode];
+        // 当队列头指针不等于队列尾指针，即为队列不为空时继续
+        while(front != rear) {
+        point = queue[front++]-&gt;next;
+        // 循环查找整个单链表
+        while(point != NULL) {
+        // 如果顶点还未被访问过，打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队
+        if(visit[point-&gt;number] == 0) {
+        // 打印这个顶点的信息，标记这个顶点已经被访问并且将这个顶点入队
+        printf(" --&gt; %d", point-&gt;number);
+        visit[point-&gt;number] = 1;
+        queue[rear++] = point;
+        }
+        point = point-&gt;next;
+        }
+        }
+        }
 
 
-int main() {
-// 图的顶点数和边数
-int nodeSum, edgeSum;
-// 边的开始顶点编号和结束顶点编号
-int start, end;
-// 为顶点申请内存空间的中间指针变量 
-Node *point = NULL; 
-int i, j;
-printf("输入图的顶点数和边数：");
-scanf("%d %d", &amp;nodeSum, &amp;edgeSum);
-if(nodeSum &lt;= 0) {
-	return 0;
-}
-// 为邻接表中每一个顶点所在单链表的头结点申请空间 
-for(i = 1; i &lt;= nodeSum; i++) {
-	node[i] = (Node *) malloc(sizeof(Node));
-	node[i]-&gt;number = 0;
-	node[i]-&gt;next = NULL;
-} 
-for(i = 1; i &lt;= edgeSum; i++) {
-	printf("输入第 %d 条边的开始顶点编号和结束定点编号：", i);
-	scanf("%d %d", &amp;start, &amp;end);
-	// 因为是无向图，所以每一条无向边可以看成双向的有向边 
-	graph[start][end] = graph[end][start] = 1;
+        int main() {
+        // 图的顶点数和边数
+        int nodeSum, edgeSum;
+        // 边的开始顶点编号和结束顶点编号
+        int start, end;
+        // 为顶点申请内存空间的中间指针变量
+        Node *point = NULL;
+        int i, j;
+        printf("输入图的顶点数和边数：");
+        scanf("%d %d", &amp;nodeSum, &amp;edgeSum);
+        if(nodeSum &lt;= 0) {
+        return 0;
+        }
+        // 为邻接表中每一个顶点所在单链表的头结点申请空间
+        for(i = 1; i &lt;= nodeSum; i++) {
+        node[i] = (Node *) malloc(sizeof(Node));
+        node[i]-&gt;number = 0;
+        node[i]-&gt;next = NULL;
+        }
+        for(i = 1; i &lt;= edgeSum; i++) {
+        printf("输入第 %d 条边的开始顶点编号和结束定点编号：", i);
+        scanf("%d %d", &amp;start, &amp;end);
+        // 因为是无向图，所以每一条无向边可以看成双向的有向边
+        graph[start][end] = graph[end][start] = 1;
 
-	/* 对邻接表进行操作：
-	 *为保存顶点信息的结构体指针申请空间
-	 */ 
-	point = (Node *) malloc(sizeof(Node));
-	point-&gt;number = end;
-	// 将编号为 end 的顶点插入到邻对应单链表的头结点后面 
-	point-&gt;next = node[start]-&gt;next;
-	node[start]-&gt;next = point;
-	// 和编号为 start 的顶点相连的顶点个数 +1  
-	node[start]-&gt;number++; 
-	
-	// 为保存顶点信息的结构体指针申请空间 
-	point = (Node *) malloc(sizeof(Node));
-	point-&gt;number = start;
-	// 将编号为 start 的顶点插入到邻对应单链表的头结点后面 
-	point-&gt;next = node[end]-&gt;next;
-	node[end]-&gt;next = point;
-	// 和编号为 end 的顶点相连的顶点个数 +1  
-	node[end]-&gt;number++; 
-}
-printf("图的邻接矩阵：\n"); 
-for(i = 1; i &lt;= nodeSum; i++) {
-	for(j = 1; j &lt;= nodeSum; j++) {
-		printf("%d ", graph[i][j]);
-	}
-	printf("\n");
-}
-printf("图的邻接表：\n"); 
-for(i = 1; i &lt;= nodeSum; i++) {
-	point = node[i];
-	printf("和顶点 %d 连接的顶点数：%d，其单链表为：%d", i, point-&gt;number, i);
-	point = point-&gt;next;
-	while(point != NULL) {
-		printf(" --&gt; %d", point-&gt;number);
-		point = point-&gt;next;
-	}
-	printf("\n");
-} 
+        /* 对邻接表进行操作：
+        *为保存顶点信息的结构体指针申请空间
+        */
+        point = (Node *) malloc(sizeof(Node));
+        point-&gt;number = end;
+        // 将编号为 end 的顶点插入到邻对应单链表的头结点后面
+        point-&gt;next = node[start]-&gt;next;
+        node[start]-&gt;next = point;
+        // 和编号为 start 的顶点相连的顶点个数 +1
+        node[start]-&gt;number++;
 
-printf("通过邻接矩阵来广度优先遍历图的顶点：\n"); 
-// 从顶点1 开始遍历图 
-bfsMatrix(1, nodeSum); 
-// 将顶点的访问标记初始化用于进行邻接表的深度优先遍历 
-memset(visit, 0, sizeof(visit));
-printf("\n通过邻接表来广度优先遍历图的顶点：\n"); 
-// 从顶点1 开始遍历图
-bfsList(1, nodeSum);
+        // 为保存顶点信息的结构体指针申请空间
+        point = (Node *) malloc(sizeof(Node));
+        point-&gt;number = start;
+        // 将编号为 start 的顶点插入到邻对应单链表的头结点后面
+        point-&gt;next = node[end]-&gt;next;
+        node[end]-&gt;next = point;
+        // 和编号为 end 的顶点相连的顶点个数 +1
+        node[end]-&gt;number++;
+        }
+        printf("图的邻接矩阵：\n");
+        for(i = 1; i &lt;= nodeSum; i++) {
+        for(j = 1; j &lt;= nodeSum; j++) {
+        printf("%d ", graph[i][j]);
+        }
+        printf("\n");
+        }
+        printf("图的邻接表：\n");
+        for(i = 1; i &lt;= nodeSum; i++) {
+        point = node[i];
+        printf("和顶点 %d 连接的顶点数：%d，其单链表为：%d", i, point-&gt;number, i);
+        point = point-&gt;next;
+        while(point != NULL) {
+        printf(" --&gt; %d", point-&gt;number);
+        point = point-&gt;next;
+        }
+        printf("\n");
+        }
 
-return 0;
-}
+        printf("通过邻接矩阵来广度优先遍历图的顶点：\n");
+        // 从顶点1 开始遍历图
+        bfsMatrix(1, nodeSum);
+        // 将顶点的访问标记初始化用于进行邻接表的深度优先遍历
+        memset(visit, 0, sizeof(visit));
+        printf("\n通过邻接表来广度优先遍历图的顶点：\n");
+        // 从顶点1 开始遍历图
+        bfsList(1, nodeSum);
 
-	</code>
-	<text>
-依然以上图中无向无权图作为数据源，看看程序运行结果：
-	</text>
-	<img>
-tu_7.png
-	</img>
+        return 0;
+        }
+
+    </code>
+    <text>
+        依然以上图中无向无权图作为数据源，看看程序运行结果：
+    </text>
+    <img>
+        tu_7.png
+    </img>
 </contents>

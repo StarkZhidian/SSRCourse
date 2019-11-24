@@ -1,1 +1,81 @@
-{"contentList": [{"basicData":{"text":"\n前面我们介绍了元素之间具有线性关系的线性结构和元素之间具有层次关系的树结构，\n但是生活中还有很多其他的结构需要表示，比如：错综复杂的地图：地图中的地点之间的道路可以是任意的，\n也就是说将地图中的地名看成节点，道路看成边，那么每一个节点都可能和任意一个其他的节点有联系。\n\n这个时候我们即不能用线性结构来表示，也不能用树结构来表示，那么这里就需要用到一种新的数据结构：图(Graph)。\n\n图是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为G(V,E)，其中，\nG表示一个图，V是图G中顶点的集合，E是图G中边的集合。\n\n对于图来说，有有向图和无向图之分，无边图：图中所有顶点之间的边都没有方向。\n\n那么有向图就是顶点之间的每一条边都有方向。\n下面是有向图和无向图的结构图：\n\t"},"contentType":0},{"basicData":{"image_url":"tu_1.png"},"contentType":1},{"basicData":{"text":"\n下面是图中的一些基本术语：\n有向边：假设顶点i 和顶点 j有边相连，如果这条边是没有方向的，那么其为有向边，写为<a, b>(方向为a->b)\n无向边：假设顶点i 和顶点 j有边相连，如果这条边是没有方向的，那么其为无向边，写为(a,b)，\n在某个方面来看，一条无向边(a, b)可以看做两条有向边：<a, b> 和 <b, a>\n有向边也称为弧；\n开始顶点称为弧尾，结束顶点称为弧头；\n\n完全无向图：若有n个顶点的无向图有n(n-1)/2 条边, 则此图为完全无向图。\n\n完全有向图：有n个顶点的有向图有n(n-1)条边, 则此图为完全有向图。\n\n邻接点：假设顶点a 和顶点b 之间有边相连，那么 a b 顶点互称为邻接点。\n\n稀疏图：边相对于顶点来说很少的图(一般少于 nlog(n) 的图，n为图的顶点数)；\n\n稠密图：边很多的图(一般大于 nlog(n) 的图，n为图的顶点数)；\n\n权重：图中的边可能会带有一个权重，为了区分边的长短；\n\n有权图：图中连接顶点的每条边有代表一定意义的数值\n网：边带有权重的图；\n\n度：与特定顶点相连接的边数；\n\n出度、入度：对于有向图的概念，出度表示此顶点为起点的边的数目，入度表示此顶点为终点的边的数目；\n\n连通图：如果对于图中任意两个顶点都是连通的，那么它就是连通图；\n\n极大连通子图：包含竟可能多的顶点(必须是连通的)，\n即找不到另外一个顶点，使得此顶点能够连接到此极大连通子图的任意一个顶点；\n\n连通分量：极大连通子图的数量；\n\n强连通图：此为有向图的概念，表示任意两个顶点a，b，使得a能够连接到b，b也能连接到a 的图；\n\n生成树：包括了图中的 n 个顶点，n-1 条边，并且保证 n 个顶点相互连通(即不存在环)；\n\n最小生成树：此图的生成树中的边的权重之和是所有生成树中最小的(对于有权图而言)；\n\n\t"},"contentType":0},{"basicData":{"text":"\n怎么去保存一个图呢？对于图的储存，我们可以采用邻接矩阵和邻接表的形式。\n\n怎么邻接矩阵去表示一个图呢，假设一个图有 n 个顶点，我们可以建立一个 n*n 的二维数组(a[n][n])，\n如果从顶点i(Vi)到顶点j(Vj)之间有边相连，那么a[i][j] = 1，否则为 0 。\n这样就实现了使用邻接矩阵表示图。\n\n使用邻接表储存图，对于图的每个顶点，我们可以使用单链表的形式来保存和这个顶点相连的其他顶点的信息，\n假设现在要对图的第一个顶点的信息进行储存，我们可以将储存这个顶点信息的链表节点作为单链表的头结点，然后将储存其它和这个顶点相连的顶点的链表节点插入到头结点后面，类似于通过后插法创建单链表。\n如果想了解更多的关于单链表的信息，\n请参考\"单向链表\"部分内容。\n如果一个图有 n 个顶点，那么我们需要创建 n 个单链表来储存这 n 个顶点的信息，\n一个方法是创建一个大小为 n 的数组指针来储存 n 个顶点的链表头节点。\n\n以上图中的无向图为例，下面给出无权无向图和有权无向图的邻接矩阵和邻接表的结构图：\n关于图的邻接矩阵和邻接表的创建，请参考\"动画\"和\"代码\"部分。\n\n\t"},"contentType":0},{"basicData":{"image_url":"tu_2.png"},"contentType":1},{"basicData":{"image_url":"tu_3.png"},"contentType":1},{"basicData":{"code":"\n\n/**\n* 实现无权无向图的临接矩阵和邻接表储存\n* Author：指点\n*/\n#include <stdio.h>\n#include <stdlib.h> \n// 表示图的顶点最大数\n#define MAX_NODE_SUM 1000\n// 储存图信息的临接矩阵\nint graph[MAX_NODE_SUM][MAX_NODE_SUM];\n\n// 储存图顶点信息的结构体：顶点编号(number)、指向和链表头结点代表的顶点相连的下一个顶点的指针(next)\ntypedef struct Node {\nint number;\nstruct Node *next;\n}Node; \n// 储存图的邻接表中单链表头结点的指针数组 \nNode *node[MAX_NODE_SUM] = {NULL};\n\n\nint main() {\n// 图的顶点数和边数\nint nodeSum, edgeSum;\n// 边的开始顶点编号和结束顶点编号\nint start, end;\n// 为顶点申请内存空间的中间指针变量 \nNode *point = NULL; \nint i, j;\nprintf(\"输入图的顶点数和边数：\");\nscanf(\"%d %d\", &nodeSum, &edgeSum);\nif(nodeSum <= 0) {\n\treturn 0;\n}\n// 为邻接表中每一个顶点所在单链表的头结点申请空间 \nfor(i = 1; i <= nodeSum; i++) {\n\tnode[i] = (Node *) malloc(sizeof(Node));\n\tnode[i]->number = 0;\n\tnode[i]->next = NULL;\n} \nfor(i = 1; i <= edgeSum; i++) {\n\tprintf(\"输入第 %d 条边的开始顶点编号和结束定点编号：\", i);\n\tscanf(\"%d %d\", &start, &end);\n\t// 因为是无向图，所以每一条无向边可以看成双向的有向边 \n\tgraph[start][end] = graph[end][start] = 1;\n\n\t/* 对邻接表进行操作：\n\t * 为保存顶点信息的结构体指针申请空间\n\t */ \n\tpoint = (Node *) malloc(sizeof(Node));\n\tpoint->number = end;\n\t// 将编号为 end 的顶点插入到邻对应单链表的头结点后面 \n\tpoint->next = node[start]->next;\n\tnode[start]->next = point;\n\t// 和编号为 start 的顶点相连的顶点个数 +1  \n\tnode[start]->number++; \n\t\n\t// 为保存顶点信息的结构体指针申请空间 \n\tpoint = (Node *) malloc(sizeof(Node));\n\tpoint->number = start;\n\t// 将编号为 start 的顶点插入到邻对应单链表的头结点后面 \n\tpoint->next = node[end]->next;\n\tnode[end]->next = point;\n\t// 和编号为 end 的顶点相连的顶点个数 +1  \n\tnode[end]->number++; \n}\n\nprintf(\"图的邻接矩阵：\\n\"); \nfor(i = 1; i <= nodeSum; i++) {\n\tfor(j = 1; j <= nodeSum; j++) {\n\t\tprintf(\"%d \", graph[i][j]);\n\t}\n\tprintf(\"\\n\");\n}\n\nprintf(\"图的邻接表：\\n\"); \nfor(i = 1; i <= nodeSum; i++) {\n\tpoint = node[i];\n\tprintf(\"和顶点 %d 连接的顶点数：%d，其单链表为：%d\", i, point->number, i);\n\tpoint = point->next;\n\twhile(point != NULL) {\n\t\tprintf(\" --> %d\", point->number);\n\t\tpoint = point->next;\n\t}\n\tprintf(\"\\n\");\n} \n\nreturn 0;\n}\n\n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n上面实现的是无向无权图的邻接矩阵和邻接表储存，\n以上图中给到的无向图作为数据来源(顶点A B C D 分别代表编号为 1 2 3 4 的顶点)，\n对于有权图，我们先得给两个没有边相连的顶点之间的权值设定为一个极大值(代表上图有权图中邻接矩阵中的∞)。\n\n然后再对邻接矩阵进行赋值，而关于邻接表，可以在表示顶点信息的结构体中加一个变量表示其和链表头结点代表的顶点之间的边的权值：\n\t"},"contentType":0},{"basicData":{"code":"\n/* 表示图的顶点信息的结构体：顶点编号(number)，\n* 其和单链表头结点代表的顶点之间的边的权值(weight)，指向和链表头结点代表的顶点相连的下一个顶点的指针(next)\n*/\ntypedef struct Node {\nint number;\nint weight;\nstruct Node *next;\n};\n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n最后是上面程序的运行结果：\n\t"},"contentType":0},{"basicData":{"image_url":"tu_4.png"},"contentType":1}]}
+[
+  {
+    "basicData": {
+      "text": "\n前面我们介绍了元素之间具有线性关系的线性结构和元素之间具有层次关系的树结构，\n但是生活中还有很多其他的结构需要表示，比如：错综复杂的地图：地图中的地点之间的道路可以是任意的，\n也就是说将地图中的地名看成节点，道路看成边，那么每一个节点都可能和任意一个其他的节点有联系。\n\n这个时候我们即不能用线性结构来表示，也不能用树结构来表示，那么这里就需要用到一种新的数据结构：图(Graph)。\n\n图是由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为G(V,E)，其中，\nG表示一个图，V是图G中顶点的集合，E是图G中边的集合。\n\n对于图来说，有有向图和无向图之分，无边图：图中所有顶点之间的边都没有方向。\n\n那么有向图就是顶点之间的每一条边都有方向。\n下面是有向图和无向图的结构图：\n\t",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "tu_1.png",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n下面是图中的一些基本术语：\n有向边：假设顶点i 和顶点 j有边相连，如果这条边是没有方向的，那么其为有向边，写为<a, b>(方向为a->b)\n无向边：假设顶点i 和顶点 j有边相连，如果这条边是没有方向的，那么其为无向边，写为(a,b)，\n在某个方面来看，一条无向边(a, b)可以看做两条有向边：<a, b> 和 <b, a>\n有向边也称为弧；\n开始顶点称为弧尾，结束顶点称为弧头；\n\n完全无向图：若有n个顶点的无向图有n(n-1)/2 条边, 则此图为完全无向图。\n\n完全有向图：有n个顶点的有向图有n(n-1)条边, 则此图为完全有向图。\n\n邻接点：假设顶点a 和顶点b 之间有边相连，那么 a b 顶点互称为邻接点。\n\n稀疏图：边相对于顶点来说很少的图(一般少于 nlog(n) 的图，n为图的顶点数)；\n\n稠密图：边很多的图(一般大于 nlog(n) 的图，n为图的顶点数)；\n\n权重：图中的边可能会带有一个权重，为了区分边的长短；\n\n有权图：图中连接顶点的每条边有代表一定意义的数值\n网：边带有权重的图；\n\n度：与特定顶点相连接的边数；\n\n出度、入度：对于有向图的概念，出度表示此顶点为起点的边的数目，入度表示此顶点为终点的边的数目；\n\n连通图：如果对于图中任意两个顶点都是连通的，那么它就是连通图；\n\n极大连通子图：包含竟可能多的顶点(必须是连通的)，\n即找不到另外一个顶点，使得此顶点能够连接到此极大连通子图的任意一个顶点；\n\n连通分量：极大连通子图的数量；\n\n强连通图：此为有向图的概念，表示任意两个顶点a，b，使得a能够连接到b，b也能连接到a 的图；\n\n生成树：包括了图中的 n 个顶点，n-1 条边，并且保证 n 个顶点相互连通(即不存在环)；\n\n最小生成树：此图的生成树中的边的权重之和是所有生成树中最小的(对于有权图而言)；\n\n\t",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "text": "\n怎么去保存一个图呢？对于图的储存，我们可以采用邻接矩阵和邻接表的形式。\n\n怎么邻接矩阵去表示一个图呢，假设一个图有 n 个顶点，我们可以建立一个 n*n 的二维数组(a[n][n])，\n如果从顶点i(Vi)到顶点j(Vj)之间有边相连，那么a[i][j] = 1，否则为 0 。\n这样就实现了使用邻接矩阵表示图。\n\n使用邻接表储存图，对于图的每个顶点，我们可以使用单链表的形式来保存和这个顶点相连的其他顶点的信息，\n假设现在要对图的第一个顶点的信息进行储存，我们可以将储存这个顶点信息的链表节点作为单链表的头结点，然后将储存其它和这个顶点相连的顶点的链表节点插入到头结点后面，类似于通过后插法创建单链表。\n如果想了解更多的关于单链表的信息，\n请参考\"单向链表\"部分内容。\n如果一个图有 n 个顶点，那么我们需要创建 n 个单链表来储存这 n 个顶点的信息，\n一个方法是创建一个大小为 n 的数组指针来储存 n 个顶点的链表头节点。\n\n以上图中的无向图为例，下面给出无权无向图和有权无向图的邻接矩阵和邻接表的结构图：\n关于图的邻接矩阵和邻接表的创建，请参考\"动画\"和\"代码\"部分。\n\n\t",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "tu_2.png",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "image_url": "tu_3.png",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "code": "\n\n/**\n* 实现无权无向图的临接矩阵和邻接表储存\n* Author：指点\n*/\n#include <stdio.h>\n#include <stdlib.h> \n// 表示图的顶点最大数\n#define MAX_NODE_SUM 1000\n// 储存图信息的临接矩阵\nint graph[MAX_NODE_SUM][MAX_NODE_SUM];\n\n// 储存图顶点信息的结构体：顶点编号(number)、指向和链表头结点代表的顶点相连的下一个顶点的指针(next)\ntypedef struct Node {\nint number;\nstruct Node *next;\n}Node; \n// 储存图的邻接表中单链表头结点的指针数组 \nNode *node[MAX_NODE_SUM] = {NULL};\n\n\nint main() {\n// 图的顶点数和边数\nint nodeSum, edgeSum;\n// 边的开始顶点编号和结束顶点编号\nint start, end;\n// 为顶点申请内存空间的中间指针变量 \nNode *point = NULL; \nint i, j;\nprintf(\"输入图的顶点数和边数：\");\nscanf(\"%d %d\", &nodeSum, &edgeSum);\nif(nodeSum <= 0) {\n\treturn 0;\n}\n// 为邻接表中每一个顶点所在单链表的头结点申请空间 \nfor(i = 1; i <= nodeSum; i++) {\n\tnode[i] = (Node *) malloc(sizeof(Node));\n\tnode[i]->number = 0;\n\tnode[i]->next = NULL;\n} \nfor(i = 1; i <= edgeSum; i++) {\n\tprintf(\"输入第 %d 条边的开始顶点编号和结束定点编号：\", i);\n\tscanf(\"%d %d\", &start, &end);\n\t// 因为是无向图，所以每一条无向边可以看成双向的有向边 \n\tgraph[start][end] = graph[end][start] = 1;\n\n\t/* 对邻接表进行操作：\n\t * 为保存顶点信息的结构体指针申请空间\n\t */ \n\tpoint = (Node *) malloc(sizeof(Node));\n\tpoint->number = end;\n\t// 将编号为 end 的顶点插入到邻对应单链表的头结点后面 \n\tpoint->next = node[start]->next;\n\tnode[start]->next = point;\n\t// 和编号为 start 的顶点相连的顶点个数 +1  \n\tnode[start]->number++; \n\t\n\t// 为保存顶点信息的结构体指针申请空间 \n\tpoint = (Node *) malloc(sizeof(Node));\n\tpoint->number = start;\n\t// 将编号为 start 的顶点插入到邻对应单链表的头结点后面 \n\tpoint->next = node[end]->next;\n\tnode[end]->next = point;\n\t// 和编号为 end 的顶点相连的顶点个数 +1  \n\tnode[end]->number++; \n}\n\nprintf(\"图的邻接矩阵：\\n\"); \nfor(i = 1; i <= nodeSum; i++) {\n\tfor(j = 1; j <= nodeSum; j++) {\n\t\tprintf(\"%d \", graph[i][j]);\n\t}\n\tprintf(\"\\n\");\n}\n\nprintf(\"图的邻接表：\\n\"); \nfor(i = 1; i <= nodeSum; i++) {\n\tpoint = node[i];\n\tprintf(\"和顶点 %d 连接的顶点数：%d，其单链表为：%d\", i, point->number, i);\n\tpoint = point->next;\n\twhile(point != NULL) {\n\t\tprintf(\" --> %d\", point->number);\n\t\tpoint = point->next;\n\t}\n\tprintf(\"\\n\");\n} \n\nreturn 0;\n}\n\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n上面实现的是无向无权图的邻接矩阵和邻接表储存，\n以上图中给到的无向图作为数据来源(顶点A B C D 分别代表编号为 1 2 3 4 的顶点)，\n对于有权图，我们先得给两个没有边相连的顶点之间的权值设定为一个极大值(代表上图有权图中邻接矩阵中的∞)。\n\n然后再对邻接矩阵进行赋值，而关于邻接表，可以在表示顶点信息的结构体中加一个变量表示其和链表头结点代表的顶点之间的边的权值：\n\t",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n/* 表示图的顶点信息的结构体：顶点编号(number)，\n* 其和单链表头结点代表的顶点之间的边的权值(weight)，指向和链表头结点代表的顶点相连的下一个顶点的指针(next)\n*/\ntypedef struct Node {\nint number;\nint weight;\nstruct Node *next;\n};\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n最后是上面程序的运行结果：\n\t",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "tu_4.png",
+      "parent_dir_path": "datastruct/图"
+    },
+    "contentType": 1
+  }
+]

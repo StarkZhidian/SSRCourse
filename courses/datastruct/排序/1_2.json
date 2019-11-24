@@ -1,1 +1,46 @@
-{"contentList": [{"basicData":{"text":"\n其实希尔排序算是直接插入排序的一种变形和改进，只是直接插入排序是按顺序一个个（元素间隔为 1）比较寻找对应插入位置。\n\n而希尔排序是通过间隔某个数字(这里假设为 g )来进行两个数字之间的比较，\n随着 g 的变小，希尔排序渐渐完成，当 g 等于 1 的时候，它就是直接插入排序。\n\n\n举个例子：还是拿 3 1 2 4 5 这 5 个数字来从小到大排序，用直接插入排序我们从下标为 1 的元素开始对其进行排序，这里即为元素  1 ，并且之后是下标逐渐加 1 并且对后面的元素进行插入排序。\n\n如果是采用希尔排序的话，就可能不是从下标为 1 的元素开始排序了(可能是 2 、3 ...)，我们用数字 g 来表示这个数字，下标移动也变成了每次移动 g。\n\n这里假设 g 为 2，那么接下我们就是对元素 2 进行插入排序，向前 2 个下标的元素为 3 ，并且元素 3 的下标为 0，\n\n于是我们把元素 3 复制到元素 2 的位置，并且把元素 2 插入到元素 3 的位置，即为下标为 0 的位置。\n此时的数组元素变成了：2 1 3 4 5，之后我们对下标为 4(下标加 2) 的元素进行排序，先和下标为 2 的元素进行比较，明显 3 小于 5。那么元素 5 就不需要移动了，此时 g 为 2 的插入排序已经完成了，当前数组元素为：2 1 3 4 5。\n\n\n在经过了 g 为 2 的插入排序之后数组元素还不是有序的，我们还需要进行 g 为 1 的插入排序，即为直接插入排序。\n\n事实上，无论一开始你的 g 选择哪个值，到最后 g 为 1 的插入排序是一定要进行的，\n不然的话排序之后数组元素不一定完全有序（请注意，是不一定是完全有序的），至于原因请小伙伴们自行思考。\n\n\n这个排序过程可以用以下代码表示：\n\t"},"contentType":0},{"basicData":{"code":"\n// 进行间隔为 g 的插入排序\nvoid insertSort(int a[], int n, int g) { \nint i, j, v;\nfor(i = g; i < n; i += g) {\n    j = i-g;\n    v = a[i];\n    while(j >= 0 && a[j] > v) { \n        a[j+g] = a[j];\n        j -= g;\n    }\n    a[j+g] = v;\n}\n}\n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n希尔排序可以用一句话来阐述：不断进行间隔为 g 的直接插入排序，g 由大变小，直到最后为 1 。\n关于希尔排序的实现可以参考 \"代码\" 部分。\n\t"},"contentType":0},{"basicData":{"code":"\n\n/**\n* C语言实现希尔排序\n* Author：指点\n*/\n#include <stdio.h>\n#define N 100\nint array[N];\n// 储存间隔的数组 \nint g[N];\n\n// 进行间隔为 g 的插入排序 \nvoid insertSort(int a[], int n, int g) {\nint i, j, v;\nfor(i = g; i < n; i += g) {\n\tv = a[i];\n\tj = i-g;\n\twhile(j >= 0 && a[j] > v) {\n\t\ta[j+g] = a[j];\n\t\tj -= g;\n\t}\n\ta[j+g] = v;\n}\n}\n\n// 希尔排序 \nvoid shellSort(int a[], int n) {\nint i;\n/* 获取 G 数组，大量实验发现当间隔递推方法为 G(n+1) = G(n)*3+1 时， \n 希尔排序时间复杂度最小约为 O(N^1.25) */\ng[0] = 1;\nfor(i = 1; i < n; i++) {\n\tg[i] = 3*g[i-1]+1;\n}\n// 循环进行间隔为 g[i] 的插入排序，当 g[i] 为 1 时，就是直接插入排序 \nfor(i = n-1; i >= 0; i--) {\n\tinsertSort(a, n, g[i]);\n} \n}\n\n// 打印出数组信息\nvoid print(int a[], int n) {\nint i;\nfor(i = 0; i < n; i++) {\n\tprintf(\"%d \", a[i]);\n}\nprintf(\"\\n\");\n}\n\nint main() {\nint i, n;\nprintf(\"输入数组元素的个数(1~100): \");\nscanf(\"%d\", &n);\nprintf(\"输入%d个数组元素：\\n\", n);\nfor(i = 0; i < n; i++) {\n\tscanf(\"%d\", array+i);\n}\nprintf(\"排序之前的数组元素：\\n\");\nprint(array, n);\nshellSort(array, n);\nprintf(\"排序之后的数组元素：\\n\");\nprint(array, n);\n\nreturn 0;\n} \n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n希尔排序的时间复杂度和 g 数组的选取有关，但是会比直接插入排序快，上面代码中用的是 G(n+1) = 3*G(n)+1，来获取 g 数组，据说这是最快的，平均时间复杂度为 O(n^1.25)。\n\n关于这点，小伙伴们可以看一下《挑战程序设计竞赛2-算法和数据结构》P55。\n\n\n因为借助了一个 g 数组，所以其空间复杂度为 O(n)。\n\n最后看一下程序的运行结果：\n\t"},"contentType":0},{"basicData":{"image_url":"希尔排序_1.png"},"contentType":1}]}
+[
+  {
+    "basicData": {
+      "text": "\n其实希尔排序算是直接插入排序的一种变形和改进，只是直接插入排序是按顺序一个个（元素间隔为 1）比较寻找对应插入位置。\n\n而希尔排序是通过间隔某个数字(这里假设为 g )来进行两个数字之间的比较，\n随着 g 的变小，希尔排序渐渐完成，当 g 等于 1 的时候，它就是直接插入排序。\n\n\n举个例子：还是拿 3 1 2 4 5 这 5 个数字来从小到大排序，用直接插入排序我们从下标为 1 的元素开始对其进行排序，这里即为元素  1 ，并且之后是下标逐渐加 1 并且对后面的元素进行插入排序。\n\n如果是采用希尔排序的话，就可能不是从下标为 1 的元素开始排序了(可能是 2 、3 ...)，我们用数字 g 来表示这个数字，下标移动也变成了每次移动 g。\n\n这里假设 g 为 2，那么接下我们就是对元素 2 进行插入排序，向前 2 个下标的元素为 3 ，并且元素 3 的下标为 0，\n\n于是我们把元素 3 复制到元素 2 的位置，并且把元素 2 插入到元素 3 的位置，即为下标为 0 的位置。\n此时的数组元素变成了：2 1 3 4 5，之后我们对下标为 4(下标加 2) 的元素进行排序，先和下标为 2 的元素进行比较，明显 3 小于 5。那么元素 5 就不需要移动了，此时 g 为 2 的插入排序已经完成了，当前数组元素为：2 1 3 4 5。\n\n\n在经过了 g 为 2 的插入排序之后数组元素还不是有序的，我们还需要进行 g 为 1 的插入排序，即为直接插入排序。\n\n事实上，无论一开始你的 g 选择哪个值，到最后 g 为 1 的插入排序是一定要进行的，\n不然的话排序之后数组元素不一定完全有序（请注意，是不一定是完全有序的），至于原因请小伙伴们自行思考。\n\n\n这个排序过程可以用以下代码表示：\n\t",
+      "parent_dir_path": "datastruct/排序"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n// 进行间隔为 g 的插入排序\nvoid insertSort(int a[], int n, int g) { \nint i, j, v;\nfor(i = g; i < n; i += g) {\n    j = i-g;\n    v = a[i];\n    while(j >= 0 && a[j] > v) { \n        a[j+g] = a[j];\n        j -= g;\n    }\n    a[j+g] = v;\n}\n}\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/排序"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n希尔排序可以用一句话来阐述：不断进行间隔为 g 的直接插入排序，g 由大变小，直到最后为 1 。\n关于希尔排序的实现可以参考 \"代码\" 部分。\n\t",
+      "parent_dir_path": "datastruct/排序"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n\n/**\n* C语言实现希尔排序\n* Author：指点\n*/\n#include <stdio.h>\n#define N 100\nint array[N];\n// 储存间隔的数组 \nint g[N];\n\n// 进行间隔为 g 的插入排序 \nvoid insertSort(int a[], int n, int g) {\nint i, j, v;\nfor(i = g; i < n; i += g) {\n\tv = a[i];\n\tj = i-g;\n\twhile(j >= 0 && a[j] > v) {\n\t\ta[j+g] = a[j];\n\t\tj -= g;\n\t}\n\ta[j+g] = v;\n}\n}\n\n// 希尔排序 \nvoid shellSort(int a[], int n) {\nint i;\n/* 获取 G 数组，大量实验发现当间隔递推方法为 G(n+1) = G(n)*3+1 时， \n 希尔排序时间复杂度最小约为 O(N^1.25) */\ng[0] = 1;\nfor(i = 1; i < n; i++) {\n\tg[i] = 3*g[i-1]+1;\n}\n// 循环进行间隔为 g[i] 的插入排序，当 g[i] 为 1 时，就是直接插入排序 \nfor(i = n-1; i >= 0; i--) {\n\tinsertSort(a, n, g[i]);\n} \n}\n\n// 打印出数组信息\nvoid print(int a[], int n) {\nint i;\nfor(i = 0; i < n; i++) {\n\tprintf(\"%d \", a[i]);\n}\nprintf(\"\\n\");\n}\n\nint main() {\nint i, n;\nprintf(\"输入数组元素的个数(1~100): \");\nscanf(\"%d\", &n);\nprintf(\"输入%d个数组元素：\\n\", n);\nfor(i = 0; i < n; i++) {\n\tscanf(\"%d\", array+i);\n}\nprintf(\"排序之前的数组元素：\\n\");\nprint(array, n);\nshellSort(array, n);\nprintf(\"排序之后的数组元素：\\n\");\nprint(array, n);\n\nreturn 0;\n} \n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/排序"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n希尔排序的时间复杂度和 g 数组的选取有关，但是会比直接插入排序快，上面代码中用的是 G(n+1) = 3*G(n)+1，来获取 g 数组，据说这是最快的，平均时间复杂度为 O(n^1.25)。\n\n关于这点，小伙伴们可以看一下《挑战程序设计竞赛2-算法和数据结构》P55。\n\n\n因为借助了一个 g 数组，所以其空间复杂度为 O(n)。\n\n最后看一下程序的运行结果：\n\t",
+      "parent_dir_path": "datastruct/排序"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "希尔排序_1.png",
+      "parent_dir_path": "datastruct/排序"
+    },
+    "contentType": 1
+  }
+]

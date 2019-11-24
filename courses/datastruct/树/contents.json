@@ -1,21 +1,18 @@
-{
-  "chapterName": "树",
-  "subsectionInfoList": [
-    {
-      "subsectionFilePath": "1_1.xml",
-      "subsectionName": "树的简介"
-    },
-    {
-      "subsectionFilePath": "1_2.xml",
-      "subsectionName": "二叉树"
-    },
-    {
-      "subsectionFilePath": "1_3.xml",
-      "subsectionName": "二叉树搜索树"
-    },
-    {
-      "subsectionFilePath": "1_4.xml",
-      "subsectionName": "堆"
-    }
-  ]
-}
+[
+  {
+    "subsectionFileName": "1_1.json",
+    "subsectionName": "树的简介"
+  },
+  {
+    "subsectionFileName": "1_2.json",
+    "subsectionName": "二叉树"
+  },
+  {
+    "subsectionFileName": "1_3.json",
+    "subsectionName": "二叉树搜索树"
+  },
+  {
+    "subsectionFileName": "1_4.json",
+    "subsectionName": "堆"
+  }
+]

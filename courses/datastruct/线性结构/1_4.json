@@ -1,1 +1,59 @@
-{"contentList": [{"basicData":{"text":"\n和栈一样，队列是一种操作受限制的特殊的线性表，\n特殊之处在于它只允许在表的前端(队头)进行删除元素操作，\n而在表的后端(队尾)进行插入元素操作，因此队列的元素遵循\"先进先出\"的操作顺序。\n\n队列对元素的物理内存内存地址同样没有要求，所以们既可以用顺序表的形式实现队列(顺序队列)，\n也可以使用链表的形式实现队列(链队)。\n下面给出顺序队列的内存结构图：\n\t"},"contentType":0},{"basicData":{"image_url":"xianxingjiegou_20.png"},"contentType":1},{"basicData":{"text":"\n类似于栈，队列的基本操作有：创建队列、元素入队、元素出队、队列是否已空，\n关于操作部分，如果想了解更过，请参考\"动画\"和\"代码\"部分。\n\n\t"},"contentType":0},{"basicData":{"animation_name":"线性结构:队列"},"contentType":4},{"basicData":{"code":"\n/**\n* 创建队列并且实现其相关操作：\n* 创建队列、元素入队、元素出队、队列是否已空 \n* 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n* Author：指点 \n*/ \n#include <stdio.h>\n#include <stdlib.h>\n\n// 队列的储存元素最大值\nconst int MAX_SIZE = 1000;\n\n// 表示队列的结构体：队头指针、队尾指针、初始队头指针、队列元素最大数 \ntypedef struct Queue {\nint *front;\nint *rear;\n// 定义指针指向队列头指针的初始位置，用于判断队列是否已满 \nint *initFront;\nint queueSize;\n}Queue;\n\n// 创建队列对象\nQueue que;\n\n// 创建队列操作 \nvoid createQueue() {\n// 动态申请数组内存空间 \nque.front = (int *) malloc(MAX_SIZE*sizeof(int));\n// 三个指针初始化，都指向队头，此时队列为空 \nque.rear = que.initFront = que.front;\nque.queueSize = MAX_SIZE;\n}\n\n// 新元素入队操作 \nvoid push(int n) {\n/* 检查队列是否还有剩余空间，因为 front 指针会随着出队操作而改变，\n * 所以不能直接通过 front 指针判断，防止假溢出。\n \n * 通过队尾指针和队列初始头指针之间的元素个数来进行判断，\n */ \nif(que.rear - que.initFront >= que.queueSize) {\n\tprintf(\"队列已满, 元素插入失败！\\n\"); \n\treturn ;\n}\n// 从队尾插入元素并且队尾指针加一 \n*que.rear = n;\nque.rear++;\nprintf(\"元素 %d 入队成功！\\n\", n);\n} \n\n// 判断队列是否为空，空：返回 1，非空：返回 0 \nint isEmpty() {\nreturn que.front == que.rear;\n} \n\n// 删除队头元素，但是不返回元素的值 \nvoid pop() {\n// 如果队列为空，那么直接返回 \nif(isEmpty()) {\n\tprintf(\"队列已空！\\n\");\n\treturn ;\n}\n// 移动队头指针 \nque.front++;\n}\n\n// 获取队头元素的值 \nint front() {\n// 如果队列已空，那么直接返回 \nif(isEmpty()) {\n\tprintf(\"队列已空！\\n\"); \n\treturn -1;\n}\n// 返回队头元素的值 \nreturn *que.front;\n}\n\nint main() {\n\n// 创建队列 \ncreateQueue();\n// 元素入队 \npush(1); \npush(2);\npush(3);\npush(4);\npush(5);\n// 当队列不为空的时候取出队头元素并且队头元素出栈 \nwhile(!isEmpty()) {\n\tprintf(\"当前队头元素值：%d\\n\", front());\n\tpop();\n}\n\n// 释放队列的内存空间\nfree(que.initFront);\n\nreturn 0;\n}\n\n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n操作和栈类似，在判断队列是否为已满这一块，直接利用 rear - front >= queueSize 判断，\n可能会出现溢出的现象，而如果通过 rear == front 判断，又可能会出现\"假溢出\"现象，\n所以在结构体里面新增了一个 initFront 指针用于指向队列初始头指针并且不会改变，\n判断的时候利用 rear - initFront >= queueSize 进行就可以了，\n这个和使用循环队列的 (rear+1) % queueSize == front 的原理是一样的。\n\n最后看一下程序运行的结果：\n\t"},"contentType":0},{"basicData":{"image_url":"xianxingjiegou_21.png"},"contentType":1},{"basicData":{"text":"\n1、尝试使用链表实现队列的基本操作\n\t"},"contentType":0}]}
+[
+  {
+    "basicData": {
+      "text": "\n和栈一样，队列是一种操作受限制的特殊的线性表，\n特殊之处在于它只允许在表的前端(队头)进行删除元素操作，\n而在表的后端(队尾)进行插入元素操作，因此队列的元素遵循\"先进先出\"的操作顺序。\n\n队列对元素的物理内存内存地址同样没有要求，所以们既可以用顺序表的形式实现队列(顺序队列)，\n也可以使用链表的形式实现队列(链队)。\n下面给出顺序队列的内存结构图：\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_20.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n类似于栈，队列的基本操作有：创建队列、元素入队、元素出队、队列是否已空，\n关于操作部分，如果想了解更过，请参考\"动画\"和\"代码\"部分。\n\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "animation_name": "线性结构:队列",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 4
+  },
+  {
+    "basicData": {
+      "code": "\n/**\n* 创建队列并且实现其相关操作：\n* 创建队列、元素入队、元素出队、队列是否已空 \n* 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n* Author：指点 \n*/ \n#include <stdio.h>\n#include <stdlib.h>\n\n// 队列的储存元素最大值\nconst int MAX_SIZE = 1000;\n\n// 表示队列的结构体：队头指针、队尾指针、初始队头指针、队列元素最大数 \ntypedef struct Queue {\nint *front;\nint *rear;\n// 定义指针指向队列头指针的初始位置，用于判断队列是否已满 \nint *initFront;\nint queueSize;\n}Queue;\n\n// 创建队列对象\nQueue que;\n\n// 创建队列操作 \nvoid createQueue() {\n// 动态申请数组内存空间 \nque.front = (int *) malloc(MAX_SIZE*sizeof(int));\n// 三个指针初始化，都指向队头，此时队列为空 \nque.rear = que.initFront = que.front;\nque.queueSize = MAX_SIZE;\n}\n\n// 新元素入队操作 \nvoid push(int n) {\n/* 检查队列是否还有剩余空间，因为 front 指针会随着出队操作而改变，\n * 所以不能直接通过 front 指针判断，防止假溢出。\n \n * 通过队尾指针和队列初始头指针之间的元素个数来进行判断，\n */ \nif(que.rear - que.initFront >= que.queueSize) {\n\tprintf(\"队列已满, 元素插入失败！\\n\"); \n\treturn ;\n}\n// 从队尾插入元素并且队尾指针加一 \n*que.rear = n;\nque.rear++;\nprintf(\"元素 %d 入队成功！\\n\", n);\n} \n\n// 判断队列是否为空，空：返回 1，非空：返回 0 \nint isEmpty() {\nreturn que.front == que.rear;\n} \n\n// 删除队头元素，但是不返回元素的值 \nvoid pop() {\n// 如果队列为空，那么直接返回 \nif(isEmpty()) {\n\tprintf(\"队列已空！\\n\");\n\treturn ;\n}\n// 移动队头指针 \nque.front++;\n}\n\n// 获取队头元素的值 \nint front() {\n// 如果队列已空，那么直接返回 \nif(isEmpty()) {\n\tprintf(\"队列已空！\\n\"); \n\treturn -1;\n}\n// 返回队头元素的值 \nreturn *que.front;\n}\n\nint main() {\n\n// 创建队列 \ncreateQueue();\n// 元素入队 \npush(1); \npush(2);\npush(3);\npush(4);\npush(5);\n// 当队列不为空的时候取出队头元素并且队头元素出栈 \nwhile(!isEmpty()) {\n\tprintf(\"当前队头元素值：%d\\n\", front());\n\tpop();\n}\n\n// 释放队列的内存空间\nfree(que.initFront);\n\nreturn 0;\n}\n\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n操作和栈类似，在判断队列是否为已满这一块，直接利用 rear - front >= queueSize 判断，\n可能会出现溢出的现象，而如果通过 rear == front 判断，又可能会出现\"假溢出\"现象，\n所以在结构体里面新增了一个 initFront 指针用于指向队列初始头指针并且不会改变，\n判断的时候利用 rear - initFront >= queueSize 进行就可以了，\n这个和使用循环队列的 (rear+1) % queueSize == front 的原理是一样的。\n\n最后看一下程序运行的结果：\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_21.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n1、尝试使用链表实现队列的基本操作\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  }
+]

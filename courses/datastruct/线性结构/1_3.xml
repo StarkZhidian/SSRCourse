@@ -1,133 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contents>
-	<text>
-栈(stack)又名堆栈，它是一种运算受限的线性表。"换行"
-其限制是仅允许在表的一端进行插入和删除运算。"换行"这一端被称为"栈顶"，
-相对地，把另一端称为"栈底"。"换行"向一个栈插入新元素称作进栈(入栈、压栈)，
-它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；
-从一个栈删除栈顶元素称为出栈，它是把栈顶元素删除掉，
-原栈顶的下一个元素作为新的栈顶。"换行"由于栈结构的这种运算特性，
-其里面元素的出栈顺序为"后进先出"，也可以将其称为后进先出的线性表。"换行"
-下面是栈结构的内存结构图：
-	</text>
-	<img filepath="xianxingjiegou_18.png">
-	</img>
-	<text>
-上图基本上已经包含了栈结构的一些操作：元素进栈、出栈、访问栈顶元素，
-这种操作类似于洗盘子：洗干净的盘子总是向上叠，而用的时候却是从上向下取。"换行"
-当然我们可以外加一些对栈结构的其他操作使得栈更易于被使用，
-但是我们外加的操作不能违背栈的本身特性，不然就不叫栈了。"换行"
-比如说我们不能给其加上访问中间元素的操作，否则就成普通的线性表了。"换行"
-因为栈对元素的物理内存地址是否相邻没有要求，
-所以我们在实现栈的时候有两种选择：顺序栈和链栈，
-顺序栈和顺序表类似，通过数组来储存元素，元素物理内存地址连续，
-遍历栈的时候从栈顶开始，不断读取和弹出栈顶元素，直到栈为空，完成遍历。"换行"
-链栈和单链表类似，以"节点指针"的形式储存元素，每一个节点有一个 next 指针，
-指向下一个节点的物理内存地址，遍历的时候读取栈顶元素指针，
-之后将栈顶元素指针向下移动，重复这个过程，直到到达栈底指针，
-其实和遍历单链表的思想是一样的。"换行"因为顺序栈实现起来比链栈简单，
-所以除非有特殊要求，否则我们一般都是使用顺序栈。"换行"
-对于栈的相关操作，请参考"动画演示"和"代码实现"部分。"换行"
-	</text>
-<animation html_path="" animation_name="线性结构:栈">
-</animation>
-	<code>
+    <text>
+        栈(stack)又名堆栈，它是一种运算受限的线性表。"换行"
+        其限制是仅允许在表的一端进行插入和删除运算。"换行"这一端被称为"栈顶"，
+        相对地，把另一端称为"栈底"。"换行"向一个栈插入新元素称作进栈(入栈、压栈)，
+        它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；
+        从一个栈删除栈顶元素称为出栈，它是把栈顶元素删除掉，
+        原栈顶的下一个元素作为新的栈顶。"换行"由于栈结构的这种运算特性，
+        其里面元素的出栈顺序为"后进先出"，也可以将其称为后进先出的线性表。"换行"
+        下面是栈结构的内存结构图：
+    </text>
+    <img filepath="xianxingjiegou_18.png"></img>
+    <text>
+        上图基本上已经包含了栈结构的一些操作：元素进栈、出栈、访问栈顶元素，
+        这种操作类似于洗盘子：洗干净的盘子总是向上叠，而用的时候却是从上向下取。"换行"
+        当然我们可以外加一些对栈结构的其他操作使得栈更易于被使用，
+        但是我们外加的操作不能违背栈的本身特性，不然就不叫栈了。"换行"
+        比如说我们不能给其加上访问中间元素的操作，否则就成普通的线性表了。"换行"
+        因为栈对元素的物理内存地址是否相邻没有要求，
+        所以我们在实现栈的时候有两种选择：顺序栈和链栈，
+        顺序栈和顺序表类似，通过数组来储存元素，元素物理内存地址连续，
+        遍历栈的时候从栈顶开始，不断读取和弹出栈顶元素，直到栈为空，完成遍历。"换行"
+        链栈和单链表类似，以"节点指针"的形式储存元素，每一个节点有一个 next 指针，
+        指向下一个节点的物理内存地址，遍历的时候读取栈顶元素指针，
+        之后将栈顶元素指针向下移动，重复这个过程，直到到达栈底指针，
+        其实和遍历单链表的思想是一样的。"换行"因为顺序栈实现起来比链栈简单，
+        所以除非有特殊要求，否则我们一般都是使用顺序栈。"换行"
+        对于栈的相关操作，请参考"动画演示"和"代码实现"部分。"换行"
+    </text>
+    <animation html_path="" animation_name="线性结构:栈"></animation>
+    <code>
 
-/**
-* 创建顺序栈并且实现其相关操作：
-* 进栈、出栈、访问栈顶元素、判断栈是否为空...
-* 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
-* Author：指点 
-*/ 
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+        /**
+        * 创建顺序栈并且实现其相关操作：
+        * 进栈、出栈、访问栈顶元素、判断栈是否为空...
+        * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
+        * Author：指点
+        */
+        #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt;
 
-// 栈能储存的元素的最大个数 
-const int MAX_SIZE = 1000; 
-// 创建表示栈的结构体：栈顶指针，栈底指针，栈的最大容量 
-typedef struct Stack {
-int *top;
-int *base; 
-int stackSize;
-}Stack;
+        // 栈能储存的元素的最大个数
+        const int MAX_SIZE = 1000;
+        // 创建表示栈的结构体：栈顶指针，栈底指针，栈的最大容量
+        typedef struct Stack {
+        int *top;
+        int *base;
+        int stackSize;
+        }Stack;
 
-// 创建全局变量表示一个栈 
-Stack stack;
+        // 创建全局变量表示一个栈
+        Stack stack;
 
-// 创建顺序栈 
-void createStack() {
-// 为栈动态申请数组内存空间 
-stack.base = (int *) malloc(MAX_SIZE*sizeof(int)); 
-stack.top = stack.base; 
-stack.stackSize = MAX_SIZE; 
-}
+        // 创建顺序栈
+        void createStack() {
+        // 为栈动态申请数组内存空间
+        stack.base = (int *) malloc(MAX_SIZE*sizeof(int));
+        stack.top = stack.base;
+        stack.stackSize = MAX_SIZE;
+        }
 
-// 元素入栈 
-void push(int n) {
-// 如果栈已满，那么直接返回 
-if(stack.top - stack.base &gt;= stack.stackSize) {
-	printf("栈已满，元素入栈失败！\n"); 
-	return ;
-}
-// 插入元素作为栈顶元素 
-*stack.top = n; 
-printf("元素 %d 入栈成功\n", n);
-// 栈顶指针+1 
-stack.top++; 
-}
+        // 元素入栈
+        void push(int n) {
+        // 如果栈已满，那么直接返回
+        if(stack.top - stack.base &gt;= stack.stackSize) {
+        printf("栈已满，元素入栈失败！\n");
+        return ;
+        }
+        // 插入元素作为栈顶元素
+        *stack.top = n;
+        printf("元素 %d 入栈成功\n", n);
+        // 栈顶指针+1
+        stack.top++;
+        }
 
-// 判断栈是否为空，空：返回 1，非空：返回 0 
-int isEmpty() { 
-return stack.top == stack.base; 
-}
+        // 判断栈是否为空，空：返回 1，非空：返回 0
+        int isEmpty() {
+        return stack.top == stack.base;
+        }
 
-// 弹出栈顶元素，但不返回栈顶元素的值 
-void pop() {
-// 如果栈为空，直接返回 
-if(isEmpty()) {
-	printf("栈已空！\n");
-	return ; 
-} 
-stack.top--;
-} 
+        // 弹出栈顶元素，但不返回栈顶元素的值
+        void pop() {
+        // 如果栈为空，直接返回
+        if(isEmpty()) {
+        printf("栈已空！\n");
+        return ;
+        }
+        stack.top--;
+        }
 
-// 获取当前栈顶元素的值，不改变栈顶指针 
-int getTop() {
-if(stack.top != stack.base) {
-	return *(stack.top-1);
-} else {
-	printf("栈已空！\n"); 
-} 
-}
+        // 获取当前栈顶元素的值，不改变栈顶指针
+        int getTop() {
+        if(stack.top != stack.base) {
+        return *(stack.top-1);
+        } else {
+        printf("栈已空！\n");
+        }
+        }
 
 
-int main() {
+        int main() {
 
-// 创建栈 
-createStack();
-// 元素进栈
-push(1); 
-push(2);
-push(3);
-push(4);
-push(5);
-// 当栈不为空的时候取出栈顶元素并且栈顶元素出栈 
-while(!isEmpty()) {
-	printf("当前栈顶元素值：%d\n", getTop());
-	pop();
-}
-// 程序结束的时候释放栈的内存空间 
-free(stack.base);
+        // 创建栈
+        createStack();
+        // 元素进栈
+        push(1);
+        push(2);
+        push(3);
+        push(4);
+        push(5);
+        // 当栈不为空的时候取出栈顶元素并且栈顶元素出栈
+        while(!isEmpty()) {
+        printf("当前栈顶元素值：%d\n", getTop());
+        pop();
+        }
+        // 程序结束的时候释放栈的内存空间
+        free(stack.base);
 
-return 0;
-}
-	</code>
-	<text>
-上面代码展示了顺序栈的一些基本操作，其实就是对栈顶指针进行对应操作，
-来看看程序结果：
-	</text>
-	<img filepath="xianxingjiegou_19.png" />
-	<text>
-1、请尝试实现链栈的基本操作
-	</text>
+        return 0;
+        }
+    </code>
+    <text>
+        上面代码展示了顺序栈的一些基本操作，其实就是对栈顶指针进行对应操作，
+        来看看程序结果：
+    </text>
+    <img filepath="xianxingjiegou_19.png" />
+    <text>
+        1、请尝试实现链栈的基本操作
+    </text>
 </contents>

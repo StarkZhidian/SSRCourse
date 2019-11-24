@@ -1,1 +1,139 @@
-{"contentList": [{"basicData":{"text":"\n顺序表是在计算机内存中以一组地址连续的储存单元来储存数据元素的一种线性结构。\n\n其特点是：在逻辑上相邻的元素，在计算机中的内存地址也是相邻的。\n\n基于这个特性，通过数组来实现顺序表是一个常用的选择(数组的相邻元素的地址相邻)，\n如果有一个线性表为：(a1, a2, a3, ..., an)，如果通过顺序表储存，\n其在计算机内存中的储存结构如图：\n\t"},"contentType":0},{"basicData":{"image_url":"xianxingjiegou_2.png"},"contentType":1},{"basicData":{"text":"\n因为相邻储存单元的内存地址也相邻，所以我们在访问里面的元素的时候的时间复杂度就是O(1)，\n这一点在数组上的体现就是就是直接通过数组下标来进行数组元素访问。\n\n也正是因为这点，我们往顺序表中插入元素的时候，先要为顺序表新增一个元素的储存空间，\n然后需要把在插入位置之后的所有元素都向后移动一个位置，之后再插入这个元素到指定位置。\n\n时间复杂度就变成了O(n)，关于插入，可以参考\"动画演示\"和\"代码实现\"部分。\n\n对于从顺序表中删除元素，我们需要把处于要删除元素的位置位置之后所有的元素都向前移动一个位置，\n通过这个操作来用之后的元素将要删除的元素\"覆盖\"，进而进行删除。\n\n同样的，这部分操作的时间复杂度也是O(n)，\n关于删除，可以参考\"动画演示\"和\"代码实现\"部分。\n\n那么对于两个顺序表的合并呢？假设一个顺序表的长度 n, 另一个为 m,\n合并这两个顺序表的时候需要遍历两个顺序表，每次选出元素值较小(较大)的那个元素进行合并，\n整个过程的时间复杂度为 O(m+n)。\n关于合并操作，可以参考\"动画演示\"和\"代码实现\"部分\n\t"},"contentType":0},{"basicData":{"code":"\n/**\n * 使用数组来实现顺序表，C语言程序，没有实现封装：\n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里顺序表储存的数据的数据类型为 int 类型 \n * 如有需要请自行切换数据类型 \n */ \n#include <stdio.h>\n// N 代表数组元素个数\nconst int N = 10;\n\nint main() {\n\tint i;\n\tint a[N];\n\t// 输出这 10 个数组元素的地址，a 为数组首地址\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%.d \", a + i);\n\t}\n\t\n\treturn 0;\n}\n\t","code_language":-1},"contentType":2},{"basicData":{"image_url":"xianxingjiegou_3.png"},"contentType":1},{"basicData":{"text":"\n我们通过结果可以看到：10 个数组元素中相邻的数组元素的地址也相邻，\n因此，对于顺序表，我们可以采用数组来将其轻松实现。\n\n相对于链表来说，因为数组元素个数程序开始前定义好了，也就是说，\n顺序表的内存空间在程序运行之前已经确定了，\n这样会导致部分内存空间浪费的现象，而链表不会由内存空间浪费的现象，\n但是链表的实现比顺序表复杂，关于这个，请参考\"单向链表\"部分\n\t"},"contentType":0},{"basicData":{"code":"\n/**\n * 顺序表的插入元素操作，C语言程序，没有实现封装： \n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n * 如有需要请自行切换数据类型 \n */\n#include <stdio.h>\n// N 代表数组元素个数 \nconst int N = 10; \n\nint main() {\n\tint i, j;\n\t// 要插入的元素值和要插入的位置 \n\tint insert, insertPos;\n\t/* 本身有 N 个元素，还要插入一个元素，因此定义含有 N+1 个元素的数组 */ \n\tint a[N+1];\n\t// 循环对数组元素进行赋值 \n\tfor(i = 0; i < N; i++) {\n\t\ta[i] = i+1;\n\t}\n\tprintf(\"插入元素之前的顺序表：\\n\");\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\tprintf(\"\\n输入要插入的元素值和插入位置下标(0~10): \");\n\tscanf(\"%d %d\", &insert, &insertPos); \n\t// 对输入的元素插入位置进行检查 \n\tif(insertPos < 0 || insertPos > 10) {\n\t\tprintf(\"元素插入位置输入错误！\\n\");\n\t\treturn 0;\n\t}\n\t/* 进行元素的移动：要插入的位置之后的数组元素全部向后移动一个位置 */ \n\tfor(i = N; i > insertPos; i--) {\n\t\ta[i] = a[i-1]; \n\t} \n\t// 进行元素插入 \n\ta[insertPos] = insert;\n\t\n\tprintf(\"插入元素之后的顺序表：\\n\");\n\tfor(i = 0; i < N+1; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\t\n\treturn 0;\n}\n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n来看看测试数据和结果：\n\t"},"contentType":0},{"basicData":{"image_url":"xianxingjiegou_4.png"},"contentType":1},{"basicData":{"text":"\n上图中的数据将值为 0 的一个元素插入到顺序表的开头元素(下标为 0 的位置)，那么就要把原来顺序表中所有的元素都向后移动一个位置,时间复杂度即为 O(n)。\n\n\t"},"contentType":0},{"basicData":{"code":"\n/**\n * 顺序表的删除元素操作，C语言程序，没有实现封装：\n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n * 如有需要请自行切换数据类型 \n */\n#include <stdio.h>\n// N 代表数组元素个数 \nconst int N = 10; \n\nint main() {\n\tint i, j;\n\t// 要删除的元素位置 \n\tint deletePos;\n\tint a[N];\n\t// 循环对数组元素进行赋值 \n\tfor(i = 0; i < N; i++) {\n\t\ta[i] = i+1;\n\t}\n\tprintf(\"删除元素之前的顺序表：\\n\");\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\tprintf(\"\\n输入要删除的元素所处位置下标(0~10): \");\n\tscanf(\"%d\", &deletePos); \n\t// 对输入的元素插入位置进行检查 \n\tif(deletePos < 0 || deletePos > 10) {\n\t\tprintf(\"元素位置输入错误！\\n\");\n\t\treturn 0;\n\t}\n\t/* 进行元素的移动：要删除的位置之后的数组元素全部向前移动一个位置 */ \n\tfor(i = deletePos; i < N-1; i++) {\n\t\ta[i] = a[i+1]; \n\t} \n\t\n\t// 输出删除元素之后的顺序表，因为删除了一个元素，所以顺序表长度减一\n\tprintf(\"删除元素之后的顺序表：\\n\");\n\tfor(i = 0; i < N-1; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\t\n\treturn 0;\n}\n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n测试数据和结果如图：\n\t"},"contentType":0},{"basicData":{"image_url":"xianxingjiegou_5.png"},"contentType":1},{"basicData":{"text":"\n同插入操作一样，上图将顺序表的开头元素(下标为 0 的位置)删除并且将之后的所有顺序表元素都向前移动一个位置。\n\n此操作的复杂度为 O(n)\n\t"},"contentType":0},{"basicData":{"code":"\n/**\n * 按顺序原有顺序合并两个有序的顺序元素操作： \n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n * 如有需要请自行切换数据类型 \n */\n#include <stdio.h>\n// 定义两个要合并的顺序表的大小 \nconst int N = 10;\nconst int M = 5;\n\nint main() {\n\tint i, j, k;\n\t// 定义两个要合并的顺序表和储存合并结果的顺序表： \n\tint a[N], b[M], result[M];\n\t// 为两个顺序表赋值 \n\tfor(i = 0; i < N; i++) {\n\t\ta[i] = i+1;\n\t}\n\tfor(i = 0; i < M; i++) {\n\t\tb[i] = i;\n\t}\n\tprintf(\"合并之前的 a 顺序表：\\n\");\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t}\n\tprintf(\"\\n合并之前的 b 顺序表：\\n\");\n\tfor(i = 0; i < M; i++) {\n\t\tprintf(\"%d \", b[i]);\n\t}\n\t// 进行顺序表元素的合并 \n\tfor(i = j = 0; i < N && j < M; ) {\n\t\t// 依次\"摘取\"两表中较小的元素插入 result 表的最后 \n\t\tif(a[i] < b[j]) {\n\t\t\tresult[k++] = a[i++];\n\t\t} else {\n\t\t\tresult[k++] = b[j++];\n\t\t}\n\t}\n\t/* b 顺序表已经到达表尾, 直接将 a 顺序表中剩下的元素插入到 result 表的最后 */ \n\twhile(i < N) {\n\t\tresult[k++] = a[i++];\n\t} \n\t/* a 顺序表已经到达表尾, 直接将 b 顺序表中剩下的元素插入到 result 表的最后 */\n\twhile(j < M) {\n\t\tresult[k++] = b[j++];\n\t}\n\tprintf(\"\\n合并之后的顺序表：\\n\");\n\tfor(i = 0; i < k; i++) {\n\t\tprintf(\"%d \", result[i]);\n\t} \n\t\n\treturn 0;\n} \n\t","code_language":-1},"contentType":2},{"basicData":{"text":"\n程序的运行结果：\n\t"},"contentType":0},{"basicData":{"image_url":"xianxingjiegou_6.png"},"contentType":1},{"basicData":{"text":"\n我们可以看到，图中的两个表的元素按照从小到大合并，并且两个表都会遍历一次，\n所以此操作的时间复杂度为O(m+n)。\n\n\t"},"contentType":0},{"basicData":{"animation_name":"线性结构:顺序表"},"contentType":4}]}
+[
+  {
+    "basicData": {
+      "text": "\n顺序表是在计算机内存中以一组地址连续的储存单元来储存数据元素的一种线性结构。\n\n其特点是：在逻辑上相邻的元素，在计算机中的内存地址也是相邻的。\n\n基于这个特性，通过数组来实现顺序表是一个常用的选择(数组的相邻元素的地址相邻)，\n如果有一个线性表为：(a1, a2, a3, ..., an)，如果通过顺序表储存，\n其在计算机内存中的储存结构如图：\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_2.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n因为相邻储存单元的内存地址也相邻，所以我们在访问里面的元素的时候的时间复杂度就是O(1)，\n这一点在数组上的体现就是就是直接通过数组下标来进行数组元素访问。\n\n也正是因为这点，我们往顺序表中插入元素的时候，先要为顺序表新增一个元素的储存空间，\n然后需要把在插入位置之后的所有元素都向后移动一个位置，之后再插入这个元素到指定位置。\n\n时间复杂度就变成了O(n)，关于插入，可以参考\"动画演示\"和\"代码实现\"部分。\n\n对于从顺序表中删除元素，我们需要把处于要删除元素的位置位置之后所有的元素都向前移动一个位置，\n通过这个操作来用之后的元素将要删除的元素\"覆盖\"，进而进行删除。\n\n同样的，这部分操作的时间复杂度也是O(n)，\n关于删除，可以参考\"动画演示\"和\"代码实现\"部分。\n\n那么对于两个顺序表的合并呢？假设一个顺序表的长度 n, 另一个为 m,\n合并这两个顺序表的时候需要遍历两个顺序表，每次选出元素值较小(较大)的那个元素进行合并，\n整个过程的时间复杂度为 O(m+n)。\n关于合并操作，可以参考\"动画演示\"和\"代码实现\"部分\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n/**\n * 使用数组来实现顺序表，C语言程序，没有实现封装：\n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里顺序表储存的数据的数据类型为 int 类型 \n * 如有需要请自行切换数据类型 \n */ \n#include <stdio.h>\n// N 代表数组元素个数\nconst int N = 10;\n\nint main() {\n\tint i;\n\tint a[N];\n\t// 输出这 10 个数组元素的地址，a 为数组首地址\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%.d \", a + i);\n\t}\n\t\n\treturn 0;\n}\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_3.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n我们通过结果可以看到：10 个数组元素中相邻的数组元素的地址也相邻，\n因此，对于顺序表，我们可以采用数组来将其轻松实现。\n\n相对于链表来说，因为数组元素个数程序开始前定义好了，也就是说，\n顺序表的内存空间在程序运行之前已经确定了，\n这样会导致部分内存空间浪费的现象，而链表不会由内存空间浪费的现象，\n但是链表的实现比顺序表复杂，关于这个，请参考\"单向链表\"部分\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n/**\n * 顺序表的插入元素操作，C语言程序，没有实现封装： \n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n * 如有需要请自行切换数据类型 \n */\n#include <stdio.h>\n// N 代表数组元素个数 \nconst int N = 10; \n\nint main() {\n\tint i, j;\n\t// 要插入的元素值和要插入的位置 \n\tint insert, insertPos;\n\t/* 本身有 N 个元素，还要插入一个元素，因此定义含有 N+1 个元素的数组 */ \n\tint a[N+1];\n\t// 循环对数组元素进行赋值 \n\tfor(i = 0; i < N; i++) {\n\t\ta[i] = i+1;\n\t}\n\tprintf(\"插入元素之前的顺序表：\\n\");\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\tprintf(\"\\n输入要插入的元素值和插入位置下标(0~10): \");\n\tscanf(\"%d %d\", &insert, &insertPos); \n\t// 对输入的元素插入位置进行检查 \n\tif(insertPos < 0 || insertPos > 10) {\n\t\tprintf(\"元素插入位置输入错误！\\n\");\n\t\treturn 0;\n\t}\n\t/* 进行元素的移动：要插入的位置之后的数组元素全部向后移动一个位置 */ \n\tfor(i = N; i > insertPos; i--) {\n\t\ta[i] = a[i-1]; \n\t} \n\t// 进行元素插入 \n\ta[insertPos] = insert;\n\t\n\tprintf(\"插入元素之后的顺序表：\\n\");\n\tfor(i = 0; i < N+1; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\t\n\treturn 0;\n}\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n来看看测试数据和结果：\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_4.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n上图中的数据将值为 0 的一个元素插入到顺序表的开头元素(下标为 0 的位置)，那么就要把原来顺序表中所有的元素都向后移动一个位置,时间复杂度即为 O(n)。\n\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n/**\n * 顺序表的删除元素操作，C语言程序，没有实现封装：\n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n * 如有需要请自行切换数据类型 \n */\n#include <stdio.h>\n// N 代表数组元素个数 \nconst int N = 10; \n\nint main() {\n\tint i, j;\n\t// 要删除的元素位置 \n\tint deletePos;\n\tint a[N];\n\t// 循环对数组元素进行赋值 \n\tfor(i = 0; i < N; i++) {\n\t\ta[i] = i+1;\n\t}\n\tprintf(\"删除元素之前的顺序表：\\n\");\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\tprintf(\"\\n输入要删除的元素所处位置下标(0~10): \");\n\tscanf(\"%d\", &deletePos); \n\t// 对输入的元素插入位置进行检查 \n\tif(deletePos < 0 || deletePos > 10) {\n\t\tprintf(\"元素位置输入错误！\\n\");\n\t\treturn 0;\n\t}\n\t/* 进行元素的移动：要删除的位置之后的数组元素全部向前移动一个位置 */ \n\tfor(i = deletePos; i < N-1; i++) {\n\t\ta[i] = a[i+1]; \n\t} \n\t\n\t// 输出删除元素之后的顺序表，因为删除了一个元素，所以顺序表长度减一\n\tprintf(\"删除元素之后的顺序表：\\n\");\n\tfor(i = 0; i < N-1; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t} \n\t\n\treturn 0;\n}\n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n测试数据和结果如图：\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_5.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n同插入操作一样，上图将顺序表的开头元素(下标为 0 的位置)删除并且将之后的所有顺序表元素都向前移动一个位置。\n\n此操作的复杂度为 O(n)\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "code": "\n/**\n * 按顺序原有顺序合并两个有序的顺序元素操作： \n * 请注意: 为了方便理解, 并没有采用自定义结构体来实现顺序表\n * 而是采用了数组来实现\n * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改\n * 如有需要请自行切换数据类型 \n */\n#include <stdio.h>\n// 定义两个要合并的顺序表的大小 \nconst int N = 10;\nconst int M = 5;\n\nint main() {\n\tint i, j, k;\n\t// 定义两个要合并的顺序表和储存合并结果的顺序表： \n\tint a[N], b[M], result[M];\n\t// 为两个顺序表赋值 \n\tfor(i = 0; i < N; i++) {\n\t\ta[i] = i+1;\n\t}\n\tfor(i = 0; i < M; i++) {\n\t\tb[i] = i;\n\t}\n\tprintf(\"合并之前的 a 顺序表：\\n\");\n\tfor(i = 0; i < N; i++) {\n\t\tprintf(\"%d \", a[i]);\n\t}\n\tprintf(\"\\n合并之前的 b 顺序表：\\n\");\n\tfor(i = 0; i < M; i++) {\n\t\tprintf(\"%d \", b[i]);\n\t}\n\t// 进行顺序表元素的合并 \n\tfor(i = j = 0; i < N && j < M; ) {\n\t\t// 依次\"摘取\"两表中较小的元素插入 result 表的最后 \n\t\tif(a[i] < b[j]) {\n\t\t\tresult[k++] = a[i++];\n\t\t} else {\n\t\t\tresult[k++] = b[j++];\n\t\t}\n\t}\n\t/* b 顺序表已经到达表尾, 直接将 a 顺序表中剩下的元素插入到 result 表的最后 */ \n\twhile(i < N) {\n\t\tresult[k++] = a[i++];\n\t} \n\t/* a 顺序表已经到达表尾, 直接将 b 顺序表中剩下的元素插入到 result 表的最后 */\n\twhile(j < M) {\n\t\tresult[k++] = b[j++];\n\t}\n\tprintf(\"\\n合并之后的顺序表：\\n\");\n\tfor(i = 0; i < k; i++) {\n\t\tprintf(\"%d \", result[i]);\n\t} \n\t\n\treturn 0;\n} \n\t",
+      "code_language": -1,
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 2
+  },
+  {
+    "basicData": {
+      "text": "\n程序的运行结果：\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "image_url": "xianxingjiegou_6.png",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 1
+  },
+  {
+    "basicData": {
+      "text": "\n我们可以看到，图中的两个表的元素按照从小到大合并，并且两个表都会遍历一次，\n所以此操作的时间复杂度为O(m+n)。\n\n\t",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 0
+  },
+  {
+    "basicData": {
+      "animation_name": "线性结构:顺序表",
+      "parent_dir_path": "datastruct/线性结构"
+    },
+    "contentType": 4
+  }
+]

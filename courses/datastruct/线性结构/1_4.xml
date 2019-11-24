@@ -1,132 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contents>
-	<text>
-和栈一样，队列是一种操作受限制的特殊的线性表，
-特殊之处在于它只允许在表的前端(队头)进行删除元素操作，
-而在表的后端(队尾)进行插入元素操作，因此队列的元素遵循"先进先出"的操作顺序。"换行"
-队列对元素的物理内存内存地址同样没有要求，所以们既可以用顺序表的形式实现队列(顺序队列)，
-也可以使用链表的形式实现队列(链队)。"换行"下面给出顺序队列的内存结构图：
-	</text> 
-	<img>
-xianxingjiegou_20.png
-	</img>
-	<text>
-类似于栈，队列的基本操作有：创建队列、元素入队、元素出队、队列是否已空，
-关于操作部分，如果想了解更过，请参考"动画"和"代码"部分。"换行"
-	</text>
-	<animation html_path="" animation_name="线性结构:队列"></animation>
-	<code>
-/**
-* 创建队列并且实现其相关操作：
-* 创建队列、元素入队、元素出队、队列是否已空 
-* 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
-* Author：指点 
-*/ 
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+    <text>
+        和栈一样，队列是一种操作受限制的特殊的线性表，
+        特殊之处在于它只允许在表的前端(队头)进行删除元素操作，
+        而在表的后端(队尾)进行插入元素操作，因此队列的元素遵循"先进先出"的操作顺序。"换行"
+        队列对元素的物理内存内存地址同样没有要求，所以们既可以用顺序表的形式实现队列(顺序队列)，
+        也可以使用链表的形式实现队列(链队)。"换行"下面给出顺序队列的内存结构图：
+    </text>
+    <img>
+        xianxingjiegou_20.png
+    </img>
+    <text>
+        类似于栈，队列的基本操作有：创建队列、元素入队、元素出队、队列是否已空，
+        关于操作部分，如果想了解更过，请参考"动画"和"代码"部分。"换行"
+    </text>
+    <animation html_path="" animation_name="线性结构:队列"></animation>
+    <code>
+        /**
+        * 创建队列并且实现其相关操作：
+        * 创建队列、元素入队、元素出队、队列是否已空
+        * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
+        * Author：指点
+        */
+        #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt;
 
-// 队列的储存元素最大值
-const int MAX_SIZE = 1000;
+        // 队列的储存元素最大值
+        const int MAX_SIZE = 1000;
 
-// 表示队列的结构体：队头指针、队尾指针、初始队头指针、队列元素最大数 
-typedef struct Queue {
-int *front;
-int *rear;
-// 定义指针指向队列头指针的初始位置，用于判断队列是否已满 
-int *initFront;
-int queueSize;
-}Queue;
+        // 表示队列的结构体：队头指针、队尾指针、初始队头指针、队列元素最大数
+        typedef struct Queue {
+        int *front;
+        int *rear;
+        // 定义指针指向队列头指针的初始位置，用于判断队列是否已满
+        int *initFront;
+        int queueSize;
+        }Queue;
 
-// 创建队列对象
-Queue que;
+        // 创建队列对象
+        Queue que;
 
-// 创建队列操作 
-void createQueue() {
-// 动态申请数组内存空间 
-que.front = (int *) malloc(MAX_SIZE*sizeof(int));
-// 三个指针初始化，都指向队头，此时队列为空 
-que.rear = que.initFront = que.front;
-que.queueSize = MAX_SIZE;
-}
+        // 创建队列操作
+        void createQueue() {
+        // 动态申请数组内存空间
+        que.front = (int *) malloc(MAX_SIZE*sizeof(int));
+        // 三个指针初始化，都指向队头，此时队列为空
+        que.rear = que.initFront = que.front;
+        que.queueSize = MAX_SIZE;
+        }
 
-// 新元素入队操作 
-void push(int n) {
-/* 检查队列是否还有剩余空间，因为 front 指针会随着出队操作而改变，
- * 所以不能直接通过 front 指针判断，防止假溢出。"换行" 
- * 通过队尾指针和队列初始头指针之间的元素个数来进行判断，
- */ 
-if(que.rear - que.initFront &gt;= que.queueSize) {
-	printf("队列已满, 元素插入失败！\n"); 
-	return ;
-}
-// 从队尾插入元素并且队尾指针加一 
-*que.rear = n;
-que.rear++;
-printf("元素 %d 入队成功！\n", n);
-} 
+        // 新元素入队操作
+        void push(int n) {
+        /* 检查队列是否还有剩余空间，因为 front 指针会随着出队操作而改变，
+        * 所以不能直接通过 front 指针判断，防止假溢出。"换行"
+        * 通过队尾指针和队列初始头指针之间的元素个数来进行判断，
+        */
+        if(que.rear - que.initFront &gt;= que.queueSize) {
+        printf("队列已满, 元素插入失败！\n");
+        return ;
+        }
+        // 从队尾插入元素并且队尾指针加一
+        *que.rear = n;
+        que.rear++;
+        printf("元素 %d 入队成功！\n", n);
+        }
 
-// 判断队列是否为空，空：返回 1，非空：返回 0 
-int isEmpty() {
-return que.front == que.rear;
-} 
+        // 判断队列是否为空，空：返回 1，非空：返回 0
+        int isEmpty() {
+        return que.front == que.rear;
+        }
 
-// 删除队头元素，但是不返回元素的值 
-void pop() {
-// 如果队列为空，那么直接返回 
-if(isEmpty()) {
-	printf("队列已空！\n");
-	return ;
-}
-// 移动队头指针 
-que.front++;
-}
+        // 删除队头元素，但是不返回元素的值
+        void pop() {
+        // 如果队列为空，那么直接返回
+        if(isEmpty()) {
+        printf("队列已空！\n");
+        return ;
+        }
+        // 移动队头指针
+        que.front++;
+        }
 
-// 获取队头元素的值 
-int front() {
-// 如果队列已空，那么直接返回 
-if(isEmpty()) {
-	printf("队列已空！\n"); 
-	return -1;
-}
-// 返回队头元素的值 
-return *que.front;
-}
+        // 获取队头元素的值
+        int front() {
+        // 如果队列已空，那么直接返回
+        if(isEmpty()) {
+        printf("队列已空！\n");
+        return -1;
+        }
+        // 返回队头元素的值
+        return *que.front;
+        }
 
-int main() {
+        int main() {
 
-// 创建队列 
-createQueue();
-// 元素入队 
-push(1); 
-push(2);
-push(3);
-push(4);
-push(5);
-// 当队列不为空的时候取出队头元素并且队头元素出栈 
-while(!isEmpty()) {
-	printf("当前队头元素值：%d\n", front());
-	pop();
-}
+        // 创建队列
+        createQueue();
+        // 元素入队
+        push(1);
+        push(2);
+        push(3);
+        push(4);
+        push(5);
+        // 当队列不为空的时候取出队头元素并且队头元素出栈
+        while(!isEmpty()) {
+        printf("当前队头元素值：%d\n", front());
+        pop();
+        }
 
-// 释放队列的内存空间
-free(que.initFront);
+        // 释放队列的内存空间
+        free(que.initFront);
 
-return 0;
-}
+        return 0;
+        }
 
-	</code>
-	<text>
-操作和栈类似，在判断队列是否为已满这一块，直接利用 rear - front &gt;= queueSize 判断，
-可能会出现溢出的现象，而如果通过 rear == front 判断，又可能会出现"假溢出"现象，
-所以在结构体里面新增了一个 initFront 指针用于指向队列初始头指针并且不会改变，
-判断的时候利用 rear - initFront &gt;= queueSize 进行就可以了，
-这个和使用循环队列的 (rear+1) % queueSize == front 的原理是一样的。"换行"
-最后看一下程序运行的结果：
-	</text>
-	<img>
-xianxingjiegou_21.png
-	</img>
-	<text>
-1、尝试使用链表实现队列的基本操作
-	</text>
+    </code>
+    <text>
+        操作和栈类似，在判断队列是否为已满这一块，直接利用 rear - front &gt;= queueSize 判断，
+        可能会出现溢出的现象，而如果通过 rear == front 判断，又可能会出现"假溢出"现象，
+        所以在结构体里面新增了一个 initFront 指针用于指向队列初始头指针并且不会改变，
+        判断的时候利用 rear - initFront &gt;= queueSize 进行就可以了，
+        这个和使用循环队列的 (rear+1) % queueSize == front 的原理是一样的。"换行"
+        最后看一下程序运行的结果：
+    </text>
+    <img>
+        xianxingjiegou_21.png
+    </img>
+    <text>
+        1、尝试使用链表实现队列的基本操作
+    </text>
 </contents>

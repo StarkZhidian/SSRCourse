@@ -1,651 +1,646 @@
 <?xml version="1.0" encoding="utf-8"?>
 <contents>
-		<text>
-链表(Linked list)是一种常见的基础数据结构，是一种线性结构。"换行"
-其储存特点是：用一组任意的储存单元储存线性表的数据元素，
-这些储存单元的物理内存地址可以是连续的，也可以是不连续的，
-因此，为了表示每个数据元素和其后继数据元素的逻辑关系，
-我们还需要一个变量来储存其直接后继数据的位置，
-实际操作中其实就是通过指针来保存其直接后继数据的地址，
-这两个部分共同组成一个数据元素，称其为 "节点"。"换行"
-其中储存数据元素信息的部分称为"数据域"，
-储存直接后继储存位置的部分称为"指针域"。"换行"
-单向链表是链表的一种，
-假设现在有 1~5 5个数字需要使用单向链表储存，
-那么这个单向链表的储存结构图就会是这样的：
-		</text>
-		<img>
-xianxingjiegou_7.png
-		</img>
-		<text>
-图中的箭头代表节点的指针指向代表当前节点的下一个节点地址，
-请注意，虽然图中相邻的两个节点看似物理内存地址也相邻，
-但是实际上不一定，关于这一点会在"代码实现"部分验证。"换行"
-关于单向链表的创建，有两种方法：前插法和后插法，首先看一下后插法：
-先创建一个节点作为链表的开始节点，我们称其为"头结点"，
-我们一般会用头结点的数据去储存一些关于链表的一些信息，比如链表的节点个数
-之后每创建一个节点就将其插入到链表的最后作为链表的尾节点。"换行"
-前插法和后插法的思想相似，只是节点的插入方向不同，前插法是先创建尾节点，
-然后每创建一个节点就将其插入到链表的开头。"换行"
-两种方法的时间复杂度都是O(n)。"换行"关于节点的访问操作，
-由于单链表逻辑上相邻节点的物理内存地址不相邻的这个特性，
-访问特定值的节点需要从链表的头结点开始遍历，
-直到找到该节点，整个过程的时间复杂度为 O(n)。"换行"
-对于插入节点操作来说，先要从头开始找到要插入的位置，然后进行插入节点操作，
-删除节点操作和插入节点操作类似，也先要找到删除的节点的位置，然后再进行删除操作。"换行"
-因此，单链表的插入节点操作和删除节点操作的时间复杂度都是O(n)。"换行"
-如果要深入理解单向链表的相关操作，请参考"动画演示"和代码实现部分。"换行"
-		</text>
-		<animation html_path="" animation_name="线性结构:单向链表"></animation>
-		<code>
+    <text>
+        链表(Linked list)是一种常见的基础数据结构，是一种线性结构。"换行"
+        其储存特点是：用一组任意的储存单元储存线性表的数据元素，
+        这些储存单元的物理内存地址可以是连续的，也可以是不连续的，
+        因此，为了表示每个数据元素和其后继数据元素的逻辑关系，
+        我们还需要一个变量来储存其直接后继数据的位置，
+        实际操作中其实就是通过指针来保存其直接后继数据的地址，
+        这两个部分共同组成一个数据元素，称其为 "节点"。"换行"
+        其中储存数据元素信息的部分称为"数据域"，
+        储存直接后继储存位置的部分称为"指针域"。"换行"
+        单向链表是链表的一种，
+        假设现在有 1~5 5个数字需要使用单向链表储存，
+        那么这个单向链表的储存结构图就会是这样的：
+    </text>
+    <img>
+        xianxingjiegou_7.png
+    </img>
+    <text>
+        图中的箭头代表节点的指针指向代表当前节点的下一个节点地址，
+        请注意，虽然图中相邻的两个节点看似物理内存地址也相邻，
+        但是实际上不一定，关于这一点会在"代码实现"部分验证。"换行"
+        关于单向链表的创建，有两种方法：前插法和后插法，首先看一下后插法：
+        先创建一个节点作为链表的开始节点，我们称其为"头结点"，
+        我们一般会用头结点的数据去储存一些关于链表的一些信息，比如链表的节点个数
+        之后每创建一个节点就将其插入到链表的最后作为链表的尾节点。"换行"
+        前插法和后插法的思想相似，只是节点的插入方向不同，前插法是先创建尾节点，
+        然后每创建一个节点就将其插入到链表的开头。"换行"
+        两种方法的时间复杂度都是O(n)。"换行"关于节点的访问操作，
+        由于单链表逻辑上相邻节点的物理内存地址不相邻的这个特性，
+        访问特定值的节点需要从链表的头结点开始遍历，
+        直到找到该节点，整个过程的时间复杂度为 O(n)。"换行"
+        对于插入节点操作来说，先要从头开始找到要插入的位置，然后进行插入节点操作，
+        删除节点操作和插入节点操作类似，也先要找到删除的节点的位置，然后再进行删除操作。"换行"
+        因此，单链表的插入节点操作和删除节点操作的时间复杂度都是O(n)。"换行"
+        如果要深入理解单向链表的相关操作，请参考"动画演示"和代码实现部分。"换行"
+    </text>
+    <animation html_path="" animation_name="线性结构:单向链表"></animation>
+    <code>
 
-/**
- * 单向链表的相关操作，C语言程序，没有实现封装。"换行" 
- * 包括：单向链表的创建、查看节点地址、输出链表内容、删除节点、插入节点
- * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
- * Author：指点 
- */
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+        /**
+        * 单向链表的相关操作，C语言程序，没有实现封装。"换行"
+        * 包括：单向链表的创建、查看节点地址、输出链表内容、删除节点、插入节点
+        * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
+        * Author：指点
+        */
+        #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt;
 
-// 链表节点的结构体，包含数据部分和指针部分(指向下一个节点的地址) 
-typedef struct Node {
-	int data;
-	struct Node *next;
-}Node;
+        // 链表节点的结构体，包含数据部分和指针部分(指向下一个节点的地址)
+        typedef struct Node {
+        int data;
+        struct Node *next;
+        }Node;
 
-// 定义链表的头结点 
-Node *headNode = NULL;  
+        // 定义链表的头结点
+        Node *headNode = NULL;
 
-// 创建链表 
-void createLinkList() {
-	int data;
-	// 为链表的头结点申请内存空间 
-	headNode = (Node *) malloc(sizeof(Node));
-	// 头结点的 data 用于储存链表的节点总数(包括头结点)
-	headNode-&gt;data = 1; 
-	headNode-&gt;next = NULL;
-	// 当前要创建的节点的指针 
-	Node *node = NULL;
-	/* 这个指针一直指向当前要创建的节点的前一个节点，
-	 * 随着节点的创建它会慢慢向后移，用于连接当前要创建的节点
-	 */ 
-	Node *prior = headNode; 
-	printf("请输入要创建的节点数据，输入 -1 代表结束创建节点:\n"); 
-	do {
-		scanf("%d", &amp;data);
-		// 如果输入的是 -1 则跳出循环 
-		if(data == -1) {
-			break;
-		}
-		// 为当前要创建的节点申请内存空间并且进行数据赋值 
-		node = (Node *) malloc(sizeof(Node));
-		node-&gt;data = data; 
-		node-&gt;next = NULL;
-		prior-&gt;next = node;
-		// 链表总的节点数加一 
-		headNode-&gt;data++;  
-		/* 将前节点指针后移，保证每次创建新的节点的时候它都在新的节点的前一个节点位置，
-		用于连接这个新的节点到链表的尾部 */ 
-		prior = node;
-	} while(1); 
-}
+        // 创建链表
+        void createLinkList() {
+        int data;
+        // 为链表的头结点申请内存空间
+        headNode = (Node *) malloc(sizeof(Node));
+        // 头结点的 data 用于储存链表的节点总数(包括头结点)
+        headNode-&gt;data = 1;
+        headNode-&gt;next = NULL;
+        // 当前要创建的节点的指针
+        Node *node = NULL;
+        /* 这个指针一直指向当前要创建的节点的前一个节点，
+        * 随着节点的创建它会慢慢向后移，用于连接当前要创建的节点
+        */
+        Node *prior = headNode;
+        printf("请输入要创建的节点数据，输入 -1 代表结束创建节点:\n");
+        do {
+        scanf("%d", &amp;data);
+        // 如果输入的是 -1 则跳出循环
+        if(data == -1) {
+        break;
+        }
+        // 为当前要创建的节点申请内存空间并且进行数据赋值
+        node = (Node *) malloc(sizeof(Node));
+        node-&gt;data = data;
+        node-&gt;next = NULL;
+        prior-&gt;next = node;
+        // 链表总的节点数加一
+        headNode-&gt;data++;
+        /* 将前节点指针后移，保证每次创建新的节点的时候它都在新的节点的前一个节点位置，
+        用于连接这个新的节点到链表的尾部 */
+        prior = node;
+        } while(1);
+        }
 
-// 输出链表的每个节点的内存地址 
-void printAddress() {
-	printf("当前链表中的节点的物理地址为：\n");
-	Node *startNode = headNode;
-	while(startNode != NULL) {
-		printf("%d ", startNode);
-		startNode = startNode-&gt;next;
-	} 
-} 
+        // 输出链表的每个节点的内存地址
+        void printAddress() {
+        printf("当前链表中的节点的物理地址为：\n");
+        Node *startNode = headNode;
+        while(startNode != NULL) {
+        printf("%d ", startNode);
+        startNode = startNode-&gt;next;
+        }
+        }
 
-// 输出链表的所有节点数据 
-void printLinkList() {
-	printf("\n当前链表的节点总数(包括头结点)：%d\n", headNode-&gt;data);
-	Node *startNode = headNode-&gt;next;
-	printf("当前链表内容：headNode --&gt; ");
-	// 当节点不为空的时候输出节点内容 
-	while(startNode != NULL) {
-		printf("%d --&gt; ", startNode-&gt;data);
-		startNode = startNode-&gt;next; 
-	} 
-	printf("NULL\n");
-}
+        // 输出链表的所有节点数据
+        void printLinkList() {
+        printf("\n当前链表的节点总数(包括头结点)：%d\n", headNode-&gt;data);
+        Node *startNode = headNode-&gt;next;
+        printf("当前链表内容：headNode --&gt; ");
+        // 当节点不为空的时候输出节点内容
+        while(startNode != NULL) {
+        printf("%d --&gt; ", startNode-&gt;data);
+        startNode = startNode-&gt;next;
+        }
+        printf("NULL\n");
+        }
 
-// 删除链表指定位置的节点 
-void deleteNode() {
-	int i;
-	int position;
-	// 定义要删除的节点 
-	Node *deleteNode = headNode-&gt;next;
-	// 定义要删除的节点的前一个位置的节点，用于连接要删除的节点的之后的节点 
-	Node *priorNode = headNode; 
-	// 如果链表里面只有一个头结点，那么直接返回(头结点不可删除) 
-	if(headNode-&gt;data == 1) {
-		return ;
-	} 
-	printf("输入要删除的节点位置(1~%d):", headNode-&gt;data-1); 
-	scanf("%d", &amp;position);
-	if(position &lt; 1 || position &gt; headNode-&gt;data-1) {
-		printf("位置输入错误！");
-		return ;
-	}
-	// 找到要删除的节点 
-	for(i = 1; i &lt; position &amp;&amp; deleteNode != NULL; i++) {
-		deleteNode = deleteNode-&gt;next;
-		priorNode = priorNode-&gt;next;
-	}
-	// 如果节点不为空，那么删除这个节点 
-	if(deleteNode != NULL) {
-		priorNode-&gt;next = deleteNode-&gt;next;
-		// 将指针指向空并且回收这个节点的内存空间 		
-		deleteNode-&gt;next = NULL; 
-		free(deleteNode);
-		// 链表的节点总数减一 
-		headNode-&gt;data--;
-	}
-} 
+        // 删除链表指定位置的节点
+        void deleteNode() {
+        int i;
+        int position;
+        // 定义要删除的节点
+        Node *deleteNode = headNode-&gt;next;
+        // 定义要删除的节点的前一个位置的节点，用于连接要删除的节点的之后的节点
+        Node *priorNode = headNode;
+        // 如果链表里面只有一个头结点，那么直接返回(头结点不可删除)
+        if(headNode-&gt;data == 1) {
+        return ;
+        }
+        printf("输入要删除的节点位置(1~%d):", headNode-&gt;data-1);
+        scanf("%d", &amp;position);
+        if(position &lt; 1 || position &gt; headNode-&gt;data-1) {
+        printf("位置输入错误！");
+        return ;
+        }
+        // 找到要删除的节点
+        for(i = 1; i &lt; position &amp;&amp; deleteNode != NULL; i++) {
+        deleteNode = deleteNode-&gt;next;
+        priorNode = priorNode-&gt;next;
+        }
+        // 如果节点不为空，那么删除这个节点
+        if(deleteNode != NULL) {
+        priorNode-&gt;next = deleteNode-&gt;next;
+        // 将指针指向空并且回收这个节点的内存空间
+        deleteNode-&gt;next = NULL;
+        free(deleteNode);
+        // 链表的节点总数减一
+        headNode-&gt;data--;
+        }
+        }
 
-// 向链表的指定位置插入节点 
-void insertNode() {
-	// 定义要插入的节点、插入位置和数据值 
-	Node *insertNode = NULL;
-	int position, data;
-	int i; 
-	// 定义要插入的节点的前一个位置的节点，用于连接要插入的节点的之后的节点 
-	Node *priorNode = headNode;
-	
-	printf("输入节点的插入位置(1~%d)和数据值：", headNode-&gt;data);
-	scanf("%d %d", &amp;position, &amp;data);
-	if(position &lt; 1 || position &gt; headNode-&gt;data) {
-		printf("位置输入错误！");
-		return ;
-	}
-	// 为要插入的节点申请内存空间 
-	insertNode = (Node *) malloc(sizeof(Node));
-	insertNode-&gt;data = data;
-	// 找到节点的插入位置 
-	for(i = 1; i &lt; position &amp;&amp; priorNode != NULL; i++) {
-		priorNode = priorNode-&gt;next; 
-	}
-	// 进行节点插入 
-	if(priorNode != NULL) {
-		insertNode-&gt;next = priorNode-&gt;next;
-		priorNode-&gt;next = insertNode;
-		// 链表节点总数加一 
-		headNode-&gt;data++;
-	}
-} 
+        // 向链表的指定位置插入节点
+        void insertNode() {
+        // 定义要插入的节点、插入位置和数据值
+        Node *insertNode = NULL;
+        int position, data;
+        int i;
+        // 定义要插入的节点的前一个位置的节点，用于连接要插入的节点的之后的节点
+        Node *priorNode = headNode;
 
-int main() {
-	// 创建链表 
-	createLinkList(); 
-	// 输出所有链表节点的地址 
-	printAddress(); 
-	// 输出链表所有的节点数据 
-//	printLinkList(); 
-	// 删除链表节点 
-//	deleteNode();
-	// 输出链表所有的节点数据 
-//	printLinkList(); 
-	// 向链表中插入新节点
-//	insertNode(); 
-	// 输出链表所有的节点数据 
-//	printLinkList(); 
-	
-	return 0;
-}
-		</code>
-		<text>
-代码看似长，但其实就那么几个操作，只是这里把单向链表的一些操作都放在一个文件中实现了，
-主要是单向链表的创建、查看节点地址、输出链表内容、删除节点、插入节点 。"换行"
-这里采用的是上文说的"后插法"创建链表。"换行"主要是针对节点的链接操作。"换行"
-main 函数中先把其他操作注释了，这样是为了更好的观察链表中的节点的内存地址情况，
-我们来看一下程序结果：
-		</text>
-		<img>
-xianxingjiegou_8.png
-		</img>
-		<text>
-我们可以看到，链表中逻辑上相邻的节点物理内存地址并不都是相邻的，
-这样也验证了在"基本概念"里面提到的物理内存地址不一定相邻的说法。"换行"
-并且相对于顺序表来说，链表的内存空间是：来一个元素申请一个内存空间，
-即不存在内存空间的浪费现象，但是操作相对于顺序表复杂，
-所以大家根据需要选择。"换行"让我们把 main 函数中的一些方法的注释去掉：
-		</text>
-		<code>
-int main() {
-	// 创建链表 
-	createLinkList(); 
-	// 输出所有链表节点的地址 
-	printAddress(); 
-	// 输出链表所有的节点数据 
-	printLinkList(); 
-	// 删除链表节点 
-	deleteNode();
-	// 输出链表所有的节点数据 
-	printLinkList(); 
-	// 向链表中插入新节点
-	insertNode(); 
-	// 输出链表所有的节点数据 
-	printLinkList(); 
-	
-	return 0;
-}
-		</code>
-		<text>
-再来看一下结果：
-		</text>
-		<img>
-xianxingjiegou_9.png
-		</img>
-		<text>
-因为我们的链表的内存空间是动态申请的，所以两次运行结果中链表的节点的物理内存地址不一样，
-但是它们同样是不相邻的，ok，让我们继续：
-		</text>
-		<img>
-xianxingjiegou_10.png			
-		</img>
-		<img>
-xianxingjiegou_11.png
-		</img>
-		<text>
-1、尝试使用"前插法"创建单向链表。"换行"
-2、尝试将一个单向链表逆转(逆转链表储存数据的顺序，
-   比如：1-&gt;2-&gt;3-&gt;4-&gt;5 转换为 5-&gt;4-&gt;3-&gt;2-&gt;1)
-		</text>
+        printf("输入节点的插入位置(1~%d)和数据值：", headNode-&gt;data);
+        scanf("%d %d", &amp;position, &amp;data);
+        if(position &lt; 1 || position &gt; headNode-&gt;data) {
+        printf("位置输入错误！");
+        return ;
+        }
+        // 为要插入的节点申请内存空间
+        insertNode = (Node *) malloc(sizeof(Node));
+        insertNode-&gt;data = data;
+        // 找到节点的插入位置
+        for(i = 1; i &lt; position &amp;&amp; priorNode != NULL; i++) {
+        priorNode = priorNode-&gt;next;
+        }
+        // 进行节点插入
+        if(priorNode != NULL) {
+        insertNode-&gt;next = priorNode-&gt;next;
+        priorNode-&gt;next = insertNode;
+        // 链表节点总数加一
+        headNode-&gt;data++;
+        }
+        }
+
+        int main() {
+        // 创建链表
+        createLinkList();
+        // 输出所有链表节点的地址
+        printAddress();
+        // 输出链表所有的节点数据
+        // printLinkList();
+        // 删除链表节点
+        // deleteNode();
+        // 输出链表所有的节点数据
+        // printLinkList();
+        // 向链表中插入新节点
+        // insertNode();
+        // 输出链表所有的节点数据
+        // printLinkList();
+
+        return 0;
+        }
+    </code>
+    <text>
+        代码看似长，但其实就那么几个操作，只是这里把单向链表的一些操作都放在一个文件中实现了，
+        主要是单向链表的创建、查看节点地址、输出链表内容、删除节点、插入节点 。"换行"
+        这里采用的是上文说的"后插法"创建链表。"换行"主要是针对节点的链接操作。"换行"
+        main 函数中先把其他操作注释了，这样是为了更好的观察链表中的节点的内存地址情况，
+        我们来看一下程序结果：
+    </text>
+    <img>
+        xianxingjiegou_8.png
+    </img>
+    <text>
+        我们可以看到，链表中逻辑上相邻的节点物理内存地址并不都是相邻的，
+        这样也验证了在"基本概念"里面提到的物理内存地址不一定相邻的说法。"换行"
+        并且相对于顺序表来说，链表的内存空间是：来一个元素申请一个内存空间，
+        即不存在内存空间的浪费现象，但是操作相对于顺序表复杂，
+        所以大家根据需要选择。"换行"让我们把 main 函数中的一些方法的注释去掉：
+    </text>
+    <code>
+        int main() {
+        // 创建链表
+        createLinkList();
+        // 输出所有链表节点的地址
+        printAddress();
+        // 输出链表所有的节点数据
+        printLinkList();
+        // 删除链表节点
+        deleteNode();
+        // 输出链表所有的节点数据
+        printLinkList();
+        // 向链表中插入新节点
+        insertNode();
+        // 输出链表所有的节点数据
+        printLinkList();
+
+        return 0;
+        }
+    </code>
+    <text>
+        再来看一下结果：
+    </text>
+    <img>
+        xianxingjiegou_9.png
+    </img>
+    <text>
+        因为我们的链表的内存空间是动态申请的，所以两次运行结果中链表的节点的物理内存地址不一样，
+        但是它们同样是不相邻的，ok，让我们继续：
+    </text>
+    <img>
+        xianxingjiegou_10.png
+    </img>
+    <img>
+        xianxingjiegou_11.png
+    </img>
+    <text>
+        1、尝试使用"前插法"创建单向链表。"换行"
+        2、尝试将一个单向链表逆转(逆转链表储存数据的顺序，
+        比如：1-&gt;2-&gt;3-&gt;4-&gt;5 转换为 5-&gt;4-&gt;3-&gt;2-&gt;1)
+    </text>
 
 
-	<text>
-双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，
-分别指向直接后继和直接前驱。"换行"所以，从双向链表中的任意一个结点开始，
-都可以很方便地访问它的前驱结点和后继结点。"换行"
-假设现在要使用双向链表来储存 1~5 这 5 个数据，那么其对应的内存结构图：
-	</text>
-	<img>
-xianxingjiegou_12.png
-	</img>
-	<text>
-对于双向链表来说，指定了某个节点后，
-访问它的直接前驱节点和直接后继节点都只需要移动一次指针就行了。"换行"
-时间复杂度都是O(1)，对于单链表来说，访问直接后继节点的需要移动一次指针，
-时间复杂度为O(1)，但是访问直接前驱节点则需要从单链表头结点开始遍历，
-时间复杂度为O(n)，关于这点，可以参考"单向链表"的内存结构图。"换行"
-双向链表的相关操作和单链表类似(创建、删除节点、插入节点...)。"换行"
-创建、删除节点和插入节点操作的时间复杂度均为O(n)，
-和单链表不同的是，单链表在进行这些操作的时候只需要操作每个节点唯一一个指针。"换行"
-而双向链表的节点有两个指针，因此操作的时候需要对着两个指针进行处理。"换行"
-关于双向链表的相关操作，请参考"动画演示"部分和"代码实现"部分。"换行"
-	</text>
-<animation html_path="">线性结构:双向链表</animation>
+    <text>
+        双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，
+        分别指向直接后继和直接前驱。"换行"所以，从双向链表中的任意一个结点开始，
+        都可以很方便地访问它的前驱结点和后继结点。"换行"
+        假设现在要使用双向链表来储存 1~5 这 5 个数据，那么其对应的内存结构图：
+    </text>
+    <img>
+        xianxingjiegou_12.png
+    </img>
+    <text>
+        对于双向链表来说，指定了某个节点后，
+        访问它的直接前驱节点和直接后继节点都只需要移动一次指针就行了。"换行"
+        时间复杂度都是O(1)，对于单链表来说，访问直接后继节点的需要移动一次指针，
+        时间复杂度为O(1)，但是访问直接前驱节点则需要从单链表头结点开始遍历，
+        时间复杂度为O(n)，关于这点，可以参考"单向链表"的内存结构图。"换行"
+        双向链表的相关操作和单链表类似(创建、删除节点、插入节点...)。"换行"
+        创建、删除节点和插入节点操作的时间复杂度均为O(n)，
+        和单链表不同的是，单链表在进行这些操作的时候只需要操作每个节点唯一一个指针。"换行"
+        而双向链表的节点有两个指针，因此操作的时候需要对着两个指针进行处理。"换行"
+        关于双向链表的相关操作，请参考"动画演示"部分和"代码实现"部分。"换行"
+    </text>
+    <animation html_path="">线性结构:双向链表</animation>
 
-	<code>
+    <code>
 
-/**
-* 双向链表的相关操作，C语言程序，没有实现封装。"换行" 
-* 包括：双向链表的创建、输出链表内容、删除节点、插入节点
-* 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
-* Author：指点 
-*/
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+        /**
+        * 双向链表的相关操作，C语言程序，没有实现封装。"换行"
+        * 包括：双向链表的创建、输出链表内容、删除节点、插入节点
+        * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
+        * Author：指点
+        */
+        #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt;
 
-// 声明链表，包括指向直接前驱节点的指针、数据部分、指向直接后继节点的指针 
-typedef struct Node {
-struct Node *prior;
-int data;
-struct Node *next;
-}Node;
+        // 声明链表，包括指向直接前驱节点的指针、数据部分、指向直接后继节点的指针
+        typedef struct Node {
+        struct Node *prior;
+        int data;
+        struct Node *next;
+        }Node;
 
-// 定义链表的头结点 
-Node *headNode = NULL; 
+        // 定义链表的头结点
+        Node *headNode = NULL;
 
-// 创建链表 
-void createLinkList() {
-int data;
-// 为链表的头结点申请内存空间 
-headNode = (Node *) malloc(sizeof(Node));
-// 头结点的 data 用于储存链表的节点总数(包括头结点)
-headNode-&gt;data = 1; 
-headNode-&gt;next = NULL;
-// 当前要创建的节点的指针 
-Node *node = NULL;
-/* 这个指针一直指向当前要创建的节点的前一个节点，
- * 随着节点的创建它会慢慢向后移，用于连接当前要创建的节点
- */ 
-Node *prior = headNode; 
-printf("请输入要创建的节点数据，输入 -1 代表结束创建节点:\n"); 
-do {
-	scanf("%d", &amp;data);
-	// 如果输入的是 -1 则跳出循环 
-	if(data == -1) {
-		break;
-	}
-	// 为当前要创建的节点申请内存空间并且进行数据赋值 
-	node = (Node *) malloc(sizeof(Node));
-	node-&gt;data = data; 
-	node-&gt;next = NULL;
-	// 进行链表节点的连接 
-	prior-&gt;next = node;
-	node-&gt;prior = prior;
-	// 链表总的节点数加一 
-	headNode-&gt;data++;  
-	/* 将前节点指针后移，保证每次创建新的节点的时候它都在新的节点的前一个节点位置，
-	用于连接这个新的节点到链表的尾部 */ 
-	prior = node;
-}while(1); 
-}
+        // 创建链表
+        void createLinkList() {
+        int data;
+        // 为链表的头结点申请内存空间
+        headNode = (Node *) malloc(sizeof(Node));
+        // 头结点的 data 用于储存链表的节点总数(包括头结点)
+        headNode-&gt;data = 1;
+        headNode-&gt;next = NULL;
+        // 当前要创建的节点的指针
+        Node *node = NULL;
+        /* 这个指针一直指向当前要创建的节点的前一个节点，
+        * 随着节点的创建它会慢慢向后移，用于连接当前要创建的节点
+        */
+        Node *prior = headNode;
+        printf("请输入要创建的节点数据，输入 -1 代表结束创建节点:\n");
+        do {
+        scanf("%d", &amp;data);
+        // 如果输入的是 -1 则跳出循环
+        if(data == -1) {
+        break;
+        }
+        // 为当前要创建的节点申请内存空间并且进行数据赋值
+        node = (Node *) malloc(sizeof(Node));
+        node-&gt;data = data;
+        node-&gt;next = NULL;
+        // 进行链表节点的连接
+        prior-&gt;next = node;
+        node-&gt;prior = prior;
+        // 链表总的节点数加一
+        headNode-&gt;data++;
+        /* 将前节点指针后移，保证每次创建新的节点的时候它都在新的节点的前一个节点位置，
+        用于连接这个新的节点到链表的尾部 */
+        prior = node;
+        }while(1);
+        }
 
-// 输出链表的所有节点数据 
-void printLinkList() {
-printf("\n当前链表的节点总数(包括头结点)：%d\n", headNode-&gt;data);
-Node *startNode = headNode-&gt;next;
-printf("当前链表内容：headNode --&gt; ");
-// 当节点不为空的时候输出节点内容 
-while(startNode != NULL) {
-	printf("&lt;-- %d --&gt; ", startNode-&gt;data);
-	startNode = startNode-&gt;next; 
-} 
-printf("NULL\n");
-}
+        // 输出链表的所有节点数据
+        void printLinkList() {
+        printf("\n当前链表的节点总数(包括头结点)：%d\n", headNode-&gt;data);
+        Node *startNode = headNode-&gt;next;
+        printf("当前链表内容：headNode --&gt; ");
+        // 当节点不为空的时候输出节点内容
+        while(startNode != NULL) {
+        printf("&lt;-- %d --&gt; ", startNode-&gt;data);
+        startNode = startNode-&gt;next;
+        }
+        printf("NULL\n");
+        }
 
-// 删除链表指定位置的节点 
-void deleteNode() {
-int i;
-int position;
-// 定义要删除的节点 
-Node *deleteNode = headNode-&gt;next;
-// 定义要删除的节点的前一个位置的节点，用于连接要删除的节点的之后的节点 
-Node *priorNode = headNode; 
-// 如果链表里面只有一个头结点，那么直接返回(头结点不可删除) 
-if(headNode-&gt;data == 1) {
-	return ;
-} 
-printf("输入要删除的节点位置(1~%d):", headNode-&gt;data-1); 
-scanf("%d", &amp;position);
-if(position &lt; 1 || position &gt; headNode-&gt;data-1) {
-	printf("位置输入错误！");
-	return ;
-}
-// 找到要删除的节点 
-for(i = 1; i &lt; position &amp;&amp; deleteNode != NULL; i++) {
-	deleteNode = deleteNode-&gt;next;
-	priorNode = priorNode-&gt;next;
-}
-// 如果节点不为空，那么删除这个节点 
-if(deleteNode != NULL) {
-	// 改变前后节点的指针指向 
-	priorNode-&gt;next = deleteNode-&gt;next;
-	// 防止删除的节点是最后一个节点导致内存泄漏 
-	if(deleteNode-&gt;next != NULL) {
-		deleteNode-&gt;next-&gt;prior = priorNode;
-	}
-	// 将指针指向空并且回收这个节点的内存空间 		
-	deleteNode-&gt;next = NULL; 
-	deleteNode-&gt;prior = NULL;
-	free(deleteNode);
-	// 链表的节点总数减一 
-	headNode-&gt;data--;
-}
-} 
+        // 删除链表指定位置的节点
+        void deleteNode() {
+        int i;
+        int position;
+        // 定义要删除的节点
+        Node *deleteNode = headNode-&gt;next;
+        // 定义要删除的节点的前一个位置的节点，用于连接要删除的节点的之后的节点
+        Node *priorNode = headNode;
+        // 如果链表里面只有一个头结点，那么直接返回(头结点不可删除)
+        if(headNode-&gt;data == 1) {
+        return ;
+        }
+        printf("输入要删除的节点位置(1~%d):", headNode-&gt;data-1);
+        scanf("%d", &amp;position);
+        if(position &lt; 1 || position &gt; headNode-&gt;data-1) {
+        printf("位置输入错误！");
+        return ;
+        }
+        // 找到要删除的节点
+        for(i = 1; i &lt; position &amp;&amp; deleteNode != NULL; i++) {
+        deleteNode = deleteNode-&gt;next;
+        priorNode = priorNode-&gt;next;
+        }
+        // 如果节点不为空，那么删除这个节点
+        if(deleteNode != NULL) {
+        // 改变前后节点的指针指向
+        priorNode-&gt;next = deleteNode-&gt;next;
+        // 防止删除的节点是最后一个节点导致内存泄漏
+        if(deleteNode-&gt;next != NULL) {
+        deleteNode-&gt;next-&gt;prior = priorNode;
+        }
+        // 将指针指向空并且回收这个节点的内存空间
+        deleteNode-&gt;next = NULL;
+        deleteNode-&gt;prior = NULL;
+        free(deleteNode);
+        // 链表的节点总数减一
+        headNode-&gt;data--;
+        }
+        }
 
-// 向链表的指定位置插入节点 
-void insertNode() {
-// 定义要插入的节点、插入位置和数据值 
-Node *insertNode = NULL;
-int position, data;
-int i; 
-// 定义要插入的节点的前一个位置的节点，用于连接要插入的节点的之后的节点 
-Node *priorNode = headNode;
+        // 向链表的指定位置插入节点
+        void insertNode() {
+        // 定义要插入的节点、插入位置和数据值
+        Node *insertNode = NULL;
+        int position, data;
+        int i;
+        // 定义要插入的节点的前一个位置的节点，用于连接要插入的节点的之后的节点
+        Node *priorNode = headNode;
 
-printf("输入节点的插入位置(1~%d)和数据值：", headNode-&gt;data);
-scanf("%d %d", &amp;position, &amp;data);
-if(position &lt; 1 || position &gt; headNode-&gt;data) {
-	printf("位置输入错误！");
-	return ;
-}
-// 为要插入的节点申请内存空间 
-insertNode = (Node *) malloc(sizeof(Node));
-insertNode-&gt;data = data;
-// 找到节点的插入位置 
-for(i = 1; i &lt; position &amp;&amp; priorNode != NULL; i++) {
-	priorNode = priorNode-&gt;next; 
-}
-// 进行节点插入 
-if(priorNode != NULL) {
-	// 改变前后节点的指针指向 
-	insertNode-&gt;next = priorNode-&gt;next;
-	// 防止插入的节点是最后一个节点导致内存泄漏 
-	if(insertNode-&gt;next != NULL) {
-		insertNode-&gt;next-&gt;prior = insertNode; 
-	}
-	priorNode-&gt;next = insertNode;
-	insertNode-&gt;prior = priorNode;
-	// 链表节点总数加一 
-	headNode-&gt;data++;
-}
-} 
+        printf("输入节点的插入位置(1~%d)和数据值：", headNode-&gt;data);
+        scanf("%d %d", &amp;position, &amp;data);
+        if(position &lt; 1 || position &gt; headNode-&gt;data) {
+        printf("位置输入错误！");
+        return ;
+        }
+        // 为要插入的节点申请内存空间
+        insertNode = (Node *) malloc(sizeof(Node));
+        insertNode-&gt;data = data;
+        // 找到节点的插入位置
+        for(i = 1; i &lt; position &amp;&amp; priorNode != NULL; i++) {
+        priorNode = priorNode-&gt;next;
+        }
+        // 进行节点插入
+        if(priorNode != NULL) {
+        // 改变前后节点的指针指向
+        insertNode-&gt;next = priorNode-&gt;next;
+        // 防止插入的节点是最后一个节点导致内存泄漏
+        if(insertNode-&gt;next != NULL) {
+        insertNode-&gt;next-&gt;prior = insertNode;
+        }
+        priorNode-&gt;next = insertNode;
+        insertNode-&gt;prior = priorNode;
+        // 链表节点总数加一
+        headNode-&gt;data++;
+        }
+        }
 
-int main() {
+        int main() {
 
-// 创建链表 
-createLinkList(); 
-// 输出链表所有的节点数据 
-printLinkList(); 
-// 删除链表节点 
-deleteNode();
-// 输出链表所有的节点数据 
-printLinkList(); 
-// 向链表中插入新节点
-insertNode();
-// 输出链表所有的节点数据 
-printLinkList(); 
+        // 创建链表
+        createLinkList();
+        // 输出链表所有的节点数据
+        printLinkList();
+        // 删除链表节点
+        deleteNode();
+        // 输出链表所有的节点数据
+        printLinkList();
+        // 向链表中插入新节点
+        insertNode();
+        // 输出链表所有的节点数据
+        printLinkList();
 
-return 0;
-} 
-	</code>
-	<text>
-代码逻辑和单向链表的相关操作差不多，只是双向链表的每个节点都有两个指针，
-所以在创建链表连接节点、删除节点和插入节点的过程需要注意对两个指针的处理，
-还需要注意的是对于特殊性情况的处理(对头节点、尾节点插入和删除的过程)，
-因为头节点无直接前驱，尾节点无直接后继，处理的时候要防止内存泄漏。下面看看结果：
-	</text>
-	<img>
-xianxingjiegou_13.png
-	</img>
-	<img>
-xianxingjiegou_14.png
-	</img>
-	<img>
-xianxingjiegou_15.png
-	</img>
-	<text>
-上面三张图分别演示了双向链表的创建、删除节点、插入节点的操作，
-三个操作的时间复杂度都是O(n)，这点和单链表一致，相对于单链表的优点是：
-双链表可以直接访问一个节点的直接前驱节点(时间复杂度为O(1))，
-而单链表必须要从头开始移动指针，直到到达指定位置，时间复杂度为O(n)。"换行"
-	</text>
+        return 0;
+        }
+    </code>
+    <text>
+        代码逻辑和单向链表的相关操作差不多，只是双向链表的每个节点都有两个指针，
+        所以在创建链表连接节点、删除节点和插入节点的过程需要注意对两个指针的处理，
+        还需要注意的是对于特殊性情况的处理(对头节点、尾节点插入和删除的过程)，
+        因为头节点无直接前驱，尾节点无直接后继，处理的时候要防止内存泄漏。下面看看结果：
+    </text>
+    <img>
+        xianxingjiegou_13.png
+    </img>
+    <img>
+        xianxingjiegou_14.png
+    </img>
+    <img>
+        xianxingjiegou_15.png
+    </img>
+    <text>
+        上面三张图分别演示了双向链表的创建、删除节点、插入节点的操作，
+        三个操作的时间复杂度都是O(n)，这点和单链表一致，相对于单链表的优点是：
+        双链表可以直接访问一个节点的直接前驱节点(时间复杂度为O(1))，
+        而单链表必须要从头开始移动指针，直到到达指定位置，时间复杂度为O(n)。"换行"
+    </text>
 
-	<text>
-循环链表是另一种形式的链式存贮结构。"换行"它的特点是表中最后一个结点的指针域指向头结点，
-整个链表形成一个环。"换行"因此，从链表中任何一个节点出发均可到达表中的其他节点。"换行"
-在单链表中，从一已知结点出发，只能访问到该结点及其后续结点，
-无法找到该结点之前的其它结点。"换行"而在单循环链表中，
-从任一结点出发都可访问到表中所有结点。"换行"这一优点使某些运算在单循环链表上易于实现
-下面是循环链表的内存结构图(包括循环单链表和循环双链表):"换行"
-		</text>
-		<img filepath="xianxingjiegou_16.png">
-		</img>
-		<text>
-循环链表类似于串起来的珠子，无论从哪个珠子开始数，照着某个方向，
-一定可以将这串珠子都数完，这和遍历整个循环链表的思想是一样的。"换行"
-循环单链表和单链表操作基本一致，区别在于："换行"
-循环链表中没有NULL指针。"换行"遍历链表的时候，判断当前指针到达表尾的条件不同，
-单链表通过 p!=NULL 或者 p-&lt;!=NULL 来进行的，即判断当前指针是否为空，
-而循环链表是判断当前指针地址是否等于某"特定指针"来进行的。"换行"
-这个"特定指针"取决于你选择的开始遍历链表的那个节点，
-对比单链表和循环单链表的内存结构图很好理解它们的区别。"换行"
-如果想要了解关于单链表的更多信息，请参考"单向链表"部分。"换行"
-类似的，双链表和循环双链表的关系也类似，在判断链表是否遍历完成的条件有所不同。"换行"
-如果想要了解关于双链表的更多信息，请参考"双向链表"部分。"换行"
-		</text>
-		<code>
+    <text>
+        循环链表是另一种形式的链式存贮结构。"换行"它的特点是表中最后一个结点的指针域指向头结点，
+        整个链表形成一个环。"换行"因此，从链表中任何一个节点出发均可到达表中的其他节点。"换行"
+        在单链表中，从一已知结点出发，只能访问到该结点及其后续结点，
+        无法找到该结点之前的其它结点。"换行"而在单循环链表中，
+        从任一结点出发都可访问到表中所有结点。"换行"这一优点使某些运算在单循环链表上易于实现
+        下面是循环链表的内存结构图(包括循环单链表和循环双链表):"换行"
+    </text>
+    <img filepath="xianxingjiegou_16.png"></img>
+    <text>
+        循环链表类似于串起来的珠子，无论从哪个珠子开始数，照着某个方向，
+        一定可以将这串珠子都数完，这和遍历整个循环链表的思想是一样的。"换行"
+        循环单链表和单链表操作基本一致，区别在于："换行"
+        循环链表中没有NULL指针。"换行"遍历链表的时候，判断当前指针到达表尾的条件不同，
+        单链表通过 p!=NULL 或者 p-&lt;!=NULL 来进行的，即判断当前指针是否为空，
+        而循环链表是判断当前指针地址是否等于某"特定指针"来进行的。"换行"
+        这个"特定指针"取决于你选择的开始遍历链表的那个节点，
+        对比单链表和循环单链表的内存结构图很好理解它们的区别。"换行"
+        如果想要了解关于单链表的更多信息，请参考"单向链表"部分。"换行"
+        类似的，双链表和循环双链表的关系也类似，在判断链表是否遍历完成的条件有所不同。"换行"
+        如果想要了解关于双链表的更多信息，请参考"双向链表"部分。"换行"
+    </text>
+    <code>
 
-/**
- * 循环单链表的相关操作。"换行" 
- * 包括：链表的创建、输出链表内容、删除节点、插入节点
- * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
- * Author：指点 
- */
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+        /**
+        * 循环单链表的相关操作。"换行"
+        * 包括：链表的创建、输出链表内容、删除节点、插入节点
+        * 这里队列元素储存的数据类型为 int 类型，没有使用 typedef 关键字，如有需要请自行更改
+        * Author：指点
+        */
+        #include &lt;stdio.h&gt; #include &lt;stdlib.h&gt;
 
-// 链表节点的结构体，包含数据部分和指针部分(指向下一个节点的地址) 
-typedef struct Node {
-	int data;
-	struct Node *next;
-}Node;
+        // 链表节点的结构体，包含数据部分和指针部分(指向下一个节点的地址)
+        typedef struct Node {
+        int data;
+        struct Node *next;
+        }Node;
 
-// 定义链表的头结点 
-Node *headNode = NULL;  
+        // 定义链表的头结点
+        Node *headNode = NULL;
 
-// 创建链表 
-void createLinkList() {
-	int data;
-	// 为链表的头结点申请内存空间 
-	headNode = (Node *) malloc(sizeof(Node));
-	// 头结点的 data 用于储存链表的节点总数(包括头结点)
-	headNode-&gt;data = 1; 
-	headNode-&gt;next = NULL;
-	// 当前要创建的节点的指针 
-	Node *node = NULL;
-	/* 这个指针一直指向当前要创建的节点的前一个节点，
-	 * 随着节点的创建它会慢慢向后移，用于连接当前要创建的节点
-	 */ 
-	Node *prior = headNode; 
-	printf("请输入要创建的节点数据，输入 -1 代表结束创建节点:\n"); 
-	do {
-		scanf("%d", &amp;data);
-		// 如果输入的是 -1 则跳出循环 
-		if(data == -1) {
-			break;
-		}
-		// 为当前要创建的节点申请内存空间并且进行数据赋值 
-		node = (Node *) malloc(sizeof(Node));
-		node-&gt;data = data; 
-		node-&gt;next = NULL;
-		prior-&gt;next = node;
-		// 链表总的节点数加一 
-		headNode-&gt;data++;  
-		/* 将前节点指针后移，保证每次创建新的节点的时候它都在新的节点的前一个节点位置，
-		用于连接这个新的节点到链表的尾部 */ 
-		prior = node;
-	} while(1); 
-	// 尾节点的 next 指针指向头结点构造循环单链表 
-	prior-&gt;next = headNode; 
-}
+        // 创建链表
+        void createLinkList() {
+        int data;
+        // 为链表的头结点申请内存空间
+        headNode = (Node *) malloc(sizeof(Node));
+        // 头结点的 data 用于储存链表的节点总数(包括头结点)
+        headNode-&gt;data = 1;
+        headNode-&gt;next = NULL;
+        // 当前要创建的节点的指针
+        Node *node = NULL;
+        /* 这个指针一直指向当前要创建的节点的前一个节点，
+        * 随着节点的创建它会慢慢向后移，用于连接当前要创建的节点
+        */
+        Node *prior = headNode;
+        printf("请输入要创建的节点数据，输入 -1 代表结束创建节点:\n");
+        do {
+        scanf("%d", &amp;data);
+        // 如果输入的是 -1 则跳出循环
+        if(data == -1) {
+        break;
+        }
+        // 为当前要创建的节点申请内存空间并且进行数据赋值
+        node = (Node *) malloc(sizeof(Node));
+        node-&gt;data = data;
+        node-&gt;next = NULL;
+        prior-&gt;next = node;
+        // 链表总的节点数加一
+        headNode-&gt;data++;
+        /* 将前节点指针后移，保证每次创建新的节点的时候它都在新的节点的前一个节点位置，
+        用于连接这个新的节点到链表的尾部 */
+        prior = node;
+        } while(1);
+        // 尾节点的 next 指针指向头结点构造循环单链表
+        prior-&gt;next = headNode;
+        }
 
-// 输出链表的所有节点数据 
-void printLinkList() {
-	printf("\n当前链表的节点总数(包括头结点)：%d\n", headNode-&gt;data);
-	Node *startNode = headNode-&gt;next;
-	printf("当前链表内容：headNode --&gt; ");
-	// 当节点不等于头结点的时候输出节点内容 
-	while(startNode != headNode) {
-		printf("%d --&gt; ", startNode-&gt;data);
-		startNode = startNode-&gt;next; 
-	} 
-	printf("headNode\n");
-}
+        // 输出链表的所有节点数据
+        void printLinkList() {
+        printf("\n当前链表的节点总数(包括头结点)：%d\n", headNode-&gt;data);
+        Node *startNode = headNode-&gt;next;
+        printf("当前链表内容：headNode --&gt; ");
+        // 当节点不等于头结点的时候输出节点内容
+        while(startNode != headNode) {
+        printf("%d --&gt; ", startNode-&gt;data);
+        startNode = startNode-&gt;next;
+        }
+        printf("headNode\n");
+        }
 
-// 删除链表指定位置的节点 
-void deleteNode() {
-	int i;
-	int position;
-	// 定义要删除的节点 
-	Node *deleteNode = headNode-&gt;next;
-	// 定义要删除的节点的前一个位置的节点，用于连接要删除的节点的之后的节点 
-	Node *priorNode = headNode; 
-	// 如果链表里面只有一个头结点，那么直接返回(头结点不可删除) 
-	if(headNode-&gt;data == 1) {
-		return ;
-	} 
-	printf("输入要删除的节点位置(1~%d):", headNode-&gt;data-1); 
-	scanf("%d", &amp;position);
-	if(position &lt; 1 || position &gt; headNode-&gt;data-1) {
-		printf("位置输入错误！");
-		return ;
-	}
-	/* 找到要删除的节点，循环单链表里面不存在空节点，所以无需判断要删除的节点 */ 
-	for(i = 1; i &lt; position; i++) {
-		deleteNode = deleteNode-&gt;next;
-		priorNode = priorNode-&gt;next;
-	}
-	priorNode-&gt;next = deleteNode-&gt;next;
-	// 将指针指向空并且回收这个节点的内存空间 		
-	deleteNode-&gt;next = NULL; 
-	free(deleteNode);
-	// 链表的节点总数减一 
-	headNode-&gt;data--;
-} 
+        // 删除链表指定位置的节点
+        void deleteNode() {
+        int i;
+        int position;
+        // 定义要删除的节点
+        Node *deleteNode = headNode-&gt;next;
+        // 定义要删除的节点的前一个位置的节点，用于连接要删除的节点的之后的节点
+        Node *priorNode = headNode;
+        // 如果链表里面只有一个头结点，那么直接返回(头结点不可删除)
+        if(headNode-&gt;data == 1) {
+        return ;
+        }
+        printf("输入要删除的节点位置(1~%d):", headNode-&gt;data-1);
+        scanf("%d", &amp;position);
+        if(position &lt; 1 || position &gt; headNode-&gt;data-1) {
+        printf("位置输入错误！");
+        return ;
+        }
+        /* 找到要删除的节点，循环单链表里面不存在空节点，所以无需判断要删除的节点 */
+        for(i = 1; i &lt; position; i++) {
+        deleteNode = deleteNode-&gt;next;
+        priorNode = priorNode-&gt;next;
+        }
+        priorNode-&gt;next = deleteNode-&gt;next;
+        // 将指针指向空并且回收这个节点的内存空间
+        deleteNode-&gt;next = NULL;
+        free(deleteNode);
+        // 链表的节点总数减一
+        headNode-&gt;data--;
+        }
 
-// 向链表的指定位置插入节点 
-void insertNode() {
-	// 定义要插入的节点、插入位置和数据值 
-	Node *insertNode = NULL;
-	int position, data;
-	int i; 
-	// 定义要插入的节点的前一个位置的节点，用于连接要插入的节点的之后的节点 
-	Node *priorNode = headNode;
-	
-	printf("输入节点的插入位置(1~%d)和数据值：", headNode-&gt;data);
-	scanf("%d %d", &amp;position, &amp;data);
-	if(position &lt; 1 || position &gt; headNode-&gt;data) {
-		printf("位置输入错误！");
-		return ;
-	}
-	// 为要插入的节点申请内存空间 
-	insertNode = (Node *) malloc(sizeof(Node));
-	insertNode-&gt;data = data;
-	// 找到节点的插入位置 
-	for(i = 1; i &lt; position; i++) {
-		priorNode = priorNode-&gt;next; 
-	}
-	// 进行节点插入 
-	insertNode-&gt;next = priorNode-&gt;next;
-	priorNode-&gt;next = insertNode;
-	// 链表节点总数加一 
-	headNode-&gt;data++;
-} 
+        // 向链表的指定位置插入节点
+        void insertNode() {
+        // 定义要插入的节点、插入位置和数据值
+        Node *insertNode = NULL;
+        int position, data;
+        int i;
+        // 定义要插入的节点的前一个位置的节点，用于连接要插入的节点的之后的节点
+        Node *priorNode = headNode;
 
-int main() {
-	// 创建链表 
-	createLinkList(); 
-	// 输出链表所有的节点数据 
-	printLinkList(); 
-	// 删除链表节点 
-	deleteNode();
-	// 输出链表所有的节点数据 
-	printLinkList(); 
-	// 向链表中插入新节点
-	insertNode();
-	// 输出链表所有的节点数据 
-	printLinkList(); 
-	
-	return 0;
-}
-		</code>
-		<text>
-循环单链表的操作和单链表的操作基本一致，不同在于循环单链表中没有空节点，
-也就是说每个在循环单链表中的节点都是非空的指针。"换行"
-基于这个，我们在操作的时候不需要担心内存泄漏的问题，但是在构造循环单链表的过程中，
-在处理尾节点的时候必须要把其 next 指针指向头结点，这样就把链表"串"起来了，
-结合循环单链表的内存结构图，很容易理解这些过程。"换行"
-类似的，循环双链表的操作思想也差不多，代码不在这里给出，
-而是作为"习题巩固"部分的内容。"换行"最后是程序运行的结果：
-		</text>
-		<img filepath="xianxingjiegou_17.png">
-		</img>
+        printf("输入节点的插入位置(1~%d)和数据值：", headNode-&gt;data);
+        scanf("%d %d", &amp;position, &amp;data);
+        if(position &lt; 1 || position &gt; headNode-&gt;data) {
+        printf("位置输入错误！");
+        return ;
+        }
+        // 为要插入的节点申请内存空间
+        insertNode = (Node *) malloc(sizeof(Node));
+        insertNode-&gt;data = data;
+        // 找到节点的插入位置
+        for(i = 1; i &lt; position; i++) {
+        priorNode = priorNode-&gt;next;
+        }
+        // 进行节点插入
+        insertNode-&gt;next = priorNode-&gt;next;
+        priorNode-&gt;next = insertNode;
+        // 链表节点总数加一
+        headNode-&gt;data++;
+        }
+
+        int main() {
+        // 创建链表
+        createLinkList();
+        // 输出链表所有的节点数据
+        printLinkList();
+        // 删除链表节点
+        deleteNode();
+        // 输出链表所有的节点数据
+        printLinkList();
+        // 向链表中插入新节点
+        insertNode();
+        // 输出链表所有的节点数据
+        printLinkList();
+
+        return 0;
+        }
+    </code>
+    <text>
+        循环单链表的操作和单链表的操作基本一致，不同在于循环单链表中没有空节点，
+        也就是说每个在循环单链表中的节点都是非空的指针。"换行"
+        基于这个，我们在操作的时候不需要担心内存泄漏的问题，但是在构造循环单链表的过程中，
+        在处理尾节点的时候必须要把其 next 指针指向头结点，这样就把链表"串"起来了，
+        结合循环单链表的内存结构图，很容易理解这些过程。"换行"
+        类似的，循环双链表的操作思想也差不多，代码不在这里给出，
+        而是作为"习题巩固"部分的内容。"换行"最后是程序运行的结果：
+    </text>
+    <img filepath="xianxingjiegou_17.png"></img>
 </contents>

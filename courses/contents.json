@@ -1,8 +1,8 @@
 [
-	{
-		"courseName": "数据结构",
-		"courseDirName": "datastruct",
-		"courseZipFileName": "datastruct.zip",
-		"lastVersion": "1.0.0"
-	}
+  {
+    "courseName": "数据结构",
+    "courseDirName": "datastruct",
+    "courseZipFileName": "datastruct.zip",
+    "lastVersion": "1.0.0"
+  }
 ]
