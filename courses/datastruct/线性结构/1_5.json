@@ -1,0 +1,66 @@
+[
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "链表相对于顺序表的优势是什么?",
+            "contentType": 1
+          }
+        },
+        {
+          "basicData": {
+            "text": "思考题，这道题没有标准答案",
+            "contentType": 1
+          }
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "链表相对于顺序表的优势是什么?",
+            "contentType": 1
+          }
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案",
+            "contentType": 1
+          }
+        },
+        {
+          "basicData": {
+            "A": "答案A",
+            "B": "答案B",
+            "C": "答案C",
+            "D": "答案D",
+            "contentType": -2
+          }
+        }
+      ],
+      "question_answer_list": [
+        {
+          "basicData": {
+            "text": "A",
+            "contentType": 1
+          }
+        }
+      ]
+    },
+    "contentType": 6
+  },
+  {
+
+  },
+  {
+
+  },
+  {
+
+  }
+]
