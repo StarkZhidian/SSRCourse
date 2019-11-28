@@ -4,15 +4,15 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "链表相对于顺序表的优势是什么?",
-            "contentType": 1
-          }
+            "text": "链表相对于顺序表的优势是什么?"
+          },
+          "contentType": 0
         },
         {
           "basicData": {
-            "text": "思考题，这道题没有标准答案",
-            "contentType": 1
-          }
+            "text": "思考题，这道题没有标准答案"
+          },
+          "contentType": 0
         }
       ]
     },
@@ -23,44 +23,69 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "链表相对于顺序表的优势是什么?",
-            "contentType": 1
-          }
+            "text": "链表相对于顺序表的优势是什么?"
+          },
+          "contentType": 0
         },
         {
           "basicData": {
-            "text": "选择题，选择答案",
-            "contentType": 1
-          }
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
         },
         {
           "basicData": {
-            "A": "答案A",
-            "B": "答案B",
-            "C": "答案C",
-            "D": "答案D",
-            "contentType": -2
-          }
+            "A": [
+              {
+                "basicData": {
+                  "A": "答案A"
+                },
+                "contentType": 0
+              }
+            ],
+            "B": [
+              {
+                "basicData": {
+                  "B": "答案B"
+                },
+                "contentType": 0
+              }
+            ],
+            "C": [
+              {
+                "basicData": {
+                  "C": "答案C"
+                },
+                "contentType": 0
+              }
+            ],
+            "D": [
+              {
+                "basicData": {
+                  "D": "答案D"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
         }
       ],
       "question_answer_list": [
         {
           "basicData": {
-            "text": "A",
-            "contentType": 1
-          }
+            "text": "A"
+          },
+          "contentType": 0
         }
       ]
     },
     "contentType": 6
   },
   {
-
   },
   {
-
   },
   {
-
   }
 ]
