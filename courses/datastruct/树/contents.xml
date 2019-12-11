@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<chapter>
-    <subsection text="树的简介" content_file_path="1_1.xml" />
-    <subsection text="二叉树" content_file_path="1_2.xml" />
-    <subsection text="二叉树搜索树" content_file_path="1_3.xml" />
-    <subsection text="堆" content_file_path="1_4.xml" />
-</chapter>

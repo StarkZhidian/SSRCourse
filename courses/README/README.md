@@ -393,55 +393,301 @@ App 的所有课程内容都储存在 GitHub 中的一个代码仓库中，仓�
 
 ##### 普通问题
 
+```json
+{
+    "basicData": {
+        // 问题描述列表，里面是多个内容元素，用来描述问题
+        "question_desc_list": [
+            // 每一个内容元素用来描述一部分信息
+            {
+                "basicData": {
+                    "text": "链表相对于顺序表的优势是什么?"
+                },
+                "contentType": 0
+            },
+            {
+                "basicData": {
+                    "text": "思考题，这道题没有标准答案"
+                },
+                "contentType": 0
+            }
+        ]
+    },
+    "contentType": 5
+}
+```
 
+普通问题只有一个数据 key：`question_desc_list`，代表问题描述，其值是一个由多个 `内容元素` 组成的数组，里面由**多个非问题类型内容元素组成（文本、图片、代码、网页、原生动画）。问题和问题之间不能嵌套，比如你不能在普通问题的问题描述列表中又添加一个普通问题内容类型**。
 
 ##### 选择题
 
+```json
+{
+    "basicData": {
+        // 问题描述列表，里面是多个内容元素，用来描述问题
+        "question_desc_list": [
+            {
+                "basicData": {
+                    "text": "链表相对于顺序表的优势是什么?"
+                },
+                "contentType": 0
+            },
+            {
+                "basicData": {
+                    "text": "选择题，选择答案"
+                },
+                "contentType": 0
+            }
+        ],
+        // 问题答案选项列表
+        "question_option_list": [
+            // 选项A
+            {
+                "basicData": {
+                    // 选项名
+                    "option_name": "A",
+                    // 选项描述列表，里面是多个内容元素，用来描述该选项
+                    "option_desc_list": [
+                        {
+                            "basicData": {
+                                "text": "答案A"
+                            },
+                            "contentType": 0
+                        }
+                    ]
+                },
+                // 选项的 contentType（内容类型）用 -2 表示
+                "contentType": -2
+            },
+            // 选项 B
+            {
+                "basicData": {
+                    // 选项名
+                    "option_name": "B",
+                    // 选项描述列表，里面是多个内容元素，用来描述该选项
+                    "option_desc_list": [
+                        {
+                            "basicData": {
+                                "text": "答案B"
+                            },
+                            "contentType": 0
+                        }
+                    ]
+                },
+                // 选项的 contentType（内容类型）用 -2 表示
+                "contentType": -2
+            },
+            // 选项 C
+            {
+                "basicData": {
+                    // 选项名
+                    "option_name": "C",
+                    // 选项描述列表，里面是多个内容元素，用来描述该选项
+                    "option_desc_list": [
+                        {
+                            "basicData": {
+                                "text": "答案C"
+                            },
+                            "contentType": 0
+                        }
+                    ]
+                },
+                // 选项的 contentType（内容类型）用 -2 表示
+                "contentType": -2
+            },
+            // 选项 D
+            {
+                "basicData": {
+                    // 选项名
+                    "option_name": "D",
+                    // 选项描述列表，里面是多个内容元素，用来描述该选项
+                    "option_desc_list": [
+                        {
+                            "basicData": {
+                                "text": "答案D"
+                            },
+                            "contentType": 0
+                        }
+                    ]
+                },
+                // 选项的 contentType（内容类型）用 -2 表示
+                "contentType": -2
+            }
+        ],
+        // 描述问题正确答案
+        "question_right_answer": {
+            // 正确答案选项名
+            "right_option_name": "A",
+            // 正确答案选项索引
+            "right_option_index": 0,
+            // 问题解描述析列表，里面是多个内容元素，用来描述问题解析
+            "right_option_desc": [
+                {
+                    "basicData": {
+                        "text": "顺序结构和链式结构图如下"
+                    },
+                    "contentType": 0
+                },
+                {
+                    "basicData": {
+                        "image_url": "xianxingjiegou_2.png",
+                        "parent_dir_path": "datastruct/线性结构"
+                    },
+                    "contentType": 1
+                },
+                {
+                    "basicData": {
+                        "image_url": "xianxingjiegou_7.png",
+                        "parent_dir_path": "datastruct/线性结构"
+                    },
+                    "contentType": 1
+                },
+                {
+                    "basicData": {
+                        "text": "可以看到链表通过指针链接节点，因此其优势在于只要改变节点指针指向就可以改变元素顺序，而不需要进行重排序"
+                    },
+                    "contentType": 0
+                }
+            ]
+        }
+    },
+    "contentType": 6
+}
+```
+
+选择题的数据看起来相对复杂，因为里面可能出现的内容有点多，整体来说分三个部分：
+
+```xml
+1、问题描述，使用 question_desc_list 键来表示
+2、选项列表， 使用 question_option_list 键来表示
+3、正确答案及解析，使用 question_right_answer 键来表示
+```
+
 ##### 填空题
+
+```json
+{
+    "basicData": {
+        // 填空题的描述列表，里面是多个内容元素，用来描述问题
+        "question_desc_list": [
+            {
+                "basicData": {
+                    "text": "链表相对于顺序表的优势是__"
+                },
+                "contentType": 0
+            },
+            {
+                "basicData": {
+                    "text": "填空题，填写答案"
+                },
+                "contentType": 0
+            }
+        ],
+        // 填空题的参考答案描述列表，里面是多个内容元素，用来描述问题解析
+        "blank_answer_list": [
+            {
+                "basicData": {
+                    "text": "插入/删除元素时间复杂度为O(1)"
+                },
+                "contentType": 0
+            }
+        ]
+    },
+    "contentType": 7
+}
+```
+
+填空题有两个数据 key：`question_desc_list`，代表问题描述列表。`blank_answer_list`，代表问题答案解析描述列表。
+
+#### 内容规则
+
+所有的内容遵循两个规则：
+
+**1、内容元素是组成课程内容的基本单位。**
+
+**2、如果课程内容中某个数据是数组，那么这个数组中的所有元素一定是 `内容元素`。**
+
+比如：
+
+```json
+// 中括号开头的就代表是数组
+[
+    // 内容元素1
+    {....},
+    // 内容元素2
+    {....},
+    // 内容元素3
+    {....},
+    // 内容元素4
+    {....}
+    // .....
+]
+```
+
+而如果内容元素里面也有数组（比如问题内容中的内容描述），数组里面的元素也一定是 `内容元素`。
+
+有了这个规范，在编写课程小节内容的时候会轻松很多。
+
+#### EG
 
 我们拿 **排序** 章节的第一小节：`插入排序` 中的内容（`1_1.json`）来举例子：
 
 ```json
+// 最外层一定是一个内容元素数组，因为每一个小节内容肯定是有多个基本内容（文本、图片、代码等）
 [
-  {
-    "basicData": {
-      "text": "\n相信大家都玩过扑克牌，插入排序就像我们摸扑克牌一样。\n\n摸到一张扑克牌，我们就可以按照其花色大小将它插入到对应位置，使得已经摸到的牌有序。\n\n插入排序正是这种思想：首先，把数组元素中的第一个元素看成是有序的，从第二个元素开始，我们每次取出一个元素，并且将这个元素插入到前面已经有序的数组中的对应位置，使得插入后的整个数组元素仍有序，直到所有元素都插入完成。\n\n\n看一个简单的例子：假设我们需要把数组：3 1 2 4 5 进行从小到大排序，采用直接插入排序的步骤如下：\n\n1、先将数组的第一个元素看成有序的，即为 3 。\n\n2、接下来从数组第二个元素开始，每一个元素都和前面已经有序的数组元素进行对比，找到第一个比该元素小的元素的位置(位置不能小于 0)并且插入在其后面。例如 1 比 3 小，那么把元素 1 前移，但是因为元素 3 所在数组下标为 0 ，所以元素 1 只能插入在数组下标为 0 的位置而不能继续前移(或者理解成元素 1 已经成为当前有序的元素中最小的元素)。\n并且元素 3 向后移动到元素 1 的位置。\n\n此时的数组元素顺序就变成了 1 3 2 4 5 。那么接下来是数组的第三个元素，即为 2 ，因为 2 小于 3，那么把元素 2 向前移，\n此时只需移动一个位置元素 2 就找到了比它小的元素：1，那么把元素 2 插入到元素 1 后面并且把后面的所有元素向后移动一位。\n\n此时的数组元素就变成了 1 2 3 4 5，接下来继续对元素 4 和元素 5 移动，因为此时的数组元素已经为有序，所以并不需要移动数组元素，即排序结束。\n\n关于直接插入排序的实现，请参考 \"动画\"和\"代码\"部分。\n\t",
-      "parent_dir_path": "datastruct/排序"
+	// 第一个内容元素是文本，因为它的 contentType 值是 0，参考上面内容元素类型表格
+    {
+        "basicData": {
+            "text": "\n相信大家都玩过扑克牌，插入排序就像我们摸扑克牌一样。\n\n摸到一张扑克牌，我们就可以按照其花色大小将它插入到对应位置，使得已经摸到的牌有序。\n\n插入排序正是这种思想：首先，把数组元素中的第一个元素看成是有序的，从第二个元素开始，我们每次取出一个元素，并且将这个元素插入到前面已经有序的数组中的对应位置，使得插入后的整个数组元素仍有序，直到所有元素都插入完成。\n\n\n看一个简单的例子：假设我们需要把数组：3 1 2 4 5 进行从小到大排序，采用直接插入排序的步骤如下：\n\n1、先将数组的第一个元素看成有序的，即为 3 。\n\n2、接下来从数组第二个元素开始，每一个元素都和前面已经有序的数组元素进行对比，找到第一个比该元素小的元素的位置(位置不能小于 0)并且插入在其后面。例如 1 比 3 小，那么把元素 1 前移，但是因为元素 3 所在数组下标为 0 ，所以元素 1 只能插入在数组下标为 0 的位置而不能继续前移(或者理解成元素 1 已经成为当前有序的元素中最小的元素)。\n并且元素 3 向后移动到元素 1 的位置。\n\n此时的数组元素顺序就变成了 1 3 2 4 5 。那么接下来是数组的第三个元素，即为 2 ，因为 2 小于 3，那么把元素 2 向前移，\n此时只需移动一个位置元素 2 就找到了比它小的元素：1，那么把元素 2 插入到元素 1 后面并且把后面的所有元素向后移动一位。\n\n此时的数组元素就变成了 1 2 3 4 5，接下来继续对元素 4 和元素 5 移动，因为此时的数组元素已经为有序，所以并不需要移动数组元素，即排序结束。\n\n关于直接插入排序的实现，请参考 \"动画\"和\"代码\"部分。\n\t",
+            "parent_dir_path": "datastruct/排序"
+        },
+        "contentType": 0
     },
-    "contentType": 0
-  },
-  {
-    "basicData": {
-      "animation_name": "排序:直接插入排序",
-      "parent_dir_path": "datastruct/排序"
+    // 第二个内容元素类型是 原生动画，因为它的 contentType 值为 4，参考上面的内容元素类型表格
+    {
+        "basicData": {
+            "animation_name": "排序:直接插入排序",
+            "parent_dir_path": "datastruct/排序"
+        },
+        "contentType": 4
     },
-    "contentType": 4
-  },
-  {
-    "basicData": {
-      "code": "\n\n/**\n* C语言实现直接插入排序\n* Author：指点 \n*/\n#include <stdio.h>\n#define N 100\nint array[N];\n\n// 直接插入排序，a 待排序为数组，n 为数组元素个数 \nvoid insertSort(int a[], int n) {\nint i, j, v;\n// 把数组第一个元素看成有序的，从数组第二个元素开始进行排序 \nfor(i = 1; i < n; i++) {\n\tv = a[i];\n\tj = i-1;\n\t// 将在该元素前面并且值比其大的元素向后移，这里是一边比较一边移动元素位置\n\twhile(j >= 0 && a[j] > v) {\n\t\ta[j+1] = a[j];\n\t\tj--;\n\t}\n\t// 完成元素插入 \n\ta[j+1] = v;\n}\n}\n\n// 打印出数组信息 \nvoid print(int a[], int n) {\nint i;\nfor(i = 0; i < n; i++) {\n\tprintf(\"%d \", a[i]);\n}\nprintf(\"\\n\");\n}\n\nint main() {\nint i, n;\nprintf(\"输入数组元素的个数(1~100): \");\nscanf(\"%d\", &n);\nprintf(\"输入%d个数组元素：\\n\", n);\nfor(i = 0; i < n; i++) {\n\tscanf(\"%d\", array+i);\n}\nprintf(\"排序之前的数组元素：\\n\");\nprint(array, n);\ninsertSort(array, n);\nprintf(\"排序之后的数组元素：\\n\");\nprint(array, n);\n\nreturn 0;\n} \n\t",
-      "code_language": -1,
-      "parent_dir_path": "datastruct/排序"
+    // 第三个内容元素类型是 代码，因为它的 contentType 值为 2，参考上面内容元素类型表格
+    {
+        "basicData": {
+            "code": "\n\n/**\n* C语言实现直接插入排序\n* Author：指点 \n*/\n#include <stdio.h>\n#define N 100\nint array[N];\n\n// 直接插入排序，a 待排序为数组，n 为数组元素个数 \nvoid insertSort(int a[], int n) {\nint i, j, v;\n// 把数组第一个元素看成有序的，从数组第二个元素开始进行排序 \nfor(i = 1; i < n; i++) {\n\tv = a[i];\n\tj = i-1;\n\t// 将在该元素前面并且值比其大的元素向后移，这里是一边比较一边移动元素位置\n\twhile(j >= 0 && a[j] > v) {\n\t\ta[j+1] = a[j];\n\t\tj--;\n\t}\n\t// 完成元素插入 \n\ta[j+1] = v;\n}\n}\n\n// 打印出数组信息 \nvoid print(int a[], int n) {\nint i;\nfor(i = 0; i < n; i++) {\n\tprintf(\"%d \", a[i]);\n}\nprintf(\"\\n\");\n}\n\nint main() {\nint i, n;\nprintf(\"输入数组元素的个数(1~100): \");\nscanf(\"%d\", &n);\nprintf(\"输入%d个数组元素：\\n\", n);\nfor(i = 0; i < n; i++) {\n\tscanf(\"%d\", array+i);\n}\nprintf(\"排序之前的数组元素：\\n\");\nprint(array, n);\ninsertSort(array, n);\nprintf(\"排序之后的数组元素：\\n\");\nprint(array, n);\n\nreturn 0;\n} \n\t",
+            "code_language": -1,
+            "parent_dir_path": "datastruct/排序"
+        },
+        "contentType": 2
     },
-    "contentType": 2
-  },
-  {
-    "basicData": {
-      "text": "\n代码中实现插入排序部分采用双重循环，很明显事件复杂度为 O(n*n)。\n\n借用了一个中间变量 v 来保存要排序的变量的值，空间复杂度为 O(1)。\n\n下面是程序的运行结果：\n\t",
-      "parent_dir_path": "datastruct/排序"
+    // 第四个内容元素是文本，因为它的 contentType 值是 0，参考上面内容元素类型表格
+    {
+        "basicData": {
+            "text": "\n代码中实现插入排序部分采用双重循环，很明显事件复杂度为 O(n*n)。\n\n借用了一个中间变量 v 来保存要排序的变量的值，空间复杂度为 O(1)。\n\n下面是程序的运行结果：\n\t",
+            "parent_dir_path": "datastruct/排序"
+        },
+        "contentType": 0
     },
-    "contentType": 0
-  },
-  {
-    "basicData": {
-      "image_url": "直接插入排序_1.png",
-      "parent_dir_path": "datastruct/排序"
-    },
-    "contentType": 1
-  }
+    // 第五个内容元素是图片，因为它的 contentType 值是 1，参考上面内容元素类型表格
+    {
+        "basicData": {
+            "image_url": "直接插入排序_1.png",
+            "parent_dir_path": "datastruct/排序"
+        },
+        "contentType": 1
+    }
 ]
 ```
 
-每个小节内容遵从以下两个规定：
+该小节课程内容在客户端中解析出来的 UI 样式如下：
 
-**1、每个小节内容**
+![](./9.jpg)
+
+
+
+![](./10.jpg)
+
+
+
+![](./11.jpg)
+

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<chapter>
-    <subsection text="图的简介" content_file_path="1_1.xml" />
-    <subsection text="深度优先遍历" content_file_path="1_2.xml" />
-    <subsection text="广度优先遍历" content_file_path="1_3.xml" />
-    <subsection text="最小生成树" content_file_path="1_4.xml" />
-    <subsection text="最短路径" content_file_path="1_5.xml" />
-</chapter>
