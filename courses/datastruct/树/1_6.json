@@ -1,0 +1,140 @@
+[
+   
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "若某非空二叉树的先序序列和后序序列正好相同，则该二叉树的形态是什么？ "
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "二叉树的先序序列是NLR，后序序列是LRN。要使NLR=LRN成立，则L和R均为空，所以满足条件的二叉树只有一个根节点。"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "如果一棵哈夫曼树T中共有255个节点，那么该树用于对几个字符进行哈夫曼编码？ "
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "在该哈夫曼树中，n=255，其中只有度为2和0的节点，没有度为1的节点，由非空二叉树的性质1可知，n0=n2+1，即n2=n0-1，总节点数n=n0+n2=2n0-1，所以n0=(n+1)/2=128。所以该树用于对128个字符进行哈夫曼编码。"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "若一棵度为4的树中度为1、2、3、4的节点个数分别为4、3、2、2，则该树的总节点个数是多少？ "
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "25"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "若一棵度为4的树中度为2、3、4的节点个数分别为3、2、2，总节点个数为25，则该树中度为1的节点个数是多少？ "
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "4"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "已知一棵完全二叉树的第6层（设根为第1层）有8个叶子节点，则该完全二叉树的节点个数最多是多少？"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "111"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+  }
+]

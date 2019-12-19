@@ -5,7 +5,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "以下关于排序的叙述中正确的是（ ）。"
+            "text": "树最适合用来表示（ ）。"
           },
           "contentType": 0
         },
@@ -23,7 +23,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "稳定的排序方法优于不稳定的排序方法，因为稳定的排序方法效率较"
+                  "text": "A.有序数据元素"
                 },
                 "contentType": 0
               }
@@ -37,7 +37,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "对同一个顺序表使用不同的排序方法进行排序，得到的排序结果可能不同"
+                  "text": "	无序数据元素"
                 },
                 "contentType": 0
               }
@@ -51,7 +51,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "排序方法都是在顺序表上实现的，在链表上无法实现排序方法"
+                  "text": "元素之间具有分支层次关系的数据"
                 },
                 "contentType": 0
               }
@@ -65,169 +65,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "在顺序表上实现的排序方法在链表上也可以实现"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        }
-      ],
-      "question_right_answer": {
-        "right_option_name": "B",
-        "right_option_index": 1
-              }
-    },
-    "contentType": 6
-  },
-  {
-    "basicData": {
-      "question_desc_list": [
-        {
-          "basicData": {
-            "text": "以下不属于内排序方法的是（ ）。"
-          },
-          "contentType": 0
-        },
-        {
-          "basicData": {
-            "text": "选择题，选择答案"
-          },
-          "contentType": 0
-        }
-      ],
-      "question_option_list": [
-        {
-          "basicData": {
-            "option_name": "A",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "二路归并排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "B",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "拓扑排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "C",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "堆排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "D",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "直接插入排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        }
-      ],
-      "question_right_answer": {
-        "right_option_name": "B",
-        "right_option_index": 1
-              }
-    },
-    "contentType": 6
-  },
-  {
-    "basicData": {
-      "question_desc_list": [
-        {
-          "basicData": {
-            "text": "目前来讲，基于比较的内排序方法最好的平均时间复杂度为（ ）。"
-          },
-          "contentType": 0
-        },
-        {
-          "basicData": {
-            "text": "选择题，选择答案"
-          },
-          "contentType": 0
-        }
-      ],
-      "question_option_list": [
-        {
-          "basicData": {
-            "option_name": "A",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "O(n)"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "B",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "O(n2)"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "C",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "O(nlog2n)"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "D",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "O(log2n)"
+                  "text": "元素之间无联系的数据"
                 },
                 "contentType": 0
               }
@@ -248,7 +86,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "对有n个记录的表进行直接插入排序，在最好情况下需比较（ ）次关键字。"
+            "text": "一棵节点个数为n、高度为h的m（m≥3）次树中，其分支数是（ ）。"
           },
           "contentType": 0
         },
@@ -263,6 +101,34 @@
         {
           "basicData": {
             "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "nh"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "n+h"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
             "option_desc_list": [
               {
                 "basicData": {
@@ -276,120 +142,11 @@
         },
         {
           "basicData": {
-            "option_name": "B",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "n+1"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "C",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "n/2"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
             "option_name": "D",
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "n(n-1)/2"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        }
-      ],
-      "question_right_answer": {
-        "right_option_name": "A",
-        "right_option_index": 0
-              }
-    },
-    "contentType": 6
-  },
-  {
-    "basicData": {
-      "question_desc_list": [
-        {
-          "basicData": {
-            "text": "数据序列{8，9，10，4，5，6，20，1，2}只能是（ ）算法的两趟排序后的结果。"
-          },
-          "contentType": 0
-        },
-        {
-          "basicData": {
-            "text": "选择题，选择答案"
-          },
-          "contentType": 0
-        }
-      ],
-      "question_option_list": [
-        {
-          "basicData": {
-            "option_name": "A",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "简单选择排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "B",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "	冒泡排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "C",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "	直接插入排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "D",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "堆排序"
+                  "text": "h-1"
                 },
                 "contentType": 0
               }
@@ -410,7 +167,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "对数据序列{15，9，7，8，20，-1，4}进行排序，进行一趟后数据的排序变为{4，9，-1，8，20，7，15}，则采用的是（ ）算法。"
+            "text": "若一棵度为7的树有7个度为2的节点，有6个度为3的节点，有5个度为4的节点，有4个度为5的节点，有3个度为6的节点，有2个度为7的节点，该树一共有（ ）个叶子节点。"
           },
           "contentType": 0
         },
@@ -428,7 +185,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "简单选择排序"
+                  "text": "35"
                 },
                 "contentType": 0
               }
@@ -442,7 +199,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "	冒泡排序"
+                  "text": "28"
                 },
                 "contentType": 0
               }
@@ -456,7 +213,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "	希尔排序"
+                  "text": "77"
                 },
                 "contentType": 0
               }
@@ -470,7 +227,88 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "	快速排序"
+                  "text": "78"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "D",
+        "right_option_index": 3
+              }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "按照二叉树的定义，具有3个节点的二叉树有（ ）种。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "3"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "4"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "5"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "6"
                 },
                 "contentType": 0
               }
@@ -491,7 +329,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "以下排序方法中，（ ）在初始序列已基本有序的情况下，排序效率最高。"
+            "text": "一颗二叉树的括号表示为“1(2(4,5(6,7)),3)”）。设N代表二叉树的根，L代表根节点的左子树，R代表根节点的右子树。若遍历后的节点序列为3,1,7,5,6,2,4，则其遍历方式是（ ）。"
           },
           "contentType": 0
         },
@@ -509,7 +347,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "二路归并排序"
+                  "text": "LRN			"
                 },
                 "contentType": 0
               }
@@ -523,7 +361,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "直接插入排序"
+                  "text": " NRL		"
                 },
                 "contentType": 0
               }
@@ -537,7 +375,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "快速排序	"
+                  "text": "RLN		"
                 },
                 "contentType": 0
               }
@@ -551,7 +389,169 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "	堆排序"
+                  "text": "	RNL"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "D",
+        "right_option_index": 3
+              }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "若知道该二叉树的（ ），便可以唯一确定该二叉树。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "先序序列		"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "中序序列			"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "中序和后序序列		"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "先序和后序序列"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "C",
+        "right_option_index": 2
+              }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "一棵二叉树的先序遍历序列为ABCDEFG，它的中序遍历序列可能是（ ）"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "CABDEFG			"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "ABCDEFG		"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "DACEFBG				"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "ADCFEG"
                 },
                 "contentType": 0
               }
@@ -572,7 +572,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "冒泡排序最少元素移动的次数是（ ）。"
+            "text": "任何一棵二叉树的叶子节点在先序、中序和后序遍历序列中的相对次序（ ）。"
           },
           "contentType": 0
         },
@@ -590,7 +590,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "0	"
+                  "text": "相同	"
                 },
                 "contentType": 0
               }
@@ -604,7 +604,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "1"
+                  "text": "不相同"
                 },
                 "contentType": 0
               }
@@ -618,7 +618,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "n"
+                  "text": "不能确定"
                 },
                 "contentType": 0
               }
@@ -632,7 +632,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "3n(n-1)/2"
+                  "text": "以上都不对"
                 },
                 "contentType": 0
               }
@@ -653,7 +653,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "已知用某种排序方法对关键字序列{51，35，93，24，13，68，56，42，77}进行排序时，前两趟排序的结果为（35，51，24，13，68，56，42，77，93）(35，24，13，51，56，42，68，77，93）所采用的排序方法是（ ）。"
+            "text": "设有一棵哈夫曼树的节点总数为35，则该哈夫曼树共有（ ）个叶子节点。"
           },
           "contentType": 0
         },
@@ -671,7 +671,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "直接插入排序"
+                  "text": "18"
                 },
                 "contentType": 0
               }
@@ -685,7 +685,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "	冒泡排序"
+                  "text": "20"
                 },
                 "contentType": 0
               }
@@ -699,7 +699,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "	快速排序"
+                  "text": "35"
                 },
                 "contentType": 0
               }
@@ -713,88 +713,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "二路归并排序"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        }
-      ],
-      "question_right_answer": {
-        "right_option_name": "B",
-        "right_option_index": 1
-              }
-    },
-    "contentType": 6
-  },
-  {
-    "basicData": {
-      "question_desc_list": [
-        {
-          "basicData": {
-            "text": "为实现快速排序法，待排序序列宜采用存储方式是（ ）。"
-          },
-          "contentType": 0
-        },
-        {
-          "basicData": {
-            "text": "选择题，选择答案"
-          },
-          "contentType": 0
-        }
-      ],
-      "question_option_list": [
-        {
-          "basicData": {
-            "option_name": "A",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "顺序存储"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "B",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "	哈希存储"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "C",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "	链式存储"
-                },
-                "contentType": 0
-              }
-            ]
-          },
-          "contentType": -2
-        },
-        {
-          "basicData": {
-            "option_name": "D",
-            "option_desc_list": [
-              {
-                "basicData": {
-                  "text": "索引存储"
+                  "text": "	30"
                 },
                 "contentType": 0
               }
@@ -806,6 +725,87 @@
       "question_right_answer": {
         "right_option_name": "A",
         "right_option_index": 0
+              }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "下面关于哈夫曼树的说法，错误的是（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "对应于一组权值构造出的哈夫曼树可能不是唯一的"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "哈夫曼树具有最小带权路径长度"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "哈夫曼树中没有度为1的节点"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "哈夫曼树中除了度为1的节点外，还有度为2的节点和叶子节点"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "D",
+        "right_option_index": 3
               }
     },
     "contentType": 6

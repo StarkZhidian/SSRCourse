@@ -1,0 +1,194 @@
+[
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "链表相对于顺序表的优势是什么?"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，这道题没有标准答案"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "链表相对于顺序表的优势是什么?"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "答案A"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "答案B"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "答案C"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "答案D"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "A",
+        "right_option_index": 0,
+        "right_option_desc": [
+          {
+            "basicData": {
+              "text": "顺序结构和链式结构图如下"
+            },
+            "contentType": 0
+          },
+          {
+            "basicData": {
+              "image_url": "xianxingjiegou_2.png",
+              "parent_dir_path": "datastruct/线性结构"
+            },
+            "contentType": 1
+          },
+          {
+            "basicData": {
+              "image_url": "xianxingjiegou_7.png",
+              "parent_dir_path": "datastruct/线性结构"
+            },
+            "contentType": 1
+          },
+          {
+            "basicData": {
+              "text": "可以看到链表通过指针链接节点，因此其优势在于只要改变节点指针指向就可以改变元素顺序，而不需要进行重排序"
+            },
+            "contentType": 0
+          }
+        ]
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "链表相对于顺序表的优势是__"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "插入/删除元素时间复杂度为O(1)"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "链表相对于顺序表的优势是__"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "data_input": [
+        {
+          "basicData": {
+            "text": "1 2"
+          },
+          "contentType": 0
+        }
+      ],
+      "data_output": [
+        {
+          "basicData": {
+            "text": "3"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 8
+  },
+  {
+  }
+]

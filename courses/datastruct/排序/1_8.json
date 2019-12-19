@@ -1,0 +1,54 @@
+[
+    {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "直接插入排序算法在含有n个元素的初始数据正序、反序和数据全部相等时，时间复杂度各是多少？"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        },
+		{
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        },
+		{
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "O(n)"
+          },
+          "contentType": 0
+        },
+		{
+          "basicData": {
+            "text": "O(n2)"
+          },
+          "contentType": 0
+        },
+		{
+          "basicData": {
+            "text": "O(n)"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  }
+    
+]

@@ -1,0 +1,140 @@
+[
+  
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "对于稠密图和稀疏图，采用邻接矩阵和邻接表哪个更好些？"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "邻接矩阵适合于稠密图，因为其存储空间与边数无关。邻接表适合于稀疏图，因为其存储空间与边数有关，边数越多，存储空间越大。"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "对n个顶点的有向图G，采用邻接表存储，如何求图中的边数？_"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "累加每个边单链表中的节点个数即为边数。"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "对n个顶点的有向图G，采用邻接表存储，如何判断顶点i到顶点j是否有边相连？__"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "判断第i个边单链表中是否有顶点j的节点，若有表示顶点i到顶点j有边，否则没有边。"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "对n个顶点的有向图G，采用邻接表存储，如何求任意一个顶点i的入度？__"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "扫描所有边单链表，累加顶点i的节点个数即为顶点i的入度。"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "在含有n个顶点e条边的不带权无向图的邻接矩阵中，零元素的个数为__"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "填空题，填写答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "blank_answer_list": [
+        {
+          "basicData": {
+            "text": "n2-2e"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 7
+  },
+  {
+  }
+]

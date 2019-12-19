@@ -4,26 +4,7 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "链表相对于顺序表的优势是什么?"
-          },
-          "contentType": 0
-        },
-        {
-          "basicData": {
-            "text": "思考题，这道题没有标准答案"
-          },
-          "contentType": 0
-        }
-      ]
-    },
-    "contentType": 5
-  },
-  {
-    "basicData": {
-      "question_desc_list": [
-        {
-          "basicData": {
-            "text": "链表相对于顺序表的优势是什么?"
+            "text": "线性表是（ ）。"
           },
           "contentType": 0
         },
@@ -41,7 +22,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "答案A"
+                  "text": "一个有限序列，可以为空"
                 },
                 "contentType": 0
               }
@@ -55,7 +36,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "答案B"
+                  "text": "一个有限序列，不可以为空"
                 },
                 "contentType": 0
               }
@@ -69,7 +50,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "答案C"
+                  "text": "一个无限序列，可以为空"
                 },
                 "contentType": 0
               }
@@ -83,7 +64,7 @@
             "option_desc_list": [
               {
                 "basicData": {
-                  "text": "答案D"
+                  "text": "一个无限序列，不可以为空"
                 },
                 "contentType": 0
               }
@@ -94,35 +75,7 @@
       ],
       "question_right_answer": {
         "right_option_name": "A",
-        "right_option_index": 0,
-        "right_option_desc": [
-          {
-            "basicData": {
-              "text": "顺序结构和链式结构图如下"
-            },
-            "contentType": 0
-          },
-          {
-            "basicData": {
-              "image_url": "xianxingjiegou_2.png",
-              "parent_dir_path": "datastruct/线性结构"
-            },
-            "contentType": 1
-          },
-          {
-            "basicData": {
-              "image_url": "xianxingjiegou_7.png",
-              "parent_dir_path": "datastruct/线性结构"
-            },
-            "contentType": 1
-          },
-          {
-            "basicData": {
-              "text": "可以看到链表通过指针链接节点，因此其优势在于只要改变节点指针指向就可以改变元素顺序，而不需要进行重排序"
-            },
-            "contentType": 0
-          }
-        ]
+        "right_option_index": 0
       }
     },
     "contentType": 6
@@ -132,63 +85,728 @@
       "question_desc_list": [
         {
           "basicData": {
-            "text": "链表相对于顺序表的优势是__"
+            "text": "线性表的基本运算ListInsert(&L,i,e)表示在线性表L中第i个位置上插入一个元素e，若L的长度为n，则i的合法取值是（ ）。"
           },
           "contentType": 0
         },
         {
           "basicData": {
-            "text": "填空题，填写答案"
+            "text": "选择题，选择答案"
           },
           "contentType": 0
         }
       ],
-      "blank_answer_list": [
+      "question_option_list": [
         {
           "basicData": {
-            "text": "插入/删除元素时间复杂度为O(1)"
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "1≤i≤n"
+                },
+                "contentType": 0
+              }
+            ]
           },
-          "contentType": 0
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "1≤i≤n+1"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "0≤i≤n-1"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "0≤i≤n"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
         }
-      ]
+      ],
+      "question_right_answer": {
+        "right_option_name": "B",
+        "right_option_index": 1
+      }
     },
-    "contentType": 7
+    "contentType": 6
   },
   {
     "basicData": {
       "question_desc_list": [
         {
           "basicData": {
-            "text": "链表相对于顺序表的优势是__"
+            "text": "线在顺序表中删除一个元素所需要的时间（ ）。"
           },
           "contentType": 0
         },
         {
           "basicData": {
-            "text": "填空题，填写答案"
+            "text": "选择题，选择答案"
           },
           "contentType": 0
         }
       ],
-      "data_input": [
+      "question_option_list": [
         {
           "basicData": {
-            "text": "1 2"
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与删除元素的位置及顺序表的长度都有关"
+                },
+                "contentType": 0
+              }
+            ]
           },
-          "contentType": 0
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "只与删除元素的位置有关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与删除任何其他元素所需要的时间相等"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "只与顺序表的长度有关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
         }
       ],
-      "data_output": [
-        {
-          "basicData": {
-            "text": "3"
-          },
-          "contentType": 0
-        }
-      ]
+      "question_right_answer": {
+        "right_option_name": "A",
+        "right_option_index": 0
+      }
     },
-    "contentType": 8
+    "contentType": 6
   },
   {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "顺序表具有随机存取特性，指的是（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "查找值为x的元素与顺序表中元素个数n无关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "查找值为x的元素与顺序表中元素个数n有关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "查找序号为i的元素与顺序表中元素个数n无关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "查找序号为i的元素与顺序表中元素个数n有关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "C",
+        "right_option_index": 2
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "在单链表中，增加一个头节点的目的是为了（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "使单链表至少有一个节点"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "标识链表中重要节点的位置"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "方便运算的实现"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "表示单链表是线性表的链式存储结构"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "C",
+        "right_option_index": 2
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "通过含有n（n≥1）个元素的数组a，采用头插法建立一个单链表L，则L中节点值的次序（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与数组a的元素次序相同"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与数组a的元素次序相反"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与数组a的元素次序无关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "以上都不对"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "B",
+        "right_option_index": 1
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "某算法在含有n（n≥1）个节点的单链表中查找值为x节点，其时间复杂度是（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(log2n)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(1)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(n2)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(n)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "D",
+        "right_option_index": 3
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "在长度为n（n≥1）的单链表中删除尾节点的时间复杂度为（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(1) "
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(log2n)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(n)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "O(n2)"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "C",
+        "right_option_index": 2
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "通过含有n（n≥1）个元素的数组a，采用头插法建立一个单链表L，则L中节点值的次序（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与数组a的元素次序相同"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与数组a的元素次序相反"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "与数组a的元素次序无关"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "以上都不对"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "B",
+        "right_option_index": 1
+      }
+    },
+    "contentType": 6
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "给定一个足够大的空栈，有4个元素的进栈次序为A、B、C、D，则以C、D开头的出栈序列的个数为（ ）。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "选择题，选择答案"
+          },
+          "contentType": 0
+        }
+      ],
+      "question_option_list": [
+        {
+          "basicData": {
+            "option_name": "A",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "1"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "B",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "2"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "C",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "3"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        },
+        {
+          "basicData": {
+            "option_name": "D",
+            "option_desc_list": [
+              {
+                "basicData": {
+                  "text": "4"
+                },
+                "contentType": 0
+              }
+            ]
+          },
+          "contentType": -2
+        }
+      ],
+      "question_right_answer": {
+        "right_option_name": "A",
+        "right_option_index": 0
+      }
+    },
+    "contentType": 6
   }
 ]

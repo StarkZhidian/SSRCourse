@@ -1,0 +1,80 @@
+[
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设有向图G采用邻接表存储，设计一个算法求出图G中每个顶点的出度。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设不带权有向图G采用邻接矩阵存储，设计一个算法求出图G中每个顶点的入度。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设有向图G采用邻接表存储，设计一个算法求出图G中每个顶点的出度。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设有向图G采用邻接表存储，设计一个算法判断图G中是否存在边<i,j>。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+  }
+]

@@ -1,4 +1,8 @@
 [
+   {
+    "chapterName": "知识准备",
+    "chapterDirPath": "datastruct/知识准备"
+  },
   {
     "chapterName": "线性结构",
     "chapterDirPath": "datastruct/线性结构"
@@ -14,5 +18,9 @@
   {
     "chapterName": "排序",
     "chapterDirPath": "datastruct/排序"
+  },
+ {
+    "chapterName": "查找",
+    "chapterDirPath": "datastruct/查找"
   }
-]
+ ]

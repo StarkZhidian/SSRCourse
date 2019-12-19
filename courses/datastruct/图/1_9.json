@@ -1,0 +1,80 @@
+[
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设图G采用邻接矩阵存储。给出图的广度优先遍历算法，并分析算法的时间复杂度。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设图采用邻接矩阵存储。修改Dijkstra算法，仅求从顶点u到顶点v的最短路径及其长度。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设一个无向图是非连通的，采用邻接表作为存储结构。设计一个算法，利用深度优先遍历方法求出该图连通分量个数。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+    "basicData": {
+      "question_desc_list": [
+        {
+          "basicData": {
+            "text": "假设一个连通图采用邻接表作为存储结构。试设计一个算法，判断其中是否存在回路。"
+          },
+          "contentType": 0
+        },
+        {
+          "basicData": {
+            "text": "思考题，自己编程上机调试"
+          },
+          "contentType": 0
+        }
+      ]
+    },
+    "contentType": 5
+  },
+  {
+  }
+]

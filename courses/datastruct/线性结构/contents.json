@@ -17,6 +17,18 @@
   },
   {
     "subsectionFileName": "1_5.json",
-    "subsectionName": "习题"
+    "subsectionName": "初级习题"
+  },
+  {
+    "subsectionFileName": "1_6.json",
+    "subsectionName": "中级习题"
+  },
+  {
+    "subsectionFileName": "1_7.json",
+    "subsectionName": "高级习题"
+  },
+  {
+    "subsectionFileName": "1_8.json",
+    "subsectionName": "巅峰级习题"
   }
 ]
