@@ -8,7 +8,7 @@ void showFloatBits(float f) {
 	int size = sizeof(f) * 8;
 	int i;
 	for (i = 0; i < size; i++) {
-		printf("%d", (*fp) >> (31 - i) & 1);
+		printf("%d", (*fp) >> (size - 1 - i) & 1);
 	}
 	printf("\n");
 } 
@@ -16,7 +16,6 @@ void showFloatBits(float f) {
 int main() {
     // 0b 开头的代表这是一个二进制编码数据
 	float c = 0b01000001;
-	showFloatBits(65); 
-	printf("%.128f\n", c); 
+	showFloatBits(c); 
 	return 0;
 } 
