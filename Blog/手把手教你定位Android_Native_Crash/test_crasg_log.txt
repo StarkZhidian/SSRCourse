@@ -1,0 +1,52 @@
+2021-02-14 12:41:43.775 11344-11344/? A/DEBUG: *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+2021-02-14 12:41:43.775 11344-11344/? A/DEBUG: Build fingerprint: 'Xiaomi/grus/grus:10/QKQ1.190828.002/V12.0.3.0.QFBCNXM:user/release-keys'
+2021-02-14 12:41:43.775 11344-11344/? A/DEBUG: Revision: '0'
+2021-02-14 12:41:43.775 11344-11344/? A/DEBUG: ABI: 'arm64'
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG: Timestamp: 2021-02-14 12:41:43+0800
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG: pid: 11303, tid: 11303, name: nativecrashtest  >>> com.hiro.nativecrashtest <<<
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG: uid: 10851
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG: signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG: Cause: null pointer dereference
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x0  0000000000000000  x1  0000007fd0f9e8a4  x2  0000007fd0f9e860  x3  0000007b4687d470
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x4  0000000000000001  x5  0000007fd0fa0300  x6  0000007fd0f9e870  x7  0000007bcc564020
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x8  0000000000000000  x9  2c040fe008b2e91d  x10 0000000000430000  x11 0000007fd0f9e810
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x12 0000007fd0f9e8a4  x13 0000007fd0f9e898  x14 0000000000000000  x15 0000000000000000
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x16 0000007ade85898c  x17 0000000000000000  x18 0000007bcd6c4000  x19 0000007b47869c00
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x20 0000000000000000  x21 0000007b47869c00  x22 0000007fd0f9eb10  x23 0000007b2e88ee32
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x24 0000000000000004  x25 0000007bcc564020  x26 0000007b47869cb0  x27 0000000000000001
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     x28 0000007fd0f9e8a0  x29 0000007fd0f9e7f0
+2021-02-14 12:41:43.776 11344-11344/? A/DEBUG:     sp  0000007fd0f9e7e0  lr  0000007ade858a68  pc  0000007ade858a68
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG: backtrace:
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #00 pc 0000000000000a68  /data/app/com.hiro.nativecrashtest-cCw4zeRjLbSlyD-y7655sg==/lib/arm64/libcrash_test.so (BuildId: 41b6e3847e7950e1bba8448a36c1dfcdcf4ef5f2)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #01 pc 0000000000000a14  /data/app/com.hiro.nativecrashtest-cCw4zeRjLbSlyD-y7655sg==/lib/arm64/libcrash_test.so (BuildId: 41b6e3847e7950e1bba8448a36c1dfcdcf4ef5f2)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #02 pc 00000000000009d0  /data/app/com.hiro.nativecrashtest-cCw4zeRjLbSlyD-y7655sg==/lib/arm64/libcrash_test.so (BuildId: 41b6e3847e7950e1bba8448a36c1dfcdcf4ef5f2)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #03 pc 00000000000009ac  /data/app/com.hiro.nativecrashtest-cCw4zeRjLbSlyD-y7655sg==/lib/arm64/libcrash_test.so (crashTest(_JNIEnv*, _jobject*)+32) (BuildId: 41b6e3847e7950e1bba8448a36c1dfcdcf4ef5f2)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #04 pc 0000000000140350  /apex/com.android.runtime/lib64/libart.so (art_quick_generic_jni_trampoline+144) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #05 pc 0000000000137334  /apex/com.android.runtime/lib64/libart.so (art_quick_invoke_stub+548) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #06 pc 0000000000145fec  /apex/com.android.runtime/lib64/libart.so (art::ArtMethod::Invoke(art::Thread*, unsigned int*, unsigned int, art::JValue*, char const*)+244) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #07 pc 00000000002e37d0  /apex/com.android.runtime/lib64/libart.so (art::interpreter::ArtInterpreterToCompiledCodeBridge(art::Thread*, art::ArtMethod*, art::ShadowFrame*, unsigned short, art::JValue*)+384) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #08 pc 00000000002dea30  /apex/com.android.runtime/lib64/libart.so (bool art::interpreter::DoCall<false, false>(art::ArtMethod*, art::Thread*, art::ShadowFrame&, art::Instruction const*, unsigned short, art::JValue*)+892) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #09 pc 00000000005a32cc  /apex/com.android.runtime/lib64/libart.so (MterpInvokeDirect+424) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #10 pc 0000000000131914  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_direct+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #11 pc 0000000000029b4a  [anon:dalvik-classes2.dex extracted in memory from /data/app/com.hiro.nativecrashtest-cCw4zeRjLbSlyD-y7655sg==/base.apk!classes2.dex] (com.hiro.nativecrashtest.MainActivity.onCreate+18)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #12 pc 00000000005a1264  /apex/com.android.runtime/lib64/libart.so (MterpInvokeVirtual+1352) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.336 11344-11344/? A/DEBUG:       #13 pc 0000000000131814  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_virtual+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #14 pc 00000000001af0ce  /system/framework/framework.jar (android.app.Activity.performCreate+38)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #15 pc 00000000005a1264  /apex/com.android.runtime/lib64/libart.so (MterpInvokeVirtual+1352) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #16 pc 0000000000131814  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_virtual+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #17 pc 00000000001af08e  /system/framework/framework.jar (android.app.Activity.performCreate+2)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #18 pc 00000000005a1264  /apex/com.android.runtime/lib64/libart.so (MterpInvokeVirtual+1352) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #19 pc 0000000000131814  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_virtual+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #20 pc 0000000000211a56  /system/framework/framework.jar (android.app.Instrumentation.callActivityOnCreate+6)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #21 pc 00000000005a1264  /apex/com.android.runtime/lib64/libart.so (MterpInvokeVirtual+1352) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #22 pc 0000000000131814  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_virtual+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #23 pc 000000000019dddc  /system/framework/framework.jar (android.app.ActivityThread.performLaunchActivity+752)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #24 pc 00000000005a3570  /apex/com.android.runtime/lib64/libart.so (MterpInvokeDirect+1100) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #25 pc 0000000000131914  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_direct+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #26 pc 000000000019da5a  /system/framework/framework.jar (android.app.ActivityThread.handleLaunchActivity+94)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #27 pc 00000000005a1264  /apex/com.android.runtime/lib64/libart.so (MterpInvokeVirtual+1352) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #28 pc 0000000000131814  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_virtual+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #29 pc 00000000002824c2  /system/framework/framework.jar (android.app.servertransaction.LaunchActivityItem.execute+126)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #30 pc 00000000005a1264  /apex/com.android.runtime/lib64/libart.so (MterpInvokeVirtual+1352) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #31 pc 0000000000131814  /apex/com.android.runtime/lib64/libart.so (mterp_op_invoke_virtual+20) (BuildId: 376198a47d78b78005bb3b63433c492c)
+2021-02-14 12:41:44.337 11344-11344/? A/DEBUG:       #32 pc 0000000000284a0e  /system/framework/framework.jar (android.app.servertransaction.TransactionExecutor.executeCallbacks+154)
