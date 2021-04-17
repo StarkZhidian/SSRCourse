@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="580bff7b-3695-46a5-8d5d-9fb77417999e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1YUIg3KazeEdHWPepr02Y2vCXOP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MAIBENBEN\Desktop\blog\详解 Java 枚举\TestEnum\src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Enum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Enum" />
+      <module name="TestEnum" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application" singleton="false">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Enum" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="580bff7b-3695-46a5-8d5d-9fb77417999e" name="Default Changelist" comment="" />
+      <created>1582990854374</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582990854374</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="590" y="201" key="#Project_Structure" timestamp="1582991238774">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="590" y="201" key="#Project_Structure/76.0.1844.1080@76.0.1844.1080" timestamp="1582991238774" />
+    <state x="452" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582991193476">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="452" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/76.0.1844.1080@76.0.1844.1080" timestamp="1582991193476" />
+    <state x="727" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1582991047134">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="727" y="328" key="#com.intellij.ide.util.TreeClassChooserDialog/76.0.1844.1080@76.0.1844.1080" timestamp="1582991047134" />
+    <state x="849" y="431" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1582990870518">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="849" y="431" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/76.0.1844.1080@76.0.1844.1080" timestamp="1582990870518" />
+    <state x="639" y="249" key="FileChooserDialogImpl" timestamp="1582991238393">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="639" y="249" key="FileChooserDialogImpl/76.0.1844.1080@76.0.1844.1080" timestamp="1582991238393" />
+    <state width="1801" height="320" key="GridCell.Tab.0.bottom" timestamp="1584187539302">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state width="1801" height="320" key="GridCell.Tab.0.bottom/76.0.1844.1080@76.0.1844.1080" timestamp="1584187539302" />
+    <state width="1801" height="320" key="GridCell.Tab.0.center" timestamp="1584187539302">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state width="1801" height="320" key="GridCell.Tab.0.center/76.0.1844.1080@76.0.1844.1080" timestamp="1584187539302" />
+    <state width="1801" height="320" key="GridCell.Tab.0.left" timestamp="1584187539302">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state width="1801" height="320" key="GridCell.Tab.0.left/76.0.1844.1080@76.0.1844.1080" timestamp="1584187539302" />
+    <state width="1801" height="320" key="GridCell.Tab.0.right" timestamp="1584187539302">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state width="1801" height="320" key="GridCell.Tab.0.right/76.0.1844.1080@76.0.1844.1080" timestamp="1584187539302" />
+    <state x="478" y="117" key="SettingsEditor" timestamp="1583664007589">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="478" y="117" key="SettingsEditor/76.0.1844.1080@76.0.1844.1080" timestamp="1583664007589" />
+    <state x="690" y="367" key="com.intellij.ide.util.TipDialog" timestamp="1584184957998">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="690" y="367" key="com.intellij.ide.util.TipDialog/76.0.1844.1080@76.0.1844.1080" timestamp="1584184957998" />
+    <state x="372" y="155" key="new project wizard" timestamp="1582991070910">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="372" y="155" key="new project wizard/76.0.1844.1080@76.0.1844.1080" timestamp="1582991070910" />
+    <state x="661" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1582991834594">
+      <screen x="76" y="0" width="1844" height="1080" />
+    </state>
+    <state x="661" y="259" width="672" height="678" key="search.everywhere.popup/76.0.1844.1080@76.0.1844.1080" timestamp="1582991834594" />
+  </component>
+</project>

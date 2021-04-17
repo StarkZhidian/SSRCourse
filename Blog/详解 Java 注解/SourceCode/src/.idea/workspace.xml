@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="57ffb421-1737-4ec4-91c5-3354b07ca105" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/A.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/B.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/C.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/StaticTypeMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/Template.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../详解 Java 泛型/sourceCodes/src/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/ReturnRequireAnnotationInClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/ReturnRequireAnnotationRuntime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/ReturnRequireAnnotationRuntimeNoInherited.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/ReturnRequireAnnotationSourceCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/TextUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/10.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/10.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/10转2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/10转2.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/4.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/4.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/6.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/6.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/7.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/7.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/8.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/8.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/9.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/9.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/开篇-预备知识-3-副本.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/开篇-预备知识-3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型2.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型2.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型3.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型4.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型4.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型5.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../开篇-预备知识---3/数据类型5.exe" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1jzKHCFHYOys037z7tQXnpsDlgr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57ffb421-1737-4ec4-91c5-3354b07ca105" name="Default Changelist" comment="" />
+      <created>1604801389310</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604801389310</updated>
+    </task>
+    <servers />
+  </component>
+</project>
